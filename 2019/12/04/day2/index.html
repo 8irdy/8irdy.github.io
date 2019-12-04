@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title> - 你好</title>
+    <title>认识网络 - 你好</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="title：cisco第一天笔记date：2019-12-02 20:00:00modified:2019-12-02 20:00:00tag:
+    <meta name="description" content="
 
-网络通信
-设备安全
-
-实验一：配置一个局域网实现通,"> 
+认识网络物理结构图
+网络拓扑图
+网络究竟是什么？使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享
+流行设备：思科 cisco、锐捷、神州数码Huawei、H3,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,7 +40,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle"></h3>
+    <h3 class="subtitle">认识网络</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -58,22 +58,72 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title"></h1>
+        <h1 class="title">认识网络</h1>
         <div class="stuff">
             <span>十二月 04, 2019</span>
             
 
         </div>
         <div class="content markdown">
-            <p>title：cisco第一天笔记<br>date：2019-12-02 20:00:00<br>modified:2019-12-02 20:00:00<br>tag:</p>
+            <a id="more"></a>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575337109429.png" alt="1575337109429"></p>
+<h1 id="认识网络"><a href="#认识网络" class="headerlink" title="认识网络"></a>认识网络</h1><h2 id="物理结构图"><a href="#物理结构图" class="headerlink" title="物理结构图"></a>物理结构图</h2><p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575336747360.png" alt="1575336747360"></p>
+<h2 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h2><p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575337071251.png" alt="1575337071251"></p>
+<h2 id="网络究竟是什么？"><a href="#网络究竟是什么？" class="headerlink" title="网络究竟是什么？"></a>网络究竟是什么？</h2><p>使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享</p>
+<p>流行设备：<br>思科 cisco、锐捷、神州数码<br>Huawei、H3C、中兴</p>
+<p>思科体系（CCNA\CCNP\CCIE R&amp;S)<br>华为（HCNA\HCNP\HCIE）</p>
+<p>开放式的标准化计算机网络<br>OSI七层网络模型   国际标准ISO7498</p>
+<p>高速网络技术阶段<br>网络以internet为代表的互联网</p>
+<p>物联网</p>
 <ul>
-<li>网络通信</li>
-<li>设备安全</li>
+<li>计算机网络按传输距离可分为三类：<ul>
+<li>局域网（Local Area Network,LAN):10-10000m</li>
+<li>城域网(Metropolitan Area Network, MAN):10-100km</li>
+<li>广域网（Wide Area Network , WAN):100km以上</li>
 </ul>
-<h1 id="实验一：配置一个局域网实现通信。"><a href="#实验一：配置一个局域网实现通信。" class="headerlink" title="实验一：配置一个局域网实现通信。"></a>实验一：配置一个局域网实现通信。</h1><p>Router&gt;en   进入特权模式<br>Router#     特权模式<br>Router#config t   进入全局模式<br>Router(config)#hostname R1    给路由器取名叫R1<br>R1(config)#int f0/0   进入f0/0端口<br>R1(config-if)#ip add 192.168.10.254 255.255.255.0   配置IP地址<br>R1(config-if)#no shutdown   开启端口<br>如何查看配置是否正确？<br>    启动配置文件(startup-config)：配置好以后进行保存的配置文件。<br>    运行配置文件(running-config)：当前已配置但是还未保存或当前运行的配置文件。<br>R1(config-if)#end   直接退出到特权模式<br>R1#show startup-config   查看启动配置文件<br>R1#show running-config  查看运行配置文件<br>R1#copy running-config startup-config   保存配置文件<br> R1#write   或 R1#w<br> R1#reload   重启（重启后running-config的内容会消失，而startup-config的配置会一直存在。<br> 为PC机配置IP地址，子网掩码：255.255.255.0，网关：192.168.10.254<br> 在PC3上测试与路由器和PC4能否通信？<br> PC&gt;ping 192.168.10.254<br> Reply from 192.168.10.254: bytes=32 time=1ms TTL=255   表示能够通信</p>
-<h1 id="实验二：为提高设备安全，配置console密码保护设备。"><a href="#实验二：为提高设备安全，配置console密码保护设备。" class="headerlink" title="实验二：为提高设备安全，配置console密码保护设备。"></a>实验二：为提高设备安全，配置console密码保护设备。</h1><p>R1#config t<br>R1(config)#line console 0<br>R1(config-line)#<br>R1(config-line)#password 123456<br>R1(config-line)#login<br>如果需要用户名和密码同时存在，怎么配置呢？<br>R1#config t<br>R1(config)#username daiyudong password ciscomima<br>R1(config)#line console 0<br>R1(config-line)#login local<br>设置enable密码：<br>R1# config t<br>R1(config)#enable password ciscomima设置明文密码<br>R1(config)#enable secret ciscomima设置密文密码<br>当这两个密码同时存在时，密文密码生效。</p>
-<h1 id="实验三：为方便管理，配置telnet远程管理设备。"><a href="#实验三：为方便管理，配置telnet远程管理设备。" class="headerlink" title="实验三：为方便管理，配置telnet远程管理设备。"></a>实验三：为方便管理，配置telnet远程管理设备。</h1><p>R1(config)#line vty 0 4<br>R1(config-line)#password ciscomima<br>R1(config-line)#login<br>如何远程登录呢？<br>在PC端的命令提示符中输入：PC&gt;telnet 192.168.10.254<br>在远程登录时需要用户名和密码呢？<br> R1(config)#line vty 0 4<br>R1(config-line)#login local<br>如何配置管理交换机设备呢？默认情况下，所有端口都在vlan1这个网络，<br>我们只需要给vlan1这个接口配置IP地址，并配置远程登录密码，就可以<br>进行远程登录访问了？<br>Switch(config)#int vlan 1<br>Switch(config-if)#ip add 192.168.10.253 255.255.255.0<br>Switch(config-if)#no shutdown<br>Switch(config)#line vty 0 4<br>Switch(config-line)#login local<br>Switch(config)#hostname SW1<br>SW1(config)#username daiyudong password ciscomima<br>SW1(config)#enable secret ciscomima</p>
-<h1 id="实验四：为提高远程管理设备安全，配置ssh远程管理设备。"><a href="#实验四：为提高远程管理设备安全，配置ssh远程管理设备。" class="headerlink" title="实验四：为提高远程管理设备安全，配置ssh远程管理设备。"></a>实验四：为提高远程管理设备安全，配置ssh远程管理设备。</h1><p>Switch(config)#hostname SW1<br>SW1(config)#ip domain-name daiyudong.com  配置域名（不建议做域名）<br>SW1(config)#crypto key generate rsa                  rsa加密<br>How many bits in the modulus [512]: 1024<br>SW1(config)#username admin privilege 0 secret ccie<br>配置仅允许ssh登录<br>erver(config)#line vty 0 4<br>Server(config-line)#exec-timeout 10 0       设置超时  分 秒<br>Server(config-line)#logging synchronous   开启日志同步<br>Server(config-line)#login local<br>Server(config-line)#transport input ssh      </p>
+</li>
+<li>计算机网络按传输介质可以分为两类：<ul>
+<li>有线网</li>
+<li>无线网</li>
+</ul>
+</li>
+</ul>
+<p>局域网</p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341495985.png" alt="1575341495985"></p>
+<p>城域网</p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341520943.png" alt="1575341520943"></p>
+<p>广域网</p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341556112.png" alt="1575341556112"></p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341579157.png" alt="1575341579157"></p>
+<h2 id="OSI七层网络参考模型"><a href="#OSI七层网络参考模型" class="headerlink" title="OSI七层网络参考模型"></a>OSI七层网络参考模型</h2><p>1.OSI七层是哪七层</p>
+<ul>
+<li>应用层：提供用户和程序的接口</li>
+<li>表示层：提供数据格式转换服务</li>
+<li>会话层：建立端连接并提供访问验证和会话管理（SESSION）——端到端的连接状态</li>
+<li>传输层：提供应用程序之间的逻辑通信（怎么去传输——选择协议）（如果是TCP协议，给数据段加上TCP头，采用TCP传输）</li>
+<li>网络层：为数据在结点之间传输创建逻辑链路，并分组转发数据（加上一个目标IP头，与前面的内容构成数据包）</li>
+<li>数据链路层：在通信的实体间建立数据链路连接（加上一个MAC地址，与前面的内容构成数据帧）</li>
+<li>物理层：为数据端设备提供原始比特流的传输的通路</li>
+</ul>
+<p>2.分层带来的好处<br>各层逻辑上分离，各层相互独立，不会相互影响<br>各层可以独立开发，上层为下层服务</p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575342051823.png" alt="1575342051823"></p>
+<p>封装与解封装</p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575343065901.png" alt="1575343065901"></p>
+<p>3.每层的功能？</p>
+<ul>
+<li>物理层：是OSI/RM的最低层。主要功能是完成相邻结点之间原始比特流的传输。<ul>
+<li>光纤：光信号</li>
+<li>双绞线：数字信号</li>
+</ul>
+</li>
+</ul>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344177084.png" alt="1575344177084"></p>
+<p>介质</p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344206943.png" alt="1575344206943"></p>
+<p>4.双绞线的线序<br>568-A：白绿、绿、白橙、蓝、白蓝、橙、白棕、棕<br>568-B：白橙、橙、白绿、蓝、白蓝、绿、白棕、棕</p>
+<p>STP：屏蔽双绞线<br>UTP：非屏蔽双绞线</p>
+<p>双绞线的应用</p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344940700.png" alt="1575344940700"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
