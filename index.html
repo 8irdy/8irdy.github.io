@@ -9,171 +9,371 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
-    <meta name="keywords" content="Fechin,"> 
+    <meta name="keywords" content="TriDiamond Obsidian,"> 
     
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+    <link rel="stylesheet" href="/css/obsidian.css">
+    <link rel="stylesheet" href="/css/ball-atom.min.css">
 </head>
 </html>
+
 <body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
     <span id="config-title" style="display:none">你好</span>
     <div id="loader"></div>
     <div class="nav">
     <ul id="menu-menu" class="menu">
         
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/whoami/" title="Whoami" target="_blank" rel="noopener">Whoami</a>
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/whoami/" title="ABOUT">ABOUT</a>
         </li>
         
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://github.com/Fechin" title="Github" target="_blank" rel="noopener">Github</a>
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/categories/" title="CATEGORIES">CATEGORIES</a>
         </li>
         
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://twitter.com/FechinLi" title="Twitter" target="_blank" rel="noopener">Twitter</a>
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/tags/" title="TAGS">TAGS</a>
+        </li>
+        
+        <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+            <a href="/archives/" title="ARCHIVES">ARCHIVES</a>
         </li>
         
     </ul>
-    <p id="copyright">
+    <p class="copyright" id="copyright">
         &copy; 2019 John Doe.
         Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
-        by Fechin
+        Theme <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
     </p>
 </div>
 
 <div id="container">
     
+<div class="search-box">
+    <form class="site-search-form">
+        <span class="iconfont icon-search"></span>
+        <input type="text" id="local-search-input" class="st-search-input" />
+        <div class="iconfont icon-cross search-box-close"></div>
+    </form>
+    <div class="search-scrollable">
+        <div id="local-search-result" class="local-search-result-cls" data-initialise="Initialising search index..."
+            data-start="Please input search keywords." data-empty="No result found, please try other keywords.">
+            <span>Please input search keywords.</span>
+        </div>
+    </div>
+</div>
+<div id="header">
+    <div>
+        <div class="logo animated fadeInDown">
+            <img src="/img/favicon.png" alt="">
+            <a class="image-logo" href="/"></a>
+        </div>
+        <ul id="menu-menu" class="menu text-menu">
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/whoami/" title="ABOUT" class="menu-link">ABOUT</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/categories/" title="CATEGORIES" class="menu-link">CATEGORIES</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/tags/" title="TAGS" class="menu-link">TAGS</a>
+            </li>
+            
+            <li class="animated fadeInDown menu-item menu-item-type-post_type menu-item-object-page">
+                <a href="/archives/" title="ARCHIVES" class="menu-link">ARCHIVES</a>
+            </li>
+            
+            
+        </ul>
+        <div class="iconfont icon-menu switchmenu gradient-text animated fadeInDown"></div>
+    </div>
+</div>
 <div id="screen">
     <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
-        <div>
-            <a class="image-logo" href="/"></a>
-            <div class="icon-menu switchmenu"></div>
+        <div class="cover animated fadeIn" style="
+            animation-delay: 900ms;
+            animation-duration: 2.8s;
+            background-image:
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.56), #100e17),
+                url(/img/cover.jpg);">
         </div>
     </div>
     
-    <div id="post0">
-        <p>十二月 04, 2019</p>
-        <h2><a href="/2019/12/04/day3-MAC地址/" title="你好" class="posttitle">你好</a></h2>
-        <p class="summary">
-交换机工作原理及VLAN
-交换机工作原理及VLAN一、数据链路层与交换机1、数据链路层的功能数据链路层
-–位于网...</p>
+    <div id="post0" class="else">
+        <p class="animated fadeInDown">
+            
+            <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            December 04, 2019
+        </p>
+        <h3 class="post-title animated fadeInDown">
+            <a href="/2019/12/04/day3-MAC地址/" title="交换机工作原理及VLAN" class="posttitle">交换机工作原理及VLAN</a></h3>
+        
+        <p class="post-count animated fadeInDown">
+            
+            <span>
+                <b class="iconfont icon-text2"></b> <i>Words count</i>
+                10k
+            </span>
+            
+            
+            <span>
+                <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                9 mins.
+            </span>
+            
+            
+        </p>
+        
+        
+        <div class="md-content animated fadeIn">
+            
+            <p>数据链路层</p>
+<p>–位于网络层与物理层之间</p>
+<p></p>
+<p>  以太网工作在数据链路层</p>
+<p></p>
+<p>  以太网地址用来识别一个以太网上的某个单独的设备或一组设备</p>
+<p>  MAC地址是由<strong>48**</strong>位二进制数组成的<strong>，以</strong>十六进制数表示**。前24位...</p>
+            
+            <span class="read-more"><a href="/2019/12/04/day3-MAC地址/" title="Read article" class="posttitle">Read article</a>
+                <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
     
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="typed-text"></span>
+                </p>
+            </div>
+        </div>
+    </div>
 </div>
 
     <div id="primary">
         
-<div class="post">
-    <a href="/2019/12/04/day3-IPV4 IPV6/" title="Untitled">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
     <div class="else">
-        <p>十二月 04, 2019</p>
-        <h3><a href="/2019/12/04/day3-IPV4 IPV6/" title="Untitled" class="posttitle">Untitled</a></h3>
-        <p>
-IPV4编址
-IPV4 IPV6
-一、IPv4编址方案
-IP地址由32位二进制数组成，这些位被划分为4个字节，中间用“.”号隔开，每组8位，以十进制数形...</p>
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            December 04, 2019
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day3-交换机的配置/" title="交换机的配置" class="posttitle">交换机的配置</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        5.7k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        5 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p><strong>交换机的所有端口默认情况下都在一个网络（vlan1）,所以只要将电脑连接到交换机，并配置同一个网络内的地址，这样就组成了一个局域网。所以这样会形成广播风暴。</strong></p>
+<p><strong>交换机的分类：傻瓜交换机</strong></p>
+<p>​       <strong>可管理型交换机（二层）</strong></p>
+<p>​       <strong>三层交换机：带路由功能的交换机</strong></p>
+<p><strong>1、vlan技术（虚拟局域网）</strong></p>
+<p>  <strong>划分vlan方法：基于端口的划分，基于MAC地址的划分。。。。</strong></p>
+<p><strong>基于端口的vlan划分：</strong></p>
+<p>Switch#show vlan brief  查看vlan的详细信息</p>
+<p>Switch#config t</p>
+<p><strong>划分vlan:</strong></p>
+<p>Sw1(config...</p>
+            
+            <span class="read-more"><a href="/2019/12/04/day3-交换机的配置/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
 </div>
 
 
-<div class="post">
-    <a href="/2019/12/04/day3-交换机的配置/" title="Untitled">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
     <div class="else">
-        <p>十二月 04, 2019</p>
-        <h3><a href="/2019/12/04/day3-交换机的配置/" title="Untitled" class="posttitle">Untitled</a></h3>
-        <p>
-交换机的配置
-交换机的配置交换机的所有端口默认情况下都在一个网络（vlan1）,所以只要将电脑连接到交换机，并配置同一个网络内的地址，这样就组成了一个局...</p>
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            December 04, 2019
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day3-IPV4 IPV6/" title="IPV4" class="posttitle">IPV4</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        13k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        12 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p><strong>IPV4</strong> <strong>IPV6</strong></p>
+<p><strong>一、IPv4编址方案</strong></p>
+<p>IP地址由32位二进制数组成，这些位被划分为4个字节，中间用“.”号隔开，每组8位，以十进制数形式表示。分为<strong>网络地址</strong>和<strong>主机地址</strong>两个部分。</p>
+<p>192.168.10.1</p>
+<p>11000000.10101000.00001010.00000001  二进制数（只有两种状态 0 1)</p>
+<p>二进制数转十进制数：2^0x0+2^1x0</p>
+<p>​          128 64 32 16 8 4 2 1 </p>
+<p>IPV4一共有：2^32 大约是40多亿个地址</p>
+<p>IP地址在网络是唯一的，不能重复。</p>
+<p>对地址进行分...</p>
+            
+            <span class="read-more"><a href="/2019/12/04/day3-IPV4 IPV6/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
 </div>
 
 
-<div class="post">
-    <a href="/2019/12/04/hello-world/" title="Untitled">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
     <div class="else">
-        <p>十二月 04, 2019</p>
-        <h3><a href="/2019/12/04/hello-world/" title="Untitled" class="posttitle">Untitled</a></h3>
-        <p>
-欢迎来的8irdy的博客！    但愿你是那知恩知义的心中客，不是那无事无非的糊涂人 ！
-</p>
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            December 04, 2019
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day2/" title="认识网络" class="posttitle">认识网络</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        3.2k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        3 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <a id="more"></a>
+<p></p>
+<p></p>
+<p></p>
+<p>使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享</p>
+<p>流行设备：<br>思科 cisco、锐捷、神州数码<br>Huawei、H3C、中兴</p>
+<p>思科体系（CCNA\CCNP\CCIE R&amp;S)<br>华为（HCNA\HCNP\HCIE）</p>
+<p>开放式的标准化计算机网络<br>OSI七层网络模型   国际标准ISO7498</p>
+<p>高速网络技术阶段<br>网络以internet为代表的互联网</p>
+<p>物联网</p>
+<ul>
+<li>计算机网络按传输距离可分为三类：<ul>
+<li>局域网（Local Area Network,LAN):10-10000m</li>
+...</ul></li></ul>
+            
+            <span class="read-more"><a href="/2019/12/04/day2/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
 </div>
 
 
-<div class="post">
-    <a href="/2019/12/04/day2/" title="认识网络">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十二月 04, 2019</p>
-        <h3><a href="/2019/12/04/day2/" title="认识网络" class="posttitle">认识网络</a></h3>
-        <p>
-
-认识网络物理结构图
-网络拓扑图
-网络究竟是什么？使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享
-流行设备：思科 ...</p>
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
     </div>
-</div>
-
-
-<div class="post">
-    <a href="/2019/12/04/day1/" title="cisco配置通信与远程登录">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
     <div class="else">
-        <p>十二月 04, 2019</p>
-        <h3><a href="/2019/12/04/day1/" title="cisco配置通信与远程登录" class="posttitle">cisco配置通信与远程登录</a></h3>
-        <p>
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            December 04, 2019
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day1/" title="cisco配置通信与远程登录" class="posttitle">cisco配置通信与远程登录</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        3k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        3 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <a id="more"></a>
 
-实验一：配置一个局域网实现通信。Router&gt;en   进入特权模式Router#     特权模式Router#config t   进入全局...</p>
-    </div>
-</div>
-
-
-<div class="post">
-    <a href="/2019/12/03/CVE-2019-0708/" title="Untitled">
-        <img src="/img/cover.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十二月 03, 2019</p>
-        <h3><a href="/2019/12/03/CVE-2019-0708/" title="Untitled" class="posttitle">Untitled</a></h3>
-        <p>title: 漏洞复现date: 2019-09-07 11:51:44modified:  2019-09-07 11:51:44tag:
-
-系统安全
-...</p>
+<p>Router&gt;en   进入特权模式<br>Router#     特权模式<br>Router#config t   进入全局模式<br>Router(config)#hostname R1    给路由器取名叫R1<br>R1(config)#int f0/0   进入f0/0端口<br>R1(config-if)#ip add 192.168.10.254 255.255.255.0   配置IP地址<br>R1(config-if)#no shutdown   开启端口<br>如何查看配置是否正确？<br>    启动配置文件(startup-config)：配置好以后进行保存的配...</p>
+            
+            <span class="read-more"><a href="/2019/12/04/day1/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
     </div>
 </div>
 
@@ -183,15 +383,131 @@ IP地址由32位二进制数组成，这些位被划分为4个字节，中间用
 </div>
 <div id="preview"></div>
 
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
 </body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2019
+        <span class="gradient-text">
+            John Doe
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.3" target="_blank" rel="noopener">v1.4.3</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+    <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+
+
+    <script src="/js/busuanzi.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('span[id^="busuanzi_"]').length) {
+                initialBusuanzi();
+            }
+        });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
 
 <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
@@ -240,6 +556,43 @@ IP地址由32位二进制数组成，这些位被划分为4个字节，中间用
         </div>
     </div>
 </div>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149874671-1');
+    </script>
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["但愿你是那知恩知意的心中客", "不是那无事无非的糊涂人！"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
 
 
 
