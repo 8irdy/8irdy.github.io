@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> - 你好</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+交换机工作原理及VLAN
+交换机工作原理及VLAN一、数据链路层与交换机1、数据链路层的功能数据链路层
+–位于网络层与物理层之间
+
+2、以太网  以太网工作在数据链路层
+
+3、以太网MAC地址  ,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">你好</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle"></h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title"></h1>
+        <div class="stuff">
+            <span>十二月 04, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<h2 id="交换机工作原理及VLAN"><a href="#交换机工作原理及VLAN" class="headerlink" title="交换机工作原理及VLAN"></a>交换机工作原理及VLAN</h2><a id="more"></a>
+<h1 id="交换机工作原理及VLAN-1"><a href="#交换机工作原理及VLAN-1" class="headerlink" title="交换机工作原理及VLAN"></a>交换机工作原理及VLAN</h1><h2 id="一、数据链路层与交换机"><a href="#一、数据链路层与交换机" class="headerlink" title="一、数据链路层与交换机"></a>一、数据链路层与交换机</h2><h2 id="1、数据链路层的功能"><a href="#1、数据链路层的功能" class="headerlink" title="1、数据链路层的功能"></a>1、数据链路层的功能</h2><p>数据链路层</p>
+<p>–位于网络层与物理层之间</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1g9krjb9454j30by03c3z5.jpg" alt="img"></p>
+<h2 id="2、以太网"><a href="#2、以太网" class="headerlink" title="2、以太网"></a>2、以太网</h2><p>  以太网工作在数据链路层</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1g9krju2q6jj30cw030gm8.jpg" alt="img"></p>
+<h2 id="3、以太网MAC地址"><a href="#3、以太网MAC地址" class="headerlink" title="3、以太网MAC地址"></a>3、以太网MAC地址</h2><p>  以太网地址用来识别一个以太网上的某个单独的设备或一组设备</p>
+<p>  MAC地址是由<strong>48**</strong>位二进制数组成的<strong>，以</strong>十六进制数表示**。前24位称为OUI（组织唯一标识符），后24位是厂商对网卡的唯一编号，第8位如果是0表示单播地址，是1表示组播地址。</p>
+<p>  交换机有一个基本MAC地址，每一个端口对应一个MAC地址</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1g9krk2xyqxj30bi03o0t6.jpg" alt="img"></p>
+<h2 id="4、以太网帧格式"><a href="#4、以太网帧格式" class="headerlink" title="4、以太网帧格式"></a>4、以太网帧格式</h2><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1g9krkebbqoj30cs0460tb.jpg" alt="img"></p>
+<p>   类型长度：0x0800为IPV4地址</p>
+<p>​        0x86DD为IPV6地址</p>
+<p>   FCS：帧校验序列</p>
+<h2 id="5、MAC子层与LLC子层"><a href="#5、MAC子层与LLC子层" class="headerlink" title="5、MAC子层与LLC子层"></a>5、MAC子层与LLC子层</h2><p> <strong>介质访问控制（MAC）子层（802.3）</strong></p>
+<p>将上层交下来的数据封装成帧进行发送(接收时迚行相反的过程，将帧拆卸)；</p>
+<p>实现和维护介质访访问控制协议，例如CSMA/CD；</p>
+<p>比特差错检测；</p>
+<p>MAC帧的寻址，即MAC帧由哪个站（源站）収出，被哪个站／哪些站接收（目的站）。</p>
+<p><strong>逻辑链路控制（LLC）子层（802.2）</strong></p>
+<p>建立和释放数据链路层的逻辑连接；</p>
+<p>提供与上层的接口；</p>
+<p>给帧加上序号。</p>
+<h2 id="6、以太网命名方法"><a href="#6、以太网命名方法" class="headerlink" title="6、以太网命名方法"></a>6、以太网命名方法</h2><p> <strong>N－信号－物理介质</strong></p>
+<p>N：以兆位为单位的数据速率，如10、100、1000</p>
+<p>信号：基带还是宽带</p>
+<p>物理介质：标识介质类型</p>
+<p><strong>举例：100BASE-TX</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>接口</th>
+<th>传输介质</th>
+<th>标准</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>标准以太网</td>
+<td>10Base-T</td>
+<td>双绞线</td>
+<td>IEEE 802.3</td>
+</tr>
+<tr>
+<td>10Base5</td>
+<td>粗同轴电缆</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10Base2</td>
+<td>细同轴电缆</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>快速以太网</td>
+<td>100Base-TX</td>
+<td>双绞线</td>
+<td>IEEE 802.3u</td>
+</tr>
+<tr>
+<td>100Base-FX</td>
+<td>光纤</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>千兆以太网</td>
+<td>1000Base-T</td>
+<td>双绞线</td>
+<td>IEEE 802.3ab  IEEE 802.3z</td>
+</tr>
+<tr>
+<td>1000Base-SX</td>
+<td>多模光纤</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1000Base-LX</td>
+<td>单模光纤</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="7、以太网交换机"><a href="#7、以太网交换机" class="headerlink" title="7、以太网交换机"></a>7、以太网交换机</h2><p>交换机是用来连接局域网的主要设备。</p>
+<p>交换机能够根据以太网帧中目标地址智能的转发数据，因此交换机工作在数据链路层。</p>
+<p>交换机<strong>分割冲突域，实现全双工通信，存储，过滤转发</strong>。</p>
+<h2 id="二、交换机的数据转发原理"><a href="#二、交换机的数据转发原理" class="headerlink" title="二、交换机的数据转发原理"></a>二、交换机的数据转发原理</h2><h2 id="1、交换机的数据转发原理"><a href="#1、交换机的数据转发原理" class="headerlink" title="1、交换机的数据转发原理"></a>1、交换机的数据转发原理</h2><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1g9krkqo8z4j30aq05adgj.jpg" alt="img"></p>
+<p><strong>举例1：主机11给主机33发送一个数据帧</strong></p>
+<p><strong>交换机A：</strong>在接收到数据帧后，执行以下操作：</p>
+<p>交换机A查找MAC地址表</p>
+<p>交换机A学习主机11的MAC地址</p>
+<p>交换机A向其他所有端口发送广播</p>
+<p><strong>主机22：</strong>查看数据包的目标MAC地址不是自己，丢弃数据包</p>
+<p><strong>交换机B：</strong>在接收到数据帧后，执行以下操作：</p>
+<p>交换机B查看MAC地址表</p>
+<p>交换机B学习源MAC地址和端口号</p>
+<p>交换机B向所有端口广播数据包</p>
+<p><strong>主机33：</strong>接收到数据帧</p>
+<p><strong>主机44：</strong>丢弃数据帧</p>
+<p><strong>在这个过程中，交换机的MAC地址表中没有需要的条目，交换机通过广播方式转发了数据帧，MAC地址表老化时间300秒。</strong></p>
+<p><strong>举例2：主机44给主机11发送一个数据帧</strong></p>
+<p><strong>交换机B：</strong>在接收到数据帧后，执行以下操作：</p>
+<p>交换机B查看MAC地址表</p>
+<p>交换机B学习源MAC地址和端口号</p>
+<p>交换机B直接从端口1发送给交换A</p>
+<p><strong>交换机A：</strong>在接收到数据帧后，执行以下操作：</p>
+<p>交换机A查找MAC地址表</p>
+<p>交换机A学习源MAC地址和端口号</p>
+<p>交换机A直接向11转发数据</p>
+<p><strong>主机11：</strong>接收到数据帧</p>
+<p><strong>在这个过程中，交换机的MAC地址表中已经学到了需要的条目，交换机通过单播的方式，转发了数据帧</strong></p>
+<p><strong>交换机的转发原理是：</strong></p>
+<p><strong>转发</strong></p>
+<p>交换机根据MAC地址表单播转数据帧</p>
+<p><strong>学习</strong></p>
+<p>MAC地址表是交换机通过学习接收的数据帧的源MAC地址来形成的</p>
+<p><strong>广播</strong></p>
+<p>如果目标地址在MAC地址表中没有，交换机就向除接收到该数据帧的端口外的其他所有端口广播该数据帧</p>
+<p><strong>更新</strong></p>
+<p>交换机MAC地址表的老时间是300秒</p>
+<p>  交换机如果发现一个帧的入端口和MAC地址表中源MAC地址的所在端口不同，交换机将MAC地址重新学习到新的端口。</p>
+<p><strong>2、单工、半双工与全双工</strong></p>
+<p>单工：只有一个信道，传输方向只能是单向的</p>
+<p>半双工：只有一个信道，在同一时刻，只能是单向传输</p>
+<p>全双工：双信道，同时可以有双向数据传输</p>
+<p><strong>3、冲突与冲突域</strong></p>
+<p>  集线器所有端口在一个冲突域，如果冲突过多，则传输效率就会降低</p>
+<p>  交换机分割冲突域，因为一个接口一个冲突域</p>
+<p><strong>4、冲突域与广播域</strong></p>
+<p>  广播域指接收同样广播消息的节点的集合，如：在该集合中的任何一个节点传输一个广播帧，则所有其他能收到这个帧的节点都认为是广播帧的一部份。</p>
+<p>  交换机分割冲突域，但是不分割广播域，即交换机的所有端口属于同一个广播域。</p>
+<h2 id="三、交换机的基本配置"><a href="#三、交换机的基本配置" class="headerlink" title="三、交换机的基本配置"></a>三、交换机的基本配置</h2><p><strong>1、交换机的访问方法</strong></p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1g9krl2fiyvj306m021q2z.jpg" alt="img"></p>
+<p><strong>2、交换机的启动</strong></p>
+<p><strong>3、交换机的配置模式</strong></p>
+<p>用户模式：Switch&gt;</p>
+<p>特权模式：Switch&gt;enable</p>
+<p>Switch#</p>
+<p>全局配置模式：Switch#config terminal</p>
+<p>Switch(config)#</p>
+<p>接口配置模式： Switch(config)#interface fa0/1</p>
+<p>Switch(config-if)#</p>
+<p>Line模式：Switch(config)#line console 0</p>
+<p>Switch(config-line)#</p>
+<p><strong>4、端口安全</strong></p>
+<p>指对交换机的端口进行安全属性的配置，从而控制用户的安全接入。交换机端口安全主要有两种类型，一是限制<strong>交换机端口的最大连接数</strong>，从而控制交换机端口下连接的主机数，防止用户进行恶意的ARP（地址解析协议，即ARP【Address Resolution Protocol】）欺骗；二是<strong>针对交换机端口时行MAC地址、IP地址的绑定</strong>，从而实现对用户的严格控制。</p>
+<p>对安全违例的处理方式有以下3种。</p>
+<p>​     ① protect 当安全地址个数满后，安全端口将丢弃未知名的地址包</p>
+<p>​     ② restrict 当违例产生时，将发送一个Trap通知</p>
+<p>​     ③ shutdown 当违例产生时，将关闭端口并发送一个Trap通知</p>
+<p> trap，指被管理设备（代理）上报的陷阱报文，表明设备发生故障或变更的主动通知。</p>
+<p>交换机端口安全功能只能在Access接口进行配置</p>
+<p><strong>实验1</strong>交换机端口安全配置</p>
+<p>switch&gt;enable</p>
+<p>switch#config terminal</p>
+<p>switch(config)#int fastethernet 0/1</p>
+<p>switch(config-if)#speed 100         /设置fastethernet0/1端口速率为10Mbit/s</p>
+<p>switch(config-if)#duplex full        /设置fastethernet0/1端口为全双工</p>
+<p>switch(config-if)#no shutdown       /启用端口</p>
+<p>switch(config-if)#switchport mode access   /设置当前端口为Access</p>
+<p>Switch(config-if)#<strong>switchport port-security</strong>   /打开当前端口安全功能</p>
+<p>Switch(config-if)#switchport port-security <strong>maximum 1</strong>  /设置端口安全地址的最大个数</p>
+<p>Switch(config-if)#switchport port-security violation shutdown  /配置处理违例的方式</p>
+<p>Switch(config-if)#switchport port-security <strong>mac-address</strong> 0001.C7E9.6EC0  /配置安全地址</p>
+<p>Switch(config-if)#switchport port-security <strong>violation</strong> shutdown  /配置处理违例的方式</p>
+<h2 id="四、VLAN（虚拟局域网）概述"><a href="#四、VLAN（虚拟局域网）概述" class="headerlink" title="四、VLAN（虚拟局域网）概述"></a>四、VLAN（虚拟局域网）概述</h2><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1g9krlelsz9j309a05hq4e.jpg" alt="img"></p>
+<p>交换机的所有端口都在一个广播域，如果计算机数量增多会产生广播风暴。</p>
+<p>为了避免广播风暴，在交换机上可以采用<strong>虚拟局域网技术</strong>（Vlan）</p>
+<p>VLAN配置：</p>
+<p>一层楼交换机配置：</p>
+<p>划分Vlan：Switch#config </p>
+<p>Switch(config)#vlan 10</p>
+<p>Switch(config-vlan)#name xsb</p>
+<p>修改vlan名称：Switch(config)#vlan 40</p>
+<p>Switch(config-vlan)#name rsb</p>
+<p>将端口加入到vlan:Switch(config)#int f0/1</p>
+<p>Switch(config-if)#switchport mode access</p>
+<p>Switch(config-if)#switchport access vlan 10</p>
+<p>Switch(config)#int f0/2</p>
+<p>Switch(config-if)#sw mo acc</p>
+<p>Switch(config-if)#sw acc vlan 10</p>
+<p>同时选中多个端口: Switch(config)#int range f0/3-4</p>
+<p>Switch(config-if-range)#sw mo acc</p>
+<p>Switch(config-if-range)#sw acc vlan 20</p>
+<p>二层楼交换机配置：</p>
+<p>Switch(config)#int range f0/1-2</p>
+<p>Switch(config-if-range)#sw mo acc</p>
+<p>Switch(config-if-range)#sw acc vlan 10</p>
+<p>Switch(config-if-range)#exit</p>
+<p>Switch(config)#int range f0/3-4</p>
+<p>Switch(config-if-range)#sw mo acc</p>
+<p>Switch(config-if-range)#sw acc vlan 20</p>
+<p>查看vlan配置信息：Switch#sh vlan brief </p>
+<h2 id="五、vlan间通信"><a href="#五、vlan间通信" class="headerlink" title="五、vlan间通信"></a>五、vlan间通信</h2><p><strong>1、trunk技术</strong></p>
+<p><strong>（1）封装</strong></p>
+<p>   ISL（思科私有）：是在数据帧前加26字节，尾加4字节</p>
+<p>   802.1Q（工业标准）：是在数据帧中插入4字节，打标签</p>
+<p>   802.1Q Native Vlan：默认vlan1不打标，作管理用</p>
+<p> <strong>（2）模式</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>DTP send</th>
+<th>DTP Response</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Access</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>Trunk</td>
+<td>Y</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>Desirable</td>
+<td>Y</td>
+<td>Y</td>
+<td>企望</td>
+</tr>
+<tr>
+<td>Auto</td>
+<td>N</td>
+<td>Y</td>
+<td>自动</td>
+</tr>
+<tr>
+<td>Nonegotiate</td>
+<td>N</td>
+<td>N</td>
+<td>不协商</td>
+</tr>
+</tbody></table>
+<p><strong>（3）查看trunk信息</strong></p>
+<p>Switch(config-if)#switchport mode trunk</p>
+<p>Switch#show interfaces trunk</p>
+<p>Switch(config-if)# switchport trunk allowed vlan 10</p>
+<p>Switch(config-if)# switchport trunk native vlan1</p>
+<p><strong>（4）不同交换机相同vlan间通信</strong></p>
+<p><strong>（4）不同vlan间通信</strong></p>
+<p>使用三层交换机，起SVI接口，打开路由</p>
+<p>单臂路由</p>
+<p>①使用三层交换机实现不同vlan间通信</p>
+<p>  第一步：trunk链路</p>
+<p>​      三层交换机：Switch(config-if)#switchport trunk encapsulation dot1q </p>
+<p>   第二步：划分vlan</p>
+<p>​      三层交换机：Switch(config)#vlan 10</p>
+<p>Switch(config-vlan)#vlan 20</p>
+<p>   第三步：开启SVI接口作为相应vlan客户端的网关</p>
+<p>Switch(config)#int vlan 10</p>
+<p>Switch(config-if)#ip add 192.168.10.254 255.255.255.0</p>
+<p>Switch(config-if)#no shutdown </p>
+<p>Switch(config)#int vlan 20</p>
+<p>Switch(config-if)#ip add 192.168.20.254 255.255.255.0</p>
+<p>Switch(config-if)#no shutdown</p>
+<p>Switch(config)#ip routing  开启路由功能 </p>
+<p>第四步：为客户机设置网关地址</p>
+<h2 id="六、VTP技术"><a href="#六、VTP技术" class="headerlink" title="六、VTP技术"></a>六、VTP技术</h2><p>1、VTP是将所有vlan信息打包并通过trunk链路进行传输使vlan同步。</p>
+<p>2、通过域（Domain）来同步的。</p>
+<p>3、password</p>
+<p>4、version</p>
+<p>5、模式      </p>
+<p>|       | server | client | Tranparent|<br>|—-|—-|—-|<br>|增删改vlan信息|  V|     X|     V|<br>|转发VTP信息 |   V|     V|     V|<br>|同步VTP|      V|    V|     X|<br>|保存在NVRAM中|   V|     X|     V|</p>
+<p>在VTP中谁与谁同步，不是由角色决定，而是由版本号决定</p>
+<p>版本号大的vlan信息将完全覆盖版本号低的vlan信息</p>
+<p>在向网络中添加交换机时一定要注意版本号的大小，建议把模式改为透明模式</p>
+<p>Switch#sh vtp status</p>
+<p>Switch#sh vtp password</p>
+<p>思考：</p>
+<p>1、两台交换机，vtp域名为aa,password为123456，同为server。谁同步谁的vlan信息？</p>
+<p>2、同步的结果是覆盖还是新增？</p>
+<p>3、新加入一台交换机，vtp模式为client，版本号要高于server，会导致什么后果？</p>
+<p>4、新加入一台交换机，vtp模式为client，不配置域名，vlan信息会不会同步？</p>
+<p> VI虚拟接口作为不同vlan网关，</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/5146554.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/qq/001faIUs4M2zna.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
