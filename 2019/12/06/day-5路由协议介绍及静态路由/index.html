@@ -5,17 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>认识网络 - 你好</title>
+    <title>路由协议介绍及静态路由 - 你好</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
     <meta name="description" content="
-
-认识网络物理结构图
-网络拓扑图
-网络究竟是什么？使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享
-流行设备：思科 cisco、锐捷、神州数码Huawei、H3,"> 
+路由协议介绍及静态路由
+一、什么是路由
+为了路由功能，路由器应该做到：
+知道目的地址
+分辨源从哪里学到
+发现可能路由
+选择最佳路由
+不停地检测与维护路由信息
+二、路由表与路由表条目
+直  连: 路,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -48,7 +53,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">认识网络</h3>
+        <h3 class="subtitle">路由协议介绍及静态路由</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -80,16 +85,16 @@
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                December 04, 2019
+                December 06, 2019
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day2/" title="认识网络">认识网络</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2019/12/06/day-5路由协议介绍及静态路由/" title="路由协议介绍及静态路由">路由协议介绍及静态路由</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.2k
+                    3.4k
                 </span>
                 
                 
@@ -128,64 +133,82 @@
     <div class='main'>
         <div class="content markdown animated fadeIn">
             <a id="more"></a>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575337109429.png" alt="1575337109429"></p>
-<h1 id="认识网络"><a href="#认识网络" class="headerlink" title="认识网络"></a>认识网络</h1><h2 id="物理结构图"><a href="#物理结构图" class="headerlink" title="物理结构图"></a>物理结构图</h2><p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575336747360.png" alt="1575336747360"></p>
-<h2 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h2><p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575337071251.png" alt="1575337071251"></p>
-<h2 id="网络究竟是什么？"><a href="#网络究竟是什么？" class="headerlink" title="网络究竟是什么？"></a>网络究竟是什么？</h2><p>使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享</p>
-<p>流行设备：<br>思科 cisco、锐捷、神州数码<br>Huawei、H3C、中兴</p>
-<p>思科体系（CCNA\CCNP\CCIE R&amp;S)<br>华为（HCNA\HCNP\HCIE）</p>
-<p>开放式的标准化计算机网络<br>OSI七层网络模型   国际标准ISO7498</p>
-<p>高速网络技术阶段<br>网络以internet为代表的互联网</p>
-<p>物联网</p>
-<ul>
-<li>计算机网络按传输距离可分为三类：<ul>
-<li>局域网（Local Area Network,LAN):10-10000m</li>
-<li>城域网(Metropolitan Area Network, MAN):10-100km</li>
-<li>广域网（Wide Area Network , WAN):100km以上</li>
-</ul>
-</li>
-<li>计算机网络按传输介质可以分为两类：<ul>
-<li>有线网</li>
-<li>无线网</li>
-</ul>
-</li>
-</ul>
-<p>局域网</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341495985.png" alt="1575341495985"></p>
-<p>城域网</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341520943.png" alt="1575341520943"></p>
-<p>广域网</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341556112.png" alt="1575341556112"></p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341579157.png" alt="1575341579157"></p>
-<h2 id="OSI七层网络参考模型"><a href="#OSI七层网络参考模型" class="headerlink" title="OSI七层网络参考模型"></a>OSI七层网络参考模型</h2><p>1.OSI七层是哪七层</p>
-<ul>
-<li>应用层：提供用户和程序的接口</li>
-<li>表示层：提供数据格式转换服务</li>
-<li>会话层：建立端连接并提供访问验证和会话管理（SESSION）——端到端的连接状态</li>
-<li>传输层：提供应用程序之间的逻辑通信（怎么去传输——选择协议）（如果是TCP协议，给数据段加上TCP头，采用TCP传输）</li>
-<li>网络层：为数据在结点之间传输创建逻辑链路，并分组转发数据（加上一个目标IP头，与前面的内容构成数据包）</li>
-<li>数据链路层：在通信的实体间建立数据链路连接（加上一个MAC地址，与前面的内容构成数据帧）</li>
-<li>物理层：为数据端设备提供原始比特流的传输的通路</li>
-</ul>
-<p>2.分层带来的好处<br>各层逻辑上分离，各层相互独立，不会相互影响<br>各层可以独立开发，上层为下层服务</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575342051823.png" alt="1575342051823"></p>
-<p>封装与解封装</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575343065901.png" alt="1575343065901"></p>
-<p>3.每层的功能？</p>
-<ul>
-<li>物理层：是OSI/RM的最低层。主要功能是完成相邻结点之间原始比特流的传输。<ul>
-<li>光纤：光信号</li>
-<li>双绞线：数字信号</li>
-</ul>
-</li>
-</ul>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344177084.png" alt="1575344177084"></p>
-<p>介质</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344206943.png" alt="1575344206943"></p>
-<p>4.双绞线的线序<br>568-A：白绿、绿、白橙、蓝、白蓝、橙、白棕、棕<br>568-B：白橙、橙、白绿、蓝、白蓝、绿、白棕、棕</p>
-<p>STP：屏蔽双绞线<br>UTP：非屏蔽双绞线</p>
-<p>双绞线的应用</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344940700.png" alt="1575344940700"></p>
+<p><strong>路由协议介绍及静态路由</strong></p>
+<p><strong>一、什么是路由</strong></p>
+<p>为了路由功能，路由器应该做到：</p>
+<p>知道目的地址</p>
+<p>分辨源从哪里学到</p>
+<p>发现可能路由</p>
+<p>选择最佳路由</p>
+<p>不停地检测与维护路由信息</p>
+<p><strong>二、路由表与路由表条目</strong></p>
+<p>直  连: 路由器连接到该网络</p>
+<p>静态路由: 由系统管理员手动输入</p>
+<p>动态路由:通过交换路由信息获得</p>
+<p>默认路由: 静态或动态获得; 在不知道网络的明确路由时使用</p>
+<p><strong>三、自治系统：内部路由协议和外部路由协议</strong></p>
+<p>自治系统是通用管理域中的网络的集合。</p>
+<p>内部网关协议在自治系统中工作。</p>
+<p>外部网关协议连接不同的自治系统。</p>
+<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image002.jpg" alt="img"></p>
+<p><strong>四、静态路由与动态路由</strong></p>
+<p>1、 静态路由</p>
+<p>这种路由由网络管理员手动输入路由器命令管理</p>
+<p>在小型网络中适合设置静态路由</p>
+<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image004.jpg" alt="img"></p>
+<p>2、 动态路由</p>
+<p>这种路由协议根据拓扑或流量改变而自动调整。</p>
+<p>路由器之间使用路由协议确定到达远程网络的路径，并在路由表中维护这些网络。</p>
+<p>确定路径后，路由器可以将路由协议路由到已获知的网络。</p>
+<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image006.jpg" alt="img"></p>
+<p>3、 路由协议的类型</p>
+<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image008.jpg" alt="img"></p>
+<p><strong>五、静态路由的配置</strong></p>
+<p> <strong>1、静态路由</strong></p>
+<p>指定一条可以到达目标网络的路径</p>
+<p>Router(config)#ip route network   [mask]{address | interface}[distance] [permanent]</p>
+<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image010.jpg" alt="img"></p>
+<p>这是一个单方向的路由. 你必须配置一条反方向的路由</p>
+<p><strong>2、静态汇总路由</strong></p>
+<p><strong>3、静态默认（缺省）路由</strong></p>
+<p><strong>4、静态选择路由</strong></p>
+<p><strong>5、浮动静态路由</strong></p>
+<p><strong>6、用静态路由实现负载均衡</strong></p>
+<p><strong>静态路由的配置：</strong></p>
+<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image012.jpg" alt="img"></p>
+<p>查看路由表：</p>
+<p>R1#sh ip route </p>
+<p><strong>用静态路由实现负载均衡</strong></p>
+<p>静态路由的配置：</p>
+<p>R1(config)#ip route 12.1.1.0 255.255.255.0 192.168.10.2 或</p>
+<p>​         目标网络    下一跳地址（与到达目标网络方向所直连的路由器的地址）  </p>
+<p>R1(config)#ip route 12.1.1.0 255.255.255.0 f0/0</p>
+<p>R1(config)#ip route 12.1.1.0 255.255.255.0 f0/1</p>
+<p>R3(config)#ip route 181.1.1.0 255.255.255.0 f0/1</p>
+<p>R3(config)#ip route 181.1.1.0 255.255.255.0 f0/0</p>
+<p>R2(config)#ip route 192.168.10.0 255.255.255.0 12.1.1.2 </p>
+<p>R2(config)#ip route 192.168.10.0 255.255.255.0 f0/0</p>
+<p>静态路由只用于很小的网络，并且是管理员对网络结构非常熟悉的情况下。</p>
+<p><strong>静态默认路由：</strong></p>
+<p>用于不知道对方网络结构的情况下，如上网（配置在出口路由器上）。</p>
+<p>R1(config)#ip route 0.0.0.0 0.0.0.0 f0/0</p>
+<p><strong>浮动静态路由：</strong></p>
+<p>R1(config)#ip route 12.1.1.0 255.255.255.0 192.168.10.2</p>
+<p>R1(config)#ip route 12.1.1.0 255.255.255.0 181.1.1.2 10</p>
+<p>会根据管理距离值的大小，选择一条最优路由（管理距离小的）添加到路由表中。</p>
+<p><strong>静态选择路由（最长匹配原则）</strong></p>
+<p>R1(config)#ip route 12.1.1.0 <strong>255.255.255.0</strong> 181.1.1.2</p>
+<p>R1(config)#ip route 12.1.1.2 <strong>255.255.255.255</strong> f0/0</p>
+<p><strong>静态汇总路由：</strong></p>
+<p>Router(config)#int loopback 0</p>
+<p>Router(config-if)#ip add 22.1.0.1 255.255.255.0</p>
+<p>Router(config)#int loopback 1</p>
+<p>Router(config-if)#ip add 22.1.1.1 255.255.255.0</p>
+<p>Router(config)#int loopback 2</p>
+<p>Router(config-if)#ip add 22.1.2.1 255.255.255.0</p>
+<p>Router(config)#int loopback 3</p>
+<p>Router(config-if)#ip add 22.1.3.1 255.255.255.0</p>
+<p>R1(config)#ip route <strong>22.1.0.0 255.255.252.0</strong> 192.168.10.2</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -240,13 +263,6 @@
             </div>
             
             
-            
-            <div class="box sticky animated fadeInRight faster">
-                <div id="toc" class="subbox">
-                    <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#认识网络"><span class="toc-number">1.</span> <span class="toc-text">认识网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#物理结构图"><span class="toc-number">1.1.</span> <span class="toc-text">物理结构图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络拓扑图"><span class="toc-number">1.2.</span> <span class="toc-text">网络拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络究竟是什么？"><span class="toc-number">1.3.</span> <span class="toc-text">网络究竟是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI七层网络参考模型"><span class="toc-number">1.4.</span> <span class="toc-text">OSI七层网络参考模型</span></a></li></ol></li></ol>
-                </div>
-            </div>
             
             
         </div>
