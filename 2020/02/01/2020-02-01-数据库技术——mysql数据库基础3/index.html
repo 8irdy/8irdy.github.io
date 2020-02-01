@@ -1,0 +1,471 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>数据库技术——mysql数据库基础3 - 你好</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TriDiamond Obsidian,"> 
+    <meta name="description" content="SQL编程事务、存储过程、触发器、函数DQL：selectselect语句组成：   select子句   from子句   where子句   order by子句（排序）   limit子句  ,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+    <link rel="stylesheet" href="/css/obsidian.css">
+    <link rel="stylesheet" href="/css/ball-atom.min.css">
+</head>
+</html>
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">你好</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">数据库技术——mysql数据库基础3</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg);">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                
+                February 01, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础3/" title="数据库技术——mysql数据库基础3">数据库技术——mysql数据库基础3</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    9.5k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    9 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h1 id="SQL编程"><a href="#SQL编程" class="headerlink" title="SQL编程"></a>SQL编程</h1><h1 id="事务、存储过程、触发器、函数"><a href="#事务、存储过程、触发器、函数" class="headerlink" title="事务、存储过程、触发器、函数"></a>事务、存储过程、触发器、函数</h1><p>DQL：select<br>select语句组成：<br>   select子句<br>   from子句<br>   where子句<br>   order by子句（排序）<br>   limit子句<br>   group by子句（having子句）<br>   join技术</p>
+<h1 id="1-检索表中所有数据信息"><a href="#1-检索表中所有数据信息" class="headerlink" title="1.检索表中所有数据信息"></a>1.检索表中所有数据信息</h1><p>select * from 表名;  表示表中所有字段</p>
+<h1 id="2-检索表中部分字段信息"><a href="#2-检索表中部分字段信息" class="headerlink" title="2.检索表中部分字段信息"></a>2.检索表中部分字段信息</h1><p>select 字段1，字段2，…… from 表名;</p>
+<h1 id="3-列重命名"><a href="#3-列重命名" class="headerlink" title="3.列重命名"></a>3.列重命名</h1><p>select cName as ‘课程名称’ from Courses;<br>select cName  ‘课程名称’ from Courses;<br>select 字段1 [as] ‘别名’ from 表名;</p>
+<h1 id="4-排序（order-by"><a href="#4-排序（order-by" class="headerlink" title="4.排序（order by)"></a>4.排序（order by)</h1><p>select * from elogs order by elScore;<br>select * from elogs order by elScore desc;<br>select 字段列表 from 表名 order by 字段1 [asc] |desc,[，字段2 [asc] | desc,……];<br>说明：<br>A、排序方式包含asc（升序，有小到大，默认值）、desc（降序，由大到小）<br>B、可根据多个字段排序，但是每个字段有其自身排序方式<br>C、order by子句出现在where子句后面（如果有where子句）<br>D、聚合函数可以作为排序依据，如order by count（字段） desc<br>select * from elogs order by elScore desc;<br>select * from Teachers order by tAge desc,tNo;  优先考虑tAge，如果有重复则按照tNo排序</p>
+<p>select * from Courses order by cName;  因为编码问题可能出现不是我们想要的结果<br>select * from Courses order by convert(cName using gbk); 将编码改为gbk</p>
+<h1 id="5-取多少条数据（limit）"><a href="#5-取多少条数据（limit）" class="headerlink" title="5.取多少条数据（limit）"></a>5.取多少条数据（limit）</h1><p>selet 字段列表 from 表名 limit m，n;<br>注意：<br>1.limit 关键字后可以只有一个数字，表示取前n条数据<br>2.limit关键字后有两个数，表示从m+1行开始读取n条数据<br>查询学生信息表中前五条数据<br>selet * from Students limit 5;<br>selet * from Students limit 0,5;<br>selet * from Students limit 5,5;   从5（不包含5）开始取下一条，总共取5条<br>任务：检索年龄最小的五位男老师信息<br>select * from Teachers where tGender=’男’ order by tAge limit 5；</p>
+<p>查找年龄最大的老师——年龄最大的不止一个老师的时候<br>思路：<br>第一步：找到教师信息表中最大的年龄值<br>第二步：在教室信息表中找到与年龄值最大值年龄的老师信息<br>select * from Teachers where tAge=(select tAge from Teachers order by tAge desc limit 1);<br>select * from Teachers where tAge=(select max(tAge) from Teachers);<br>重点提醒：聚合函数不能直接出现在where子句中！！</p>
+<h1 id="6-聚合函数"><a href="#6-聚合函数" class="headerlink" title="6.聚合函数"></a>6.聚合函数</h1><p>max（字段名）：统计返回指定字段的最大值<br>min（字段名）：统计返回指定字段的最小值<br>avg（字段名）：统计返回指定字段的平均值<br>sum（字段名）：统计返回指定字段的和值<br>count（字段名）：统计返回结果集的信息条数<br>    * count（<em>）<br>    * count（1）<br>    * count（主键字段）<br>    * count（非主键字段）<br>注意：<br>1.max（字段）、min（字段）、avg（字段）、sum（字段）、count（非主键字段）在统计时，排除字段值中的null值<br>2.count（*）、count（1）、count（主键字段）返回表中所有符合条件的信息数目<br>3.avg（字段）、sum（字段）在统计时针对字符串返回值为0<br>统计选修记录信息表中，记录信息的数量及考试成绩的平均分<br>select count(</em>),count(1),count(elno),count(elscore),avg(elscore) from elogs<br>select avg(cName),sum(cName),max(cName),min(cName) from elogs;</p>
+<p>select elNo,count(*) from elogs;——目前来说没有太多意义</p>
+<h1 id="7-取消重复值（distinct）"><a href="#7-取消重复值（distinct）" class="headerlink" title="7.取消重复值（distinct）"></a>7.取消重复值（distinct）</h1><p>结果集中重复的数据值只会出现一次<br>select distinct tAge from Teachers;</p>
+<p>查询选修考试成绩中，课程编号为2的前十名同学学号及成绩信息<br>select sID,elScore from elogs where cID=2 order by elScore desc limit 10;<br>统计课程编号为00002的考试有多少学生未参考（考试成绩为空表示未参考）<br>select count(<em>) from elogs where cID=’00002’ and elScore is null;<br>select count(</em>)-count(elScore) from elogs where cID=’00002’;<br>查看课程编号为00002，考试成绩为60，70，80，90，100的学生学号<br>select sID from elogs where cID=’00002’ and elScore in (60,70,80,90,100);<br>查询参与了选修的同学学号有哪些？<br>select distinct sID from elogs;<br>查询参与了选修的同学姓名？<br>select sName from students where sNO in (select distinct  sID from elogs);<br>select sName from students where exists(select sid from elogs where sid=sno);<br>外部数据大于内部数据，使用in<br>内部数据大于外部数据，使用exists</p>
+<p>in子句：select 字段列表 from 表A where 表A.字段 in (select 表B.字段 from 表B)；</p>
+<p>exists子句：select 字段列表 from 表A where 表A exists (select 主键字段 from 表B where 表B.字段=表A.字段)；</p>
+<p>注意：表A.字段与表B.字段有主外关联为佳</p>
+<p>合并结果集union<br>默认将结果集中的重复值取消，如果不想取消重复值，则在union后面增加all<br>select tName from Teachers union select cName from Courses;</p>
+<p>练习：<br>      1、统计学生信息表(Students)中没有填写手机号码的同学有多少人    select count(*) from students where sMobile is null;<br>      2、查看教师信息表(Teachers) 中年龄不小于25岁的老师姓名及性别。<br>    select tName,tGender from teachers where tAge&gt;=25;<br>      3、在选修记录信息表(eLogs) 中，根据学生选修时间排序，将最近登记的五条记录返回，<br>      select * from elogs order by elDate desc limit 5;<br>      4、在课程信息表(Courses)中，将学分分别为3,4,5的课程名称返回。<br>      select cName from courses where cCredit in (3,4,5);<br>      5、在课程信息表(Courses) 中，删除课程描述为空的课程信息。<br>      delete from courses where cDescription is null;<br>      6、将课程信息表(Courses) 中课程描述字段的长度改为200元<br>      alter table courses modify cDescription varchar(200);</p>
+<pre><code>7、在选修记录信息表(eLogs) 中，更新学号为20180101，选修课程编号为00002的考试成绩为80。
+update elogs set elScore=80 where sID=&apos;20180101&apos; and cID=&apos;00002&apos;;
+
+8、在教师信息表(Teachers) 中，返回年龄范围在24至35的老师名称及编号。
+select tName,tNO from Teachers where tAge&gt;=24 and tAge&lt;=35;
+9、在课程信息表(Courses)中，查询课程名称中出现了“语言”的课程信息。
+select * from courses where cName like &apos;%语言%&apos;;
+
+10、在选修记录信息表(eLogs) 中，统计学生所选课程门数(同编号课程只统计一一次)。
+select distinct count(cID) from elogs;
+11、统计《计算机网络基础》这门课程有多少学生考试及格(- -门课程同一一个学生只能选择一次)。
+select distinct count(*) from elogs where elscore&gt;=60 and cid=(select cno from courses where cname=&apos;计算机网络基础&apos;);
+
+12、统计《计算机网络基础》这门课程缺考的同学有多少。
+select distinct count(*) from elogs where elscore is null and cid=(select cno from courses where cname=&apos;计算机网络基础&apos;);
+13、查询张峰老师所授的每门课程名称.
+select cName from courses where tID=(select tNO from teachers where tName=&apos;张峰&apos;);
+14、查询哪门课程选修登记的学生人数最多。
+select cName from courses where cNO=(select cID from elogs group by cid order by count(cid) desc limit 1);
+
+15、查看课程描述中包含“计算机”或“电脑”字眼的课程名称及其编号。
+select cName,cNo from courses where cDescription like &apos;%计算机%&apos; or cdescription like &apos;%电脑%&apos;;</code></pre><p>第十四题  考虑重复</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtopfahxj30k502aq3i.jpg" alt="image.png"></p>
+<p>连接技术<br>内连接：inner join<br>推荐写法：<br>select 字段列表 from 表A inner join 表B on 表A的主键字段=表B的外键字段 [where 条件表达式];</p>
+<p>select 字段列表 from 表A，表B where 表A的主键字段=表B的外键字段 [其他条件表达式]；</p>
+<p>例子：<br>select * from courses;<br>select * from elogs;<br>select * from courses as c inner join elogs ase on c.cno=e.cid;</p>
+<p>老张老师所授课程的名称<br>select cName from courses where  tid =（select tno from teachers where tname=’老张’);<br>select cName from courses inner join teacher on tid=tno where tname=’老张’;</p>
+<p>检索姓名为张三的学生选修课程《C语言》的考试成绩<br>select elscore from elogs inner join courses on cid=cno inner join students on sid=sno where sname=’张三’ and cname=’C语言’;</p>
+<p>外连接：outer join<br>左外链接：left outer join /left join<br>语法：<br>select 字段列表 from 表A left join 表B on 表A的主键字段=表B的外键字段 [where 条件表达式];<br>select * from courses as c left join elogs ase on c.cno=e.cid;</p>
+<p>查询从未选修过的学生姓名<br>select sname from students as s left join elogs as e on s.sno=e.sid where e.elNo is null;</p>
+<p>分组技术：<br>select 字段列表 from 表名 [where 条件表达式] group by 分组字段列表 [having 条件表达式] [order by 字段列表]</p>
+<p>统计在选修记录信息表中，已登记同学每人选修课程门数<br>select count(<em>) from elogs group by sid;<br>select count(</em>) from elogs group by sid having count(<em>)&gt;=2;<br>select count(</em>) from elogs group by sid having count(<em>)&gt;=2 order by count(</em>) desc;</p>
+<p>任务：where和having的异同</p>
+<p>#练习：查询已登记的张姓同学的姓名及其选修课程数目，且选修课程门数必须大于一门才能呈现<br>select sname,count(distinct cid) from students inner join elogs on sno=sid where sname like ‘张%’ group by sid having count(<em>)&gt;1 order by count(</em>) desc;</p>
+<p>#统计《计算机网络基础》这门课程有多少学生考试及格<br>select count(*) from elogs inner join courses on cid=cno where elscore&gt;=60 and cname=’计算机网络基础’;</p>
+<p>#统计不同性别老师的平均年龄及人数<br>select tGender,avg(tAge),count(*) from teachers group by tGender</p>
+<p>#查询哪些课程已有学生选修<br>select distinct cname from courses inner join elogs on cno=cid where sid is not null;</p>
+<p>#统计选修学分达到十分及以上的同学有哪些<br>select sname from students inner join elogs on sid=sno inner join courses on cno=cid group by sno having sum(ccredit)&gt;10;</p>
+<p>select sName from students where sNo=(select sID from elogs where sum(elScore)&gt;10 group by sNo);</p>
+<p>#查询在2018年里姓王的同学选修考试成绩最高的分数是多少<br>select max(elscore) from elogs inner join students on sid=sno where sname like ‘王%’ and year(elogs.<code>elDate</code>)=2018;</p>
+<p>#统计教师不同姓氏的人数分别有多少<br>select left(tname,1),count(*) from teachers group by left(tname,1);</p>
+<p>#统计《C语言》这门课程选修成绩中最高成绩与最低成绩的分值差<br>select max(elscore)-min(elscore) from elogs where cid=(select cno from courses where cname=’C语言’);</p>
+<p>#查看王军老师所授课程的开始成绩属于良的同学有哪些（考试成绩在75与85之间，但不包含85为良）<br>select sname from students inner join elogs on sid=sno inner join courses on cid=cno inner join teachers on tid=tno where tname=’王军’ and elscore&gt;=75 and elscore&lt;85;</p>
+<p>select语句执行顺序：<br>查询处理的顺序如下:</p>
+<p>FROM<br>ON<br>JOIN<br>WHERE<br>GROUP BY<br>HAVING<br>SELECT<br>DISTINCT<br>ORDER BY<br>LIMIT</p>
+<p>sql中where和having的区别<br>用的地方不一样<br>   where可以用于select、update、delete和insert into values(select * from table where ..)语句中。<br>   having只能用于select语句中<br>执行的顺序不一样<br>   where的搜索条件是在执行语句进行分组之前应用<br>   having的搜索条件是在分组条件后执行的<br>   即如果where和having一起用时，where会先执行，having后执行<br>子句有区别<br>   where子句中的条件表达式having都可以跟，而having子句中的有些表达式where不可以跟；having子句可以用集合函数（sum、count、avg、max和min），而where子句不可以。<br>总结<br> 1.WHERE 子句用来筛选 FROM 子句中指定的操作所产生的行。<br>2.GROUP BY 子句用来分组 WHERE 子句的输出。<br>3.HAVING 子句用来从分组的结果中筛选行</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='ec894e2b66f752e8b7fb'
+        data-cs='3ccc2e92bb350688fe2c2dc2930189b62622bfb1'
+        data-r='blog-comments'
+        data-o='TriDiamond'
+        data-a='TriDiamond'
+        data-d=''
+    >Comments</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
+                    <p>John Doe</p>
+                    <span>但愿你是那知恩知意的心中客</span>
+                    <dl>
+                        <dd><a href="https://github.com/TriDiamond" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">19 <p>Articles</p></a></li>
+                    <li><a href="/categories">0 <p>Categories</p></a></li>
+                    <li><a href="/tags">0 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL编程"><span class="toc-number">1.</span> <span class="toc-text">SQL编程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#事务、存储过程、触发器、函数"><span class="toc-number">2.</span> <span class="toc-text">事务、存储过程、触发器、函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-检索表中所有数据信息"><span class="toc-number">3.</span> <span class="toc-text">1.检索表中所有数据信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-检索表中部分字段信息"><span class="toc-number">4.</span> <span class="toc-text">2.检索表中部分字段信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-列重命名"><span class="toc-number">5.</span> <span class="toc-text">3.列重命名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-排序（order-by"><span class="toc-number">6.</span> <span class="toc-text">4.排序（order by)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-取多少条数据（limit）"><span class="toc-number">7.</span> <span class="toc-text">5.取多少条数据（limit）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-聚合函数"><span class="toc-number">8.</span> <span class="toc-text">6.聚合函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-取消重复值（distinct）"><span class="toc-number">9.</span> <span class="toc-text">7.取消重复值（distinct）</span></a></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2020
+        <span class="gradient-text">
+            John Doe
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.3" target="_blank" rel="noopener">v1.4.3</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+    <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+
+
+    <script src="/js/busuanzi.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('span[id^="busuanzi_"]').length) {
+                initialBusuanzi();
+            }
+        });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149874671-1');
+    </script>
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["但愿你是那知恩知意的心中客", "不是那无事无非的糊涂人！"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+
+
+
+</html>

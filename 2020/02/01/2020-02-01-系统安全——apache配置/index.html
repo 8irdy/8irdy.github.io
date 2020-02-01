@@ -5,20 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SPT生成树协议 - 你好</title>
+    <title>系统安全——apache配置 - 你好</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="SPT生成树协议
-一、交换机广播风暴的产生
-1、交换机工作原理
-根据MAC地址表转发数据帧，如果地址未知，则广播。
-2、广播风暴的产生
-当网络中存在物理环路，会产生广播风暴。
-
-二、STP协议介绍
-,"> 
+    <meta name="description" content="一、配置虚拟主机1、配置基于域名的虚拟主机   举例：DNS服务器为192.168.10.1，web服务器为192.168.10.1          所有人通过域名：www.zlt.com访问lz,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -51,7 +43,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">SPT生成树协议</h3>
+        <h3 class="subtitle">系统安全——apache配置</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -83,22 +75,22 @@
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                December 05, 2019
+                February 01, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/12/05/day4-SPT生成树协议/" title="SPT生成树协议">SPT生成树协议</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-系统安全——apache配置/" title="系统安全——apache配置">系统安全——apache配置</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    7.1k
+                    5.9k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    6 mins.
+                    5 mins.
                 </span>
                 
                 
@@ -130,135 +122,32 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p><strong>SPT生成树协议</strong></p>
-<p><strong>一、交换机广播风暴的产生</strong></p>
-<p><strong>1、交换机工作原理</strong></p>
-<p>根据MAC地址表转发数据帧，如果地址未知，则广播。</p>
-<p><strong>2、广播风暴的产生</strong></p>
-<p>当网络中存在物理环路，会产生广播风暴。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image002.jpg" alt="img"></p>
-<p><strong>二、STP协议介绍</strong></p>
-<p><strong>1、 STP（Spanning Tree Protocol）（生成树协议）</strong></p>
-<p>逻辑上断开环路，防止广播风暴的产生。</p>
-<p>当线路出现故障，断开的接口被激活，恢复通信，起备份线路的作用。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image004.jpg" alt="img"></p>
-<p><strong>2、STP的算法</strong></p>
-<p>  STP将一个环形网络生成无环拓朴的步骤：</p>
-<p>第一步：选择根网桥（Root Bridge）</p>
-<p>第二步：选择根端口（Root Ports）</p>
-<p>第三步：选择指端口（Designated Ports）</p>
-<p><strong>3、选择根网桥（Root Bridge）</strong></p>
-<p><strong>（1）如何选择根网桥？</strong></p>
-<p>根据<strong>网桥**</strong>ID<strong>（</strong>BID）选择根网桥，谁的优先级小，谁就是根桥。如果优先级相同，谁的MAC地址小谁就是根桥。</p>
-<p><strong>（2）什么是网桥ID（BID）？</strong></p>
-<p>每个网络只能有一个根桥，根桥具有最低的桥ID，根桥上的所有端口都是指派端口，选择根网桥的目的是为了给将生成的树形结构确定一个树根。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image006.jpg" alt="img"></p>
-<p><strong>（3）选择根网桥举例</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image008.jpg" alt="img"></p>
-<p><strong>4、选择根端口（Root Ports）</strong></p>
-<p><strong>（1）如何选择根端口？</strong></p>
-<p>在非根网桥上选择一个<strong>到根网桥最近的端口</strong>作为根端口 选择根端口的依据是：</p>
-<p>根路径成本（cost值）【从端口出发到根桥】最低</p>
-<p>直连网桥的网桥ID最小</p>
-<p>直连网桥的端口ID最小</p>
-<p><strong>（2）什么是cost值？</strong></p>
-<p>根路径成本是网桥到根网桥的路径上所有链路的成本之和。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image010.jpg" alt="img"></p>
-<p>根路径成本表</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image012.jpg" alt="img"></p>
-<p><strong>（3）什么是端口ID</strong></p>
-<p>  <img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image014.jpg" alt="img"></p>
-<p><strong>（4）选择根端口举例</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image016.jpg" alt="img">    <img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image018.jpg" alt="img"></p>
-<p><strong>5、选择指定端口</strong></p>
-<p>  选择指定端口的依据是：</p>
-<p>在每个网段上，选择1个指定端口，根桥上的端口全是指定端口。</p>
-<p>非根桥上的指定端口：</p>
-<p>根路径成本【从非根桥到根桥】最低</p>
-<p>端口所在的网桥的ID值较小</p>
-<p>直连网桥的端口ID值较小</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image020.jpg" alt="img"></p>
-<p>000d.2800.b102 </p>
-<p><strong>三、BPDU（桥协议数据单元）</strong></p>
-<p><strong>1、什么BPDU？</strong></p>
-<p>交换机怎么知道其他交换机的网桥ID？怎么知道哪个端口的根路径成本最小？</p>
-<p>是因为交换机之间使用BPDU来交换STP信息，BPDU（Bridge Protocol Data Unit）使用组播发送BPDU，组播地址为：01-80-c2-00-00-00。</p>
-<p>BPDU分为2种类型：</p>
-<p>配置BPDU － 用于生成树计算</p>
-<p>拓朴变更通告（TCN）BPDU － 用于通告网络拓朴的变化</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image022.jpg" alt="img"></p>
-<p><strong>2、STP使用BPDU选择根网桥</strong></p>
-<p>（1） 交换机启动时，假定自己是根网桥，在向外发送的BPDU中，</p>
-<p>根网桥ID字段填写自己的网桥ID。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image024.jpg" alt="img"></p>
-<p>（2）当接收到其他交换机发出的BPDU后，比较网桥ID，选择较小的添加到根网桥ID中。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image026.jpg" alt="img"></p>
-<p><strong>3、STP使用BPDU计算根路径成本</strong></p>
-<p><strong>（1）根网桥发送根路径成本为0的BPDU</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image028.jpg" alt="img"></p>
-<p><strong>（2） 其他交换机接收到根网桥的BPDU后，在根路径成本上添加接收接口的路径成本，然后转发。</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image030.jpg" alt="img"></p>
-<p><strong>四、生成树端口的状态</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image032.jpg" alt="img"></p>
-<p><strong>五、生成树计时器</strong></p>
-<p>  交换机开机需要等待30秒时间开始转发数据</p>
-<p>当某个正在使用的链路断掉，阻塞的端口需要50秒时间开始转发数据</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image034.jpg" alt="img"></p>
-<p><strong>六、PVST（按VLAN生成树）</strong></p>
-<p><strong>1、什么是PVST</strong></p>
-<p>PVST是Cisco私有的，为每个VLAN构造一棵生成树</p>
-<p><strong>2、PVST在实际中的应用</strong></p>
-<p>配置网络中比较稳定的交换机为根网桥</p>
-<p>利用PVST实现网络的负载分担</p>
-<p>  <img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image036.jpg" alt="img"></p>
-<p><strong>3、PVST的配置命令</strong></p>
-<p>启用生成树：Switch(config)#spanning-tree vlan vlan-list</p>
-<p>设置根网桥：Switch(config)#spanning-tree vlan vlan-list root primary | secondary</p>
-<p>-设置为primary后，优先级变成24576</p>
-<p>-设置为secondary后， 优先级变成28672</p>
-<p>修改网桥的优先级：Switch(config)#spanning-tree vlan vlan-list priority Bridge-priority </p>
-<p>-优先级的值为4096的倍数</p>
-<p>修改端口成本：Switch(config-if)#spanning-tree vlan vlan-list cost cost</p>
-<p>修改端口优先级：Switch(config-if)#spanning-tree vlan vlan-list port-priority priority</p>
-<p>配置上行速链路：Switch(config)#spanning-tree uplinkfast</p>
-<p>配置端口速链路：Switch(config-if)#spanning-tree portfast</p>
-<p>查看生成树的配置：Switch#show spanning-tree</p>
-<p>查看某个VLAN的生成树详细信息：Switch#show spanning-tree vlan vlan-id detail</p>
-<p><strong>七、以太网端口聚合</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image038.jpg" alt="img"></p>
-<p><strong>1、什么是端口聚合？</strong></p>
-<p>链路聚合又称为端口聚合，端口捆绑，英文名porttrunking。是一种聚合多个物理接口 ( that ) 创建一个逻辑接口。你可以捆扎( bundle ) 八个单独的活动链接到一个信道端口，以提供更高的<strong>带宽</strong>和<strong>冗余</strong>。端口通道也负载平衡这些物理接口上的通信量。只要端口通道中的至少一个物理接口可操作，端口通道就可以保持运行。</p>
-<p><strong>2、channel-group模式</strong></p>
-<p>PAgP 是 Cisco私有，只能在 Cisco Switch 上设定，PAgP 有两个模式，分別是 Desirable 与 Auto当 PAgP 成功建立 EtherChannel 后，PAgP Message 会继续定时传送去维持 EtherChannel。</p>
-<p>Desirable Auto</p>
-<p>Desirable  √     √  主动发送PAgP报文</p>
-<p>Auto    √     x  被动发送PAgP报文</p>
-<p>On            手动设置，需要两边都设置</p>
-<p>LACP 是 IEEE Standard</p>
-<p>Active Passive</p>
-<p>Active    √     √  主动发送LACP报文</p>
-<p>Passive    √     x  主动接收LACP报文</p>
-<p><strong>3、channel-group说明</strong></p>
-<p>（1）Cisco最多允许EtherChannel绑定8个端口；如果是百兆网络，总带宽可达1.6Gbit/s；如果是千兆网络，总带宽可达16Gbit/s。</p>
-<p>（2）EtherChannel不支持10M端口；</p>
-<p>（3）EtherChannel编号只在本地有效，链路两端的编号可以不一样；</p>
-<p>（4）EtherChannel默认使用PAgP协议；</p>
-<p>（5）EtherChannel默认情况下是基于源MAC地址的负载平衡；</p>
-<p>（6）一个EtherChannel内所有的端口都必须具有相同的端口速率和双工模式，LACP只能是全双工模式；</p>
-<p>（7）channel-group接口会自动继承最小物理接口，或最先配置的接口模式；</p>
-<p>（8）cisco的交换机不仅可以支持第二层EtherChannel,还可以支持第三层EtherChannel。</p>
-<p><strong>4、配置端口聚合</strong></p>
-<p>Switch(config)#int port-channel 1</p>
-<p>Switch(config-if)#switchport mode trunk</p>
-<p>Switch(config)#int range f0/1-2</p>
-<p>Switch(config-if-range)#channel-group 1 mode on</p>
-<p><strong>5、配置流量均衡</strong></p>
-<p>Switch(config)#int f0/1</p>
-<p>Switch(config-if)#spanning-tree vlan 10 port-priority 16</p>
-<p>Switch(config-if)#spanning-tree vlan 20 port-priority 32</p>
-<p>Switch(config)#int f0/2</p>
-<p>Switch(config-if)#spanning-tree vlan 10 port-priority 32</p>
-<p>Switch(config-if)#spanning-tree vlan 20 port-priority 16</p>
+            <p>一、配置虚拟主机<br>1、配置基于域名的虚拟主机<br>   举例：DNS服务器为192.168.10.1，web服务器为192.168.10.1<br>          所有人通过域名：<a href="http://www.zlt.com访问lzt公司的网站。" target="_blank" rel="noopener">www.zlt.com访问lzt公司的网站。</a><br>          所有人通过域名：<a href="http://www.slxy.com访问shuili公司的网站。" target="_blank" rel="noopener">www.slxy.com访问shuili公司的网站。</a><br>          所有人通过域名：<a href="http://www.crt.com访问crt公司的网站。" target="_blank" rel="noopener">www.crt.com访问crt公司的网站。</a></p>
+<p>第一步：搭建DNS服务器<br>分别建立zlt.com shuli.com crt.com三个域<br>主机记录分别为：<a href="http://www.zlt.com" target="_blank" rel="noopener">www.zlt.com</a>  192.168.10.1<br>                            <a href="http://www.shuili.com" target="_blank" rel="noopener">www.shuili.com</a> 192.168.10.1<br>                            <a href="http://www.crt.com" target="_blank" rel="noopener">www.crt.com</a>  192.168.10.1<br>第二步：创建站点主目录及首页文件</p>
+<p>#mkdir /var/www/zlt</p>
+<p>#echo ‘welcome to <a href="http://www.zlt.com!!’" target="_blank" rel="noopener">www.zlt.com!!’</a> &gt; /var/www/zlt/index.html</p>
+<p>#mkdir /var/www/shuili</p>
+<p>#echo ‘welcome to <a href="http://www.shuili.com!!’" target="_blank" rel="noopener">www.shuili.com!!’</a> &gt; /var/www/shuili/index.html</p>
+<p>#mkdir /var/www/crt</p>
+<p>#echo ‘welcome to <a href="http://www.crt.com!!’" target="_blank" rel="noopener">www.crt.com!!’</a> &gt; /var/www/crt/index.html</p>
+<p>第三步：编辑配置文件<br>在httpd.conf文件的“Virtual Hosts”部分增加如下内容。<br>NamevirtualHost 192.168.10.10:80<br>&lt;virtualHost 192.168.10.1:80&gt;<br>    DocumentRoot /var/www/lsy<br>    ServerName <a href="http://www.zlt.com" target="_blank" rel="noopener">www.zlt.com</a><br>DirectoryIndex index.html<br><br>&lt;virtualHost 192.168.10.1:80&gt;<br>    DocumentRoot /var/www/shuili<br>    ServerName <a href="http://www.shuili.com" target="_blank" rel="noopener">www.shuili.com</a><br><br>&lt;virtualHost 192.168.10.1&gt;<br>    DocumentRoot /var/www/crt<br>    ServerName <a href="http://www.crt.com" target="_blank" rel="noopener">www.crt.com</a><br></p>
+<p>第四步：测试验证<br>在浏览器中分别输入以下网址进行测试：<br><a href="http://www.lsy.com" target="_blank" rel="noopener">www.lsy.com</a>     <a href="http://www.shuili.com" target="_blank" rel="noopener">www.shuili.com</a>     <a href="http://www.crt.com" target="_blank" rel="noopener">www.crt.com</a>  </p>
+<p>2、配置虚拟目录<br>   虚拟目录是主网站的下一级子目录，要依附于主网站，但它的物理位置并不在主目录下。<br>第一步：创建虚拟目录</p>
+<pre><code># mkdir /movie</code></pre><h1 id="echo-‘virtual-directory’-gt-movie-index-html"><a href="#echo-‘virtual-directory’-gt-movie-index-html" class="headerlink" title="echo ‘virtual directory’&gt;  /movie/index.html"></a>echo ‘virtual directory’&gt;  /movie/index.html</h1><p>第二步：修改httpd.conf主配置文件<br>&lt;virtualHost 192.168.10.1&gt;<br>    DocumentRoot /var/www/zlt<br>    ServerName <a href="http://www.zlt.com" target="_blank" rel="noopener">www.zlt.com</a><br>    Alias /movie “/movie”   （/movie 网站路径   “/movie” 真实路径）<br>&lt;/virtualHost 192.168.10.1&gt;</p>
+<p>第三步：访问测试<br>        在浏览器中输入<a href="http://www.zlt.com/movie进行测试，查看是否成功。" target="_blank" rel="noopener">www.zlt.com/movie进行测试，查看是否成功。</a></p>
+<p>四、设置目录权限<br>（1）基于客户端地址的访问控制<br>目录的访问控制可以通过Order、Allow、Deny等语句来实现，Order语句用于定义默认的访问权限，Allow语句用于定义允许访问目录的主机列表，Deny语句用于定义拒绝访问目录的主机列表。<br>Order语句的用法主要有两种：<br>Order allow,deny    默认拒绝所有客户端访问<br>Order deny,allow    默认允许所有客户端访问<br>Allow和Deny语句的用法：<br>Allow from 192.168.80.0/24      允许192.168.80.0网段内的客户端访问<br>Deny from 192.168.80.101          拒绝IP为192.168.80.101的客户端访问</p>
+<p>举例说明：<br>    NameVirtualHost 192.168.0.1:80<br>              &lt;VirtualHost *:80&gt;<br>                   DocumentRoot /var/www/slxy/<br>                   ServerName <a href="http://www.cqjd.com" target="_blank" rel="noopener">www.cqjd.com</a><br>                   DirectoryIndex index.html<br>                   Alias /virtual “/virtual”<br>                   &lt;Directory “/var/www/slxy”&gt;<br>                        order allow,deny<br>                        allow from 192.168.80.0<br>                   <br>              </p>
+<pre><code>NameVirtualHost 192.168.0.1:80
+          &lt;VirtualHost *:80&gt;
+               DocumentRoot /var/www/cqjd/
+               ServerName www.cqjd.com
+               DirectoryIndex index.html
+               Alias /virtual &quot;/virtual&quot;
+               &lt;Directory &quot;/virtual&quot;&gt;
+                    order deny,allow
+                    deny from 192.168.0.10                   
+               &lt;/Directory&gt;
+          &lt;/VirtualHost&gt;</code></pre><p>（2）基于用户的访问控制<br>基于用户的访问控制也是只能针对服务器上的某个目录进行设置，设置内容必须包含在&lt;Directory 目录&gt; …… 的区域中。<br>AuthName 定义受保护的领域名称，客户端访问时在弹出的认证登录对话框中将显<br>             示该名称<br>AuthUserFile 设置用于保存用户帐号、密码的认证文件路径<br>AuthType 配置认证类型（基本认证：Basic  摘要认证：Digest）<br>require valid-user 授权给认证文件中的所有有效用户<br>                如果写成 require user [用户名]<br>                表示只允许该用户访问<br>举例说明：<br>第一步：修改配置文件httpd.conf，在<a href="http://www.zlt.com的虚拟主机部分中添加如下的内容：" target="_blank" rel="noopener">www.zlt.com的虚拟主机部分中添加如下的内容：</a><br>    &lt;virtualHost 192.168.10.1&gt;<br>         DocumentRoot /var/www/zlt<br>          ServerName <a href="http://www.zlt.com" target="_blank" rel="noopener">www.zlt.com</a><br>Alias /movie “/movie”<br>          &lt;Directory “/movie”&gt;<br>             AuthName “movie”<br>             AuthType Basic<br>             AuthUserFile /etc/httpd/conf/.htpasswd<br>             require valid-user<br>          <directory><br>&lt;/virtualHost 192.168.10.1&gt;<br>  第二步：创建.htpasswd文件并向其中添加用户<br>对认证用户进行管理需要用到htpasswd命令，执行下面的命令来创建.htpasswd文件并向其中添加harry用户。<br>[root@localhost ~]# htpasswd -cm /etc/httpd/conf/.htpasswd harry<br>         htpasswd命令：<br>         -c 创建认证文件<br>         -m MDB5加密<br>         -D 删除一个用户<br>   第三步：访问测试<br>最后在客户端访问测试，在访问“<a href="http://www.example.com/movie”时提示要输入用" target="_blank" rel="noopener">www.example.com/movie”时提示要输入用</a><br>户名和密码。成功通过验证后，可以顺利访问到该页面。</directory></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -313,6 +202,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#echo-‘virtual-directory’-gt-movie-index-html"><span class="toc-number">1.</span> <span class="toc-text">echo ‘virtual directory’&gt;  /movie/index.html</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>

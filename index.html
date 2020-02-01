@@ -126,19 +126,19 @@
             February 01, 2020
         </p>
         <h3 class="post-title animated fadeInDown">
-            <a href="/2020/02/01/2019-12-04-系统安全——samba服务器/" title="系统安全——samba服务器" class="posttitle">系统安全——samba服务器</a></h3>
+            <a href="/2020/02/01/day-5热备份路由协议（网关冗余）/" title="路由热备份协议" class="posttitle">路由热备份协议</a></h3>
         
         <p class="post-count animated fadeInDown">
             
             <span>
                 <b class="iconfont icon-text2"></b> <i>Words count</i>
-                2.7k
+                391
             </span>
             
             
             <span>
                 <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                2 mins.
+                1 mins.
             </span>
             
             
@@ -147,10 +147,10 @@
         
         <div class="md-content animated fadeIn">
             
-            <p><strong>项目简介：</strong></p>
-<p><strong>某公司经过不断发展，公司的网络环境建设日趋完善，内部网络逐渐增多。为了使员工能方便共享不同操作系统之间的资源，将安装局域网 Samba 服务器，实现 Windows 和 Linux 资源的...</strong></p>
+            <a id="more"></a>
+<p>热备份路由协议（网关冗余）<br>HSRP     VRRP<br>1.做一个虚拟接口<br>int vlan 10<br> standby 10 ip 192.168.10.250<br>2.端口优先级，优先级大的为Active，优先级小的为Standby...</p>
             
-            <span class="read-more"><a href="/2020/02/01/2019-12-04-系统安全——samba服务器/" title="Read article" class="posttitle">Read article</a>
+            <span class="read-more"><a href="/2020/02/01/day-5热备份路由协议（网关冗余）/" title="Read article" class="posttitle">Read article</a>
                 <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
@@ -184,207 +184,7 @@
             
             February 01, 2020
         </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-网络安全技术——STP与端口聚合/" title="网络安全技术——STP与端口聚合" class="posttitle">网络安全技术——STP与端口聚合</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        7.4k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        7 mins.
-                    </span>
-                
-                
-            </p>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p><strong>1、交换机工作原理</strong></p>
-<p>根据MAC地址表转发数据帧，如果地址未知，则广播。</p>
-<p><strong>2、广播风暴的产生</strong></p>
-<p>当网络中存在物理环路，会产生广播风暴。</p>
-<p> </p>
-<p><strong>1、 STP（Spanning Tree Protocol）（生成树协议）</strong></p>
-<p>逻辑上断开环路，防止广播风暴的产生。</p>
-<p>当线路出现故障，断开的接口被激活，恢复通信，起备份线路的作用。</p>
-<p> </p>
-<p><strong>2、STP的算法</strong></p>
-<p>  STP将一个环形网络生成无环拓朴的步骤：</p>
-<p>第一步：选择根网桥（Root Bridge）</p>
-<p>第二步：选择根端口（Root Ports）</p>
-<p>第三步：选择指端口（Designated...</p>
-            
-            <span class="read-more"><a href="/2020/02/01/2020-02-01-网络安全技术——STP与端口聚合/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
-            
-            February 01, 2020
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-网络安全技术——NAT/" title="网络安全技术——NAT" class="posttitle">网络安全技术——NAT</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        2.7k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        2 mins.
-                    </span>
-                
-                
-            </p>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p>NAT：网络地址转换，将私有地址转换为公有地址进行上网。可以隐藏内部网络，对内网可以起到一定的保护作用。<br>A类地址：0-127<br>私有地址：10.0.0.0<del>10.255.255.255<br>B类地址：128-191<br>私有地址：172.16.0.0</del>172.31.255.255<br>C类地址：192-233<br>私有地址：192.168.0.0~192.168.255.255</p>
-<p>私有地址：通常用在公司的内部网络</p>
-<p>NAT技术：</p>
-<pre><code>静态NAT：1对1转换，将一个私有地址转换为一个公有地址
-    一般应用于发布内网服务器的时候。
-    配置步骤：...</code></pre>
-            
-            <span class="read-more"><a href="/2020/02/01/2020-02-01-网络安全技术——NAT/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
-            
-            February 01, 2020
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-网络安全技术——OSPF/" title="网络安全技术——OSPF" class="posttitle">网络安全技术——OSPF</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        7.1k
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        6 mins.
-                    </span>
-                
-                
-            </p>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <p> </p>
-<p> </p>
-<p>在同一个AS，通过接口划分区域，ABR（区域边界路由器）</p>
-<p> </p>
-<p>划分区域的好处：</p>
-<p>1、减少路由表的路由条目</p>
-<p>2、拓朴发生改变时，只影响本区域的数据库</p>
-<p>3、每隔30分钟泛数据库信息（周期和触发更新），划分区域后，只在本区域泛洪</p>
-<p>4、网络设计灵活</p>
-<p> </p>
-<p><strong>1、邻居关系：Hello数据包</strong>  </p>
-<p>可使用命令debug ip ospf adj查看邻居建立的详细过程</p>
-<p>   </p>
-<p>down路由器A刚启动时，ospf处于down的状态，因为它还没有与其他路由器交换信息。它使用<a href="https://www.baidu.com/s?wd=组播地址&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">组播地址</a>224.0.0.5发送hello分组。...</p>
-            
-            <span class="read-more"><a href="/2020/02/01/2020-02-01-网络安全技术——OSPF/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
-            
-            December 06, 2019
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2019/12/06/day-5热备份路由协议（网关冗余）/" title="路由热备份协议" class="posttitle">路由热备份协议</a></h3>
-        
-            <p class="post-count animated fadeInDown">
-                
-                    <span>
-                        <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        391
-                    </span>
-                
-                
-                    <span>
-                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        1 mins.
-                    </span>
-                
-                
-            </p>
-            
-        
-        <div class="md-content animated fadeIn">
-            
-                <a id="more"></a>
-<p>热备份路由协议（网关冗余）<br>HSRP     VRRP<br>1.做一个虚拟接口<br>int vlan 10<br> standby 10 ip 192.168.10.250<br>2.端口优先级，优先级大的为Active，优先级小的为Standby<br>standyby 10 priority 120（默认100）<br>3.跟踪端口<br>MSW1(config-if)#standby 10 track f0/23<br>MSW1(config-if)#standby 10 track f0/24<br>4.抢占<br>MSW1(config-if)#standby 10 ...</p>
-            
-            <span class="read-more"><a href="/2019/12/06/day-5热备份路由协议（网关冗余）/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
-        </div>
-    </div>
-</div>
-
-
-<div class="post" id="post">
-    <div class="post-cover animated fadeIn" style="
-            background-image:
-            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
-            url(/img/welcome-cover.jpg);">
-    </div>
-    <div class="else">
-        <p class="animated fadeInDown">
-            
-                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
-            
-            December 06, 2019
-        </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2019/12/06/day-5路由协议介绍及静态路由/" title="路由协议介绍及静态路由" class="posttitle">路由协议介绍及静态路由</a></h3>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/day-5路由协议介绍及静态路由/" title="路由协议介绍及静态路由" class="posttitle">路由协议介绍及静态路由</a></h3>
         
             <p class="post-count animated fadeInDown">
                 
@@ -426,7 +226,7 @@
 <p></p>
 <p><strong>四、静态路由...</strong></p>
             
-            <span class="read-more"><a href="/2019/12/06/day-5路由协议介绍及静态路由/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            <span class="read-more"><a href="/2020/02/01/day-5路由协议介绍及静态路由/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
@@ -443,21 +243,21 @@
             
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
             
-            December 05, 2019
+            February 01, 2020
         </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2019/12/05/day4-SPT生成树协议/" title="SPT生成树协议" class="posttitle">SPT生成树协议</a></h3>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/day2/" title="认识网络" class="posttitle">认识网络</a></h3>
         
             <p class="post-count animated fadeInDown">
                 
                     <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        7.1k
+                        3.2k
                     </span>
                 
                 
                     <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        6 mins.
+                        3 mins.
                     </span>
                 
                 
@@ -466,24 +266,22 @@
         
         <div class="md-content animated fadeIn">
             
-                <p><strong>SPT生成树协议</strong></p>
-<p><strong>一、交换机广播风暴的产生</strong></p>
-<p><strong>1、交换机工作原理</strong></p>
-<p>根据MAC地址表转发数据帧，如果地址未知，则广播。</p>
-<p><strong>2、广播风暴的产生</strong></p>
-<p>当网络中存在物理环路，会产生广播风暴。</p>
+                <a id="more"></a>
 <p></p>
-<p><strong>二、STP协议介绍</strong></p>
-<p><strong>1、 STP（Spanning Tree Protocol）（生成树协议）</strong></p>
-<p>逻辑上断开环路，防止广播风暴的产生。</p>
-<p>当线路出现故障，断开的接口被激活，恢复通信，起备份线路的作用。</p>
 <p></p>
-<p><strong>2、STP的算法</strong></p>
-<p>  STP将一个环形网络生成无环拓朴的步骤：</p>
-<p>第一步：选择根网桥（Root Bridge）</p>
-<p>第二步：选择根...</p>
+<p></p>
+<p>使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享</p>
+<p>流行设备：<br>思科 cisco、锐捷、神州数码<br>Huawei、H3C、中兴</p>
+<p>思科体系（CCNA\CCNP\CCIE R&amp;S)<br>华为（HCNA\HCNP\HCIE）</p>
+<p>开放式的标准化计算机网络<br>OSI七层网络模型   国际标准ISO7498</p>
+<p>高速网络技术阶段<br>网络以internet为代表的互联网</p>
+<p>物联网</p>
+<ul>
+<li>计算机网络按传输距离可分为三类：<ul>
+<li>局域网（Local Area Network,LAN):10-10000m</li>
+...</ul></li></ul>
             
-            <span class="read-more"><a href="/2019/12/05/day4-SPT生成树协议/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            <span class="read-more"><a href="/2020/02/01/day2/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
@@ -500,15 +298,143 @@
             
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
             
-            December 04, 2019
+            February 01, 2020
         </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day3-MAC地址/" title="交换机工作原理及VLAN" class="posttitle">交换机工作原理及VLAN</a></h3>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/day1/" title="cisco配置通信与远程登录" class="posttitle">cisco配置通信与远程登录</a></h3>
         
             <p class="post-count animated fadeInDown">
                 
                     <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        10k
+                        3k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        3 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <a id="more"></a>
+
+<p>Router&gt;en   进入特权模式<br>Router#     特权模式<br>Router#config t   进入全局模式<br>Router(config)#hostname R1    给路由器取名叫R1<br>R1(config)#int f0/0   进入f0/0端口<br>R1(config-if)#ip add 192.168.10.254 255.255.255.0   配置IP地址<br>R1(config-if)#no shutdown   开启端口<br>如何查看配置是否正确？<br>    启动配置文件(startup-config)：配置好以后进行保存的配...</p>
+            
+            <span class="read-more"><a href="/2020/02/01/day1/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            February 01, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-网络安全（2）/" title="网络安全（2）" class="posttitle">网络安全（2）</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        7.9k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        7 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p>网络安全由于不同的环境和应用而产生了不同的类型。主要有以下几种：<br>（1）系统安全<br>运行系统安全即保证信息处理和传输系统的安全。它侧重于保证系统正常运行。避免因为系统的崩演和损坏而对系统存储、处理和传输的消息造成破坏和损失。避免由于电磁泄翻，产生信息泄露，干扰他人或受他人干扰。<br>（2）网络信息安全<br>网络上系统信息的安全。包括用户口令鉴别，用户存取权限控制，数据存取权限、方式控制，安全审计。安全问题跟踩。计算机病毒防治，数据加密等。<br>（3）信息传播安全<br>网络上信息传播安全，即信息传播后果的安全，包括信息过滤等。...</p>
+            
+            <span class="read-more"><a href="/2020/02/01/2020-02-01-网络安全（2）/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            February 01, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-网络安全（1）/" title="网络安全（1）" class="posttitle">网络安全（1）</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        3.1k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        3 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p>网络安全，通常指计算机网络的安全，实际上也可以指计算机通信网络的安全。计算机通信网络是将若干台具有独立功能的计算机通过通信设备及传输媒体互连起来，在通信软件的支持下，实现计算机间的信息传输与交换的系统。而计算机网络是指以共享资源为目的，利用通信手段把地域上相对分散的若干独立的计算机系统、终端设备和数据设备连接起来，并在协议的控制下进行数据交换的系统。计算机网络的根本目的在于资源共享，通信网络是实现网络资源共享的途径，因此，计算机网络是安全的，相应的计算机通信网络也必须是安全的，应该能为网络用户实...</p>
+            
+            <span class="read-more"><a href="/2020/02/01/2020-02-01-网络安全（1）/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            February 01, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础3/" title="数据库技术——mysql数据库基础3" class="posttitle">数据库技术——mysql数据库基础3</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        9.5k
                     </span>
                 
                 
@@ -523,22 +449,13 @@
         
         <div class="md-content animated fadeIn">
             
-                <p>数据链路层</p>
-<p>–位于网络层与物理层之间</p>
-<p></p>
-<p>  以太网工作在数据链路层</p>
-<p></p>
-<p>  以太网地址用来识别一个以太网上的某个单独的设备或一组设备</p>
-<p>  MAC地址是由<strong>48**</strong>位二进制数组成的<strong>，以</strong>十六进制数表示**。前24位称为OUI（组织唯一标识符），后24位是厂商对网卡的唯一编号，第8位如果是0表示单播地址，是1表示组播地址。</p>
-<p>  交换机有一个基本MAC地址，每一个端口对应一个MAC地址</p>
-<p></p>
-<p></p>
-<p>   类型长度：0x0800为IPV4地址</p>
-<p>​        0x86DD为IPV6地址</p>
-<p>   FCS：帧校验序列</p>
-<p> <strong>介质访问控制（MAC）子层（802...</strong></p>
+                <p>DQL：select<br>select语句组成：<br>   select子句<br>   from子句<br>   where子句<br>   order by子句（排序）<br>   limit子句<br>   group by子句（having子句）<br>   join技术</p>
+<p>select * from 表名;  表示表中所有字段</p>
+<p>select 字段1，字段2，…… from 表名;</p>
+<p>select cName as ‘课程名称’ from Courses;<br>select cName  ‘课程名称’ from Courses;<br>select 字段1 [as] ‘别名’ from 表名;</p>
+...
             
-            <span class="read-more"><a href="/2019/12/04/day3-MAC地址/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            <span class="read-more"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础3/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
@@ -555,15 +472,15 @@
             
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
             
-            December 04, 2019
+            February 01, 2020
         </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day3-交换机的配置/" title="交换机的配置" class="posttitle">交换机的配置</a></h3>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础2/" title="数据库技术——mysql数据库基础2" class="posttitle">数据库技术——mysql数据库基础2</a></h3>
         
             <p class="post-count animated fadeInDown">
                 
                     <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        5.7k
+                        5k
                     </span>
                 
                 
@@ -578,19 +495,15 @@
         
         <div class="md-content animated fadeIn">
             
-                <p><strong>交换机的所有端口默认情况下都在一个网络（vlan1）,所以只要将电脑连接到交换机，并配置同一个网络内的地址，这样就组成了一个局域网。所以这样会形成广播风暴。</strong></p>
-<p><strong>交换机的分类：傻瓜交换机</strong></p>
-<p>​       <strong>可管理型交换机（二层）</strong></p>
-<p>​       <strong>三层交换机：带路由功能的交换机</strong></p>
-<p><strong>1、vlan技术（虚拟局域网）</strong></p>
-<p>  <strong>划分vlan方法：基于端口的划分，基于MAC地址的划分。。。。</strong></p>
-<p><strong>基于端口的vlan划分：</strong></p>
-<p>Switch#show vlan brief  查看vlan的详细信息</p>
-<p>Switch#config t</p>
-<p><strong>划分vlan:</strong></p>
-<p>Sw1(config...</p>
+                <p>auto_increment是数据列的一种属性，只适用于数字类型</p>
+<p>auto_increment对应数据列必须具备not  null</p>
+<p>一个表只能有一个字段使用auto_increment</p>
+<p>将字段设置成auto_increment之后，是需要将其设置成主键/或者主键的一部分</p>
+<p>用户添加数据时，该字段的值可不用添加</p>
+<p>可在建表时可用auto_increment =n选项来指定一个自增的初始值</p>
+<p>可用alter table 表名 auto_increment =n命令来重设自增的起始值，默认的起始值、步长均是1...</p>
             
-            <span class="read-more"><a href="/2019/12/04/day3-交换机的配置/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            <span class="read-more"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础2/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
@@ -607,21 +520,21 @@
             
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
             
-            December 04, 2019
+            February 01, 2020
         </p>
-        <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day3-IPV4 IPV6/" title="IPV4" class="posttitle">IPV4</a></h3>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础/" title="数据库技术——mysql数据库基础1" class="posttitle">数据库技术——mysql数据库基础1</a></h3>
         
             <p class="post-count animated fadeInDown">
                 
                     <span>
                         <b class="iconfont icon-text2"></b> <i>Words count</i>
-                        13k
+                        4.2k
                     </span>
                 
                 
                     <span>
                         <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                        12 mins.
+                        4 mins.
                     </span>
                 
                 
@@ -630,18 +543,63 @@
         
         <div class="md-content animated fadeIn">
             
-                <p><strong>IPV4</strong> <strong>IPV6</strong></p>
-<p><strong>一、IPv4编址方案</strong></p>
-<p>IP地址由32位二进制数组成，这些位被划分为4个字节，中间用“.”号隔开，每组8位，以十进制数形式表示。分为<strong>网络地址</strong>和<strong>主机地址</strong>两个部分。</p>
-<p>192.168.10.1</p>
-<p>11000000.10101000.00001010.00000001  二进制数（只有两种状态 0 1)</p>
-<p>二进制数转十进制数：2^0x0+2^1x0</p>
-<p>​          128 64 32 16 8 4 2 1 </p>
-<p>IPV4一共有：2^32 大约是40多亿个地址</p>
-<p>IP地址在网络是唯一的，不能重复。</p>
-<p>对地址进行分...</p>
+                <p><strong>一、数据库相关概念</strong></p>
+<p>Data、Database（DB）、DBMS、DBS、DBA</p>
+<p><strong>二、SQL:结构化查询语言</strong></p>
+<p>SQL分类：</p>
+<p>DDL（针对数据库对象）:create-创建、alter-修改、drop-删除</p>
+<p>DML（针对数据信息）:insert-插入、update-更新、delete-删除</p>
+<p>DQL（针对数据信息）：select-查询</p>
+<p>DCL（针对用户）：grant-授权、revoke-回收</p>
+<p><strong>三、服务及连接操作</strong></p>
+<p>1、启动/关闭服务</p>
+<p>启动指定服务：net  start  服务名</p>
+<p>关闭指定服务：net  stop...</p>
             
-            <span class="read-more"><a href="/2019/12/04/day3-IPV4 IPV6/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+            <span class="read-more"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="post" id="post">
+    <div class="post-cover animated fadeIn" style="
+            background-image:
+            radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+            url(/img/welcome-cover.jpg);">
+    </div>
+    <div class="else">
+        <p class="animated fadeInDown">
+            
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+            
+            February 01, 2020
+        </p>
+        <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-系统安全——apache配置/" title="系统安全——apache配置" class="posttitle">系统安全——apache配置</a></h3>
+        
+            <p class="post-count animated fadeInDown">
+                
+                    <span>
+                        <b class="iconfont icon-text2"></b> <i>Words count</i>
+                        5.9k
+                    </span>
+                
+                
+                    <span>
+                        <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                        5 mins.
+                    </span>
+                
+                
+            </p>
+            
+        
+        <div class="md-content animated fadeIn">
+            
+                <p>一、配置虚拟主机<br>1、配置基于域名的虚拟主机<br>   举例：DNS服务器为192.168.10.1，web服务器为192.168.10.1<br>          所有人通过域名：<a href="http://www.zlt.com访问lzt公司的网站。" target="_blank" rel="noopener">www.zlt.com访问lzt公司的网站。</a><br>          所有人通过域名：<a href="http://www.slxy.com访问shuili公司的网站。" target="_blank" rel="noopener">www.slxy.com访问shuili公司的网站。</a><br>          所有人通过域名：<a href="http://www.crt.com访问crt公司的网站。" target="_blank" rel="noopener">www.crt.com访问crt公司的网站。</a></p>
+<p>第一步：搭建DNS服务器<br>分别建立zlt.com shuli.com crt.com三个域<br>主机记录分别为：<a href="http://www.zlt.com" target="_blank" rel="noopener">www.zlt.com</a>  192.168.10.1<br>                            <a href="http://www.shuili.com" target="_blank" rel="noopener">www.shuili....</a></p>
+            
+            <span class="read-more"><a href="/2020/02/01/2020-02-01-系统安全——apache配置/" title="Read article" class="posttitle">Read article</a> <b class="iconfont icon-arrow-right- gradient-text"></b></span>
         </div>
     </div>
 </div>
@@ -649,7 +607,7 @@
 
     </div>
     
-    <div id="pager"><a href="/page/2/" class="more" data-loading="Loading..." data-load-more="Load more">Load more</a></div>
+    <div id="pager"><a href="/page/2/" class="more" data-loading="加载中..." data-load-more="Load more">Load more</a></div>
     
 </div>
 <div id="preview"></div>

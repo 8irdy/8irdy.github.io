@@ -5,20 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SPT生成树协议 - 你好</title>
+    <title>数据库技术——mysql数据库基础2 - 你好</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="SPT生成树协议
-一、交换机广播风暴的产生
-1、交换机工作原理
-根据MAC地址表转发数据帧，如果地址未知，则广播。
-2、广播风暴的产生
-当网络中存在物理环路，会产生广播风暴。
-
-二、STP协议介绍
-,"> 
+    <meta name="description" content="一、自动递增（auto_increment）auto_increment是数据列的一种属性，只适用于数字类型
+auto_increment对应数据列必须具备not  null
+一个表只能有一个字段使,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -51,7 +45,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">SPT生成树协议</h3>
+        <h3 class="subtitle">数据库技术——mysql数据库基础2</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -83,22 +77,22 @@
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                December 05, 2019
+                February 01, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/12/05/day4-SPT生成树协议/" title="SPT生成树协议">SPT生成树协议</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-数据库技术——mysql数据库基础2/" title="数据库技术——mysql数据库基础2">数据库技术——mysql数据库基础2</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    7.1k
+                    5k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    6 mins.
+                    5 mins.
                 </span>
                 
                 
@@ -130,135 +124,113 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p><strong>SPT生成树协议</strong></p>
-<p><strong>一、交换机广播风暴的产生</strong></p>
-<p><strong>1、交换机工作原理</strong></p>
-<p>根据MAC地址表转发数据帧，如果地址未知，则广播。</p>
-<p><strong>2、广播风暴的产生</strong></p>
-<p>当网络中存在物理环路，会产生广播风暴。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image002.jpg" alt="img"></p>
-<p><strong>二、STP协议介绍</strong></p>
-<p><strong>1、 STP（Spanning Tree Protocol）（生成树协议）</strong></p>
-<p>逻辑上断开环路，防止广播风暴的产生。</p>
-<p>当线路出现故障，断开的接口被激活，恢复通信，起备份线路的作用。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image004.jpg" alt="img"></p>
-<p><strong>2、STP的算法</strong></p>
-<p>  STP将一个环形网络生成无环拓朴的步骤：</p>
-<p>第一步：选择根网桥（Root Bridge）</p>
-<p>第二步：选择根端口（Root Ports）</p>
-<p>第三步：选择指端口（Designated Ports）</p>
-<p><strong>3、选择根网桥（Root Bridge）</strong></p>
-<p><strong>（1）如何选择根网桥？</strong></p>
-<p>根据<strong>网桥**</strong>ID<strong>（</strong>BID）选择根网桥，谁的优先级小，谁就是根桥。如果优先级相同，谁的MAC地址小谁就是根桥。</p>
-<p><strong>（2）什么是网桥ID（BID）？</strong></p>
-<p>每个网络只能有一个根桥，根桥具有最低的桥ID，根桥上的所有端口都是指派端口，选择根网桥的目的是为了给将生成的树形结构确定一个树根。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image006.jpg" alt="img"></p>
-<p><strong>（3）选择根网桥举例</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image008.jpg" alt="img"></p>
-<p><strong>4、选择根端口（Root Ports）</strong></p>
-<p><strong>（1）如何选择根端口？</strong></p>
-<p>在非根网桥上选择一个<strong>到根网桥最近的端口</strong>作为根端口 选择根端口的依据是：</p>
-<p>根路径成本（cost值）【从端口出发到根桥】最低</p>
-<p>直连网桥的网桥ID最小</p>
-<p>直连网桥的端口ID最小</p>
-<p><strong>（2）什么是cost值？</strong></p>
-<p>根路径成本是网桥到根网桥的路径上所有链路的成本之和。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image010.jpg" alt="img"></p>
-<p>根路径成本表</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image012.jpg" alt="img"></p>
-<p><strong>（3）什么是端口ID</strong></p>
-<p>  <img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image014.jpg" alt="img"></p>
-<p><strong>（4）选择根端口举例</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image016.jpg" alt="img">    <img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image018.jpg" alt="img"></p>
-<p><strong>5、选择指定端口</strong></p>
-<p>  选择指定端口的依据是：</p>
-<p>在每个网段上，选择1个指定端口，根桥上的端口全是指定端口。</p>
-<p>非根桥上的指定端口：</p>
-<p>根路径成本【从非根桥到根桥】最低</p>
-<p>端口所在的网桥的ID值较小</p>
-<p>直连网桥的端口ID值较小</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image020.jpg" alt="img"></p>
-<p>000d.2800.b102 </p>
-<p><strong>三、BPDU（桥协议数据单元）</strong></p>
-<p><strong>1、什么BPDU？</strong></p>
-<p>交换机怎么知道其他交换机的网桥ID？怎么知道哪个端口的根路径成本最小？</p>
-<p>是因为交换机之间使用BPDU来交换STP信息，BPDU（Bridge Protocol Data Unit）使用组播发送BPDU，组播地址为：01-80-c2-00-00-00。</p>
-<p>BPDU分为2种类型：</p>
-<p>配置BPDU － 用于生成树计算</p>
-<p>拓朴变更通告（TCN）BPDU － 用于通告网络拓朴的变化</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image022.jpg" alt="img"></p>
-<p><strong>2、STP使用BPDU选择根网桥</strong></p>
-<p>（1） 交换机启动时，假定自己是根网桥，在向外发送的BPDU中，</p>
-<p>根网桥ID字段填写自己的网桥ID。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image024.jpg" alt="img"></p>
-<p>（2）当接收到其他交换机发出的BPDU后，比较网桥ID，选择较小的添加到根网桥ID中。</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image026.jpg" alt="img"></p>
-<p><strong>3、STP使用BPDU计算根路径成本</strong></p>
-<p><strong>（1）根网桥发送根路径成本为0的BPDU</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image028.jpg" alt="img"></p>
-<p><strong>（2） 其他交换机接收到根网桥的BPDU后，在根路径成本上添加接收接口的路径成本，然后转发。</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image030.jpg" alt="img"></p>
-<p><strong>四、生成树端口的状态</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image032.jpg" alt="img"></p>
-<p><strong>五、生成树计时器</strong></p>
-<p>  交换机开机需要等待30秒时间开始转发数据</p>
-<p>当某个正在使用的链路断掉，阻塞的端口需要50秒时间开始转发数据</p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image034.jpg" alt="img"></p>
-<p><strong>六、PVST（按VLAN生成树）</strong></p>
-<p><strong>1、什么是PVST</strong></p>
-<p>PVST是Cisco私有的，为每个VLAN构造一棵生成树</p>
-<p><strong>2、PVST在实际中的应用</strong></p>
-<p>配置网络中比较稳定的交换机为根网桥</p>
-<p>利用PVST实现网络的负载分担</p>
-<p>  <img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image036.jpg" alt="img"></p>
-<p><strong>3、PVST的配置命令</strong></p>
-<p>启用生成树：Switch(config)#spanning-tree vlan vlan-list</p>
-<p>设置根网桥：Switch(config)#spanning-tree vlan vlan-list root primary | secondary</p>
-<p>-设置为primary后，优先级变成24576</p>
-<p>-设置为secondary后， 优先级变成28672</p>
-<p>修改网桥的优先级：Switch(config)#spanning-tree vlan vlan-list priority Bridge-priority </p>
-<p>-优先级的值为4096的倍数</p>
-<p>修改端口成本：Switch(config-if)#spanning-tree vlan vlan-list cost cost</p>
-<p>修改端口优先级：Switch(config-if)#spanning-tree vlan vlan-list port-priority priority</p>
-<p>配置上行速链路：Switch(config)#spanning-tree uplinkfast</p>
-<p>配置端口速链路：Switch(config-if)#spanning-tree portfast</p>
-<p>查看生成树的配置：Switch#show spanning-tree</p>
-<p>查看某个VLAN的生成树详细信息：Switch#show spanning-tree vlan vlan-id detail</p>
-<p><strong>七、以太网端口聚合</strong></p>
-<p><img src="file:///C:%5CUsers%5Cacer%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image038.jpg" alt="img"></p>
-<p><strong>1、什么是端口聚合？</strong></p>
-<p>链路聚合又称为端口聚合，端口捆绑，英文名porttrunking。是一种聚合多个物理接口 ( that ) 创建一个逻辑接口。你可以捆扎( bundle ) 八个单独的活动链接到一个信道端口，以提供更高的<strong>带宽</strong>和<strong>冗余</strong>。端口通道也负载平衡这些物理接口上的通信量。只要端口通道中的至少一个物理接口可操作，端口通道就可以保持运行。</p>
-<p><strong>2、channel-group模式</strong></p>
-<p>PAgP 是 Cisco私有，只能在 Cisco Switch 上设定，PAgP 有两个模式，分別是 Desirable 与 Auto当 PAgP 成功建立 EtherChannel 后，PAgP Message 会继续定时传送去维持 EtherChannel。</p>
-<p>Desirable Auto</p>
-<p>Desirable  √     √  主动发送PAgP报文</p>
-<p>Auto    √     x  被动发送PAgP报文</p>
-<p>On            手动设置，需要两边都设置</p>
-<p>LACP 是 IEEE Standard</p>
-<p>Active Passive</p>
-<p>Active    √     √  主动发送LACP报文</p>
-<p>Passive    √     x  主动接收LACP报文</p>
-<p><strong>3、channel-group说明</strong></p>
-<p>（1）Cisco最多允许EtherChannel绑定8个端口；如果是百兆网络，总带宽可达1.6Gbit/s；如果是千兆网络，总带宽可达16Gbit/s。</p>
-<p>（2）EtherChannel不支持10M端口；</p>
-<p>（3）EtherChannel编号只在本地有效，链路两端的编号可以不一样；</p>
-<p>（4）EtherChannel默认使用PAgP协议；</p>
-<p>（5）EtherChannel默认情况下是基于源MAC地址的负载平衡；</p>
-<p>（6）一个EtherChannel内所有的端口都必须具有相同的端口速率和双工模式，LACP只能是全双工模式；</p>
-<p>（7）channel-group接口会自动继承最小物理接口，或最先配置的接口模式；</p>
-<p>（8）cisco的交换机不仅可以支持第二层EtherChannel,还可以支持第三层EtherChannel。</p>
-<p><strong>4、配置端口聚合</strong></p>
-<p>Switch(config)#int port-channel 1</p>
-<p>Switch(config-if)#switchport mode trunk</p>
-<p>Switch(config)#int range f0/1-2</p>
-<p>Switch(config-if-range)#channel-group 1 mode on</p>
-<p><strong>5、配置流量均衡</strong></p>
-<p>Switch(config)#int f0/1</p>
-<p>Switch(config-if)#spanning-tree vlan 10 port-priority 16</p>
-<p>Switch(config-if)#spanning-tree vlan 20 port-priority 32</p>
-<p>Switch(config)#int f0/2</p>
-<p>Switch(config-if)#spanning-tree vlan 10 port-priority 32</p>
-<p>Switch(config-if)#spanning-tree vlan 20 port-priority 16</p>
+            <h1 id="一、自动递增（auto-increment）"><a href="#一、自动递增（auto-increment）" class="headerlink" title="一、自动递增（auto_increment）"></a>一、自动递增（auto_increment）</h1><p>auto_increment是数据列的一种属性，只适用于数字类型</p>
+<p>auto_increment对应数据列必须具备not  null</p>
+<p>一个表只能有一个字段使用auto_increment</p>
+<p>将字段设置成auto_increment之后，是需要将其设置成主键/或者主键的一部分</p>
+<p>用户添加数据时，该字段的值可不用添加</p>
+<p>可在建表时可用auto_increment =n选项来指定一个自增的初始值</p>
+<p>可用alter table 表名 auto_increment =n命令来重设自增的起始值，默认的起始值、步长均是1</p>
+<h1 id="二、enun、set的应用"><a href="#二、enun、set的应用" class="headerlink" title="二、enun、set的应用"></a>二、enun、set的应用</h1><p>1、enum：枚举字符串（多选一）</p>
+<p>将可能出现的数据列举出来，实际存储的数据只能是列举出来的数据</p>
+<p>使用枚举有利于统一数据，以及节省存储空间（枚举只是存储数值，系统转换成字符串）</p>
+<p>枚举元素实际上按定义的顺序标号，从1开始，所以可以直接插入枚举元素对应的数值</p>
+<p>enum的选项对应一个数字，依次是1，2，3，4，5…，最多有65535个选项如：enum(‘a’,’b’,’c’)，如果某行的对应值为2，则选中了“b”</p>
+<p>2、set：集合字符串（多选多）</p>
+<p>定义了集合之后，不能插入集合元素之外的字符串，（可以插入多个符合条件的字符串）</p>
+<p>集合字符串实际上也是仅仅存储数值，系统自动转换成对应的字符串</p>
+<p>集合中每一个元素对应一个二进制位，被选中的为1，没选中的为0，左边为二进制中的低位，右边为高位，从右到左得到二进制结果</p>
+<p>set的每个选项值对应一个数字，依次是1，2，4，8，16…，最多有64个选项如：set(‘a’,’b’,’c’)，如果某行的对应值为5，二进制表示为：101（22+0+20=5），则选中了“a,c”</p>
+<h1 id="三、另类的insert"><a href="#三、另类的insert" class="headerlink" title="三、另类的insert"></a>三、另类的insert</h1><p>1、一条语句插入多条数据值语法：insert into  表名(字段列表)  values(值列表1),(值列表2),…</p>
+<p>2、insert…select…（须先创建目标表）语法：insert  into 表名[(字段列表)] select  字段列表  from  表名;注意：两处字段列表数量须一致，且数据类型能兼容</p>
+<p>3、create…select…（插入数据前自动根据源表所选字段构建目标表）语法：create  table  表名  select  字段列表  from  表名;</p>
+<h1 id="四、数据表的更改"><a href="#四、数据表的更改" class="headerlink" title="四、数据表的更改"></a>四、数据表的更改<img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtgoggp3j30fj092tcv.jpg" alt="img"></h1><h1 id="五、约束"><a href="#五、约束" class="headerlink" title="五、约束"></a>五、约束</h1><p>1、数据完整性：是指存储在数据库中的数据的一致性和正确性。如表中数据出现以下情况，则违反了数据完整性：</p>
+<p>教师性别输入了不是“男”或“女”的数据；</p>
+<p>在同一学校，课程编号出现重复；</p>
+<p>课程信息表中的教师编号在教师信息表中不存在；</p>
+<p>2、约束（constraint）是通过限制列中的数据、行中的数据和表之间数据来保证数据完整性的非常有效的方法。</p>
+<table>
+<thead>
+<tr>
+<th>完整性类型</th>
+<th>约 束 类 型</th>
+<th>描   述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>域完整性（针对表中字段进行约束）</td>
+<td>not null(非空)</td>
+<td>指定某列不为空</td>
+</tr>
+<tr>
+<td>default(缺省)</td>
+<td>指定某一个列中的默认数值</td>
+<td></td>
+</tr>
+<tr>
+<td>实体完整性（针对表中记录/数据进行约束）</td>
+<td>primary key(主键)</td>
+<td>每一行的惟一标识符，确保用户不能输入冗余值和确保创建索引，提高性能，不允许空值</td>
+</tr>
+<tr>
+<td>unique(唯一)</td>
+<td>防止出现冗余值，并且确保创建索引，提高性能；允许空值，但字段中的数据值不能出现重复</td>
+<td></td>
+</tr>
+<tr>
+<td>引用完整性（针对表与表之间的约束）</td>
+<td>foreign key(外键)</td>
+<td>定义一列或者几列，其值与本表或者另外一个表的主键/唯一键值匹配</td>
+</tr>
+</tbody></table>
+<p>3、约束示例</p>
+<p>创建表时创建约束</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgth0dwqhj30lh0e5abp.jpg" alt="image.png"></p>
+<p>表存在后创建约束——实质是对表结构进行修改</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgthnrtrpj30l90850to.jpg" alt="image.png"></p>
+<p>效果见下图：<img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtht1tylj30gs03kmxq.jpg" alt="img"></p>
+<p>删除表中主键、外键、唯一键</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtiarflkj30j802tglv.jpg" alt="image.png"></p>
+<h1 id="六、删除语句"><a href="#六、删除语句" class="headerlink" title="六、删除语句"></a>六、删除语句</h1><p>使用delete语句删除表中的记录（数据），可以删除指定的行或同时删除所有的行。</p>
+<p>语法：delete from 表名  [where  条件表达式];？问题：删除专业为计算机科学与技术的学生信息</p>
+<p>！思考：如果是多个条件呢？</p>
+<p>delete  from  students  where  sMajor=’计算机科学与技术’  or  sCard=’1212’;</p>
+<p>逻辑运算符：与(and)、或(or)、非（not）</p>
+<table>
+<thead>
+<tr>
+<th>not（非）</th>
+<th>如果原来条件返回true，在其之前使用not之后则返回false。如果原来条件返回false，在其之前使用not之后则返回true。</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>and（与）</td>
+<td>and运算符可以连接两个或两个以上的条件，只有当and连接的条件都为true（真）时，and返回的结果才是true（真）。如果其中有一个条件为false（假），and返回的值就是false（假）。</td>
+</tr>
+<tr>
+<td>or（或）</td>
+<td>or运算符连接的条件中只要有一个条件为true时，or返回的结果就是true。当然两个条件均为true时，or返回的结果当然是true。</td>
+</tr>
+</tbody></table>
+<p>？问题：将students表中数据全部删除</p>
+<p>语法：truncate  table  表名;</p>
+<p>补充：delete与truncate的区别</p>
+<p>delete会记录日志，意味着删除后的数据还可以恢复，但是效率低。</p>
+<p>truncate不会记录日志，删除后的数据不能恢复，但是效率高；truncate不能用于有外键约束引用的表。</p>
+<p>truncate应用场景：如果是开发一个应用程序，开始可能使用的是测试数据，当应用开发成功后，需要将真正的数据导入到数据表中，为了使自增主键从1开始，使用truncate操作数据表比较方便。</p>
+<p>注意：在表中的操作绝大部分都是记录在案的（日志），数据库实质是通过文件来存储（数据文件、日志文件）</p>
+<p>如果删除数据涉及外键引用则须注意：当主表的记录被从表参照时，主表的记录将不允许删除，如果要删除数据，需要先删除从表中依赖该记录的数据， 然后才可以删除主表的数据。（设置级联操作除外）</p>
+<p>有where子句的delete应用</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtiot0qzj30lm0k7tau.jpg" alt="image.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtj0csavj30kg0akgnp.jpg" alt="image.png"></p>
+<p>补充：</p>
+<p>语法：desc  表名;– 查看指定表结构</p>
+<p>desc  A；#语句执行结果如下所示<img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtj5qvmvj30g002dgm1.jpg" alt="image.png"></p>
+<p>show   create   table   表名;– 查看指定表定义语句</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtjl8lswj30ly06m0t5.jpg" alt="image.png"></p>
+<p>分享：</p>
+<p>1、 MySQL常用函数：<a href="https://www.cnblogs.com/progor/p/8832663.html" target="_blank" rel="noopener">https://www.cnblogs.com/progor/p/8832663.html</a></p>
+<p>2、 MyQL规约<img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtjqqj14j30fo0fon2s.jpg" alt="image.png">!<img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgtjxpzgxj30gh0e0n1r.jpg" alt="image.png"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -313,6 +285,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、自动递增（auto-increment）"><span class="toc-number">1.</span> <span class="toc-text">一、自动递增（auto_increment）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、enun、set的应用"><span class="toc-number">2.</span> <span class="toc-text">二、enun、set的应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、另类的insert"><span class="toc-number">3.</span> <span class="toc-text">三、另类的insert</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、数据表的更改"><span class="toc-number">4.</span> <span class="toc-text">四、数据表的更改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、约束"><span class="toc-number">5.</span> <span class="toc-text">五、约束</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、删除语句"><span class="toc-number">6.</span> <span class="toc-text">六、删除语句</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
