@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>认识网络 - 你好</title>
+    <title>网络安全技术——OSPF - 你好</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="
-
-认识网络物理结构图
-网络拓扑图
-网络究竟是什么？使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享
-流行设备：思科 cisco、锐捷、神州数码Huawei、H3,"> 
+    <meta name="description" content="一、OSPF概述： 
+二、链路状态路由协议 
+三、OSPF分层路由在同一个AS，通过接口划分区域，ABR（区域边界路由器）
+ 
+划分区域的好处：
+1、减少路由表的路由条目
+2、拓朴发生改变时，只影响,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -48,7 +49,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">认识网络</h3>
+        <h3 class="subtitle">网络安全技术——OSPF</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -80,22 +81,22 @@
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                December 04, 2019
+                February 01, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2019/12/04/day2/" title="认识网络">认识网络</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-网络安全技术——OSPF/" title="网络安全技术——OSPF">网络安全技术——OSPF</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    3.2k
+                    7.1k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    3 mins.
+                    6 mins.
                 </span>
                 
                 
@@ -127,65 +128,117 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <a id="more"></a>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575337109429.png" alt="1575337109429"></p>
-<h1 id="认识网络"><a href="#认识网络" class="headerlink" title="认识网络"></a>认识网络</h1><h2 id="物理结构图"><a href="#物理结构图" class="headerlink" title="物理结构图"></a>物理结构图</h2><p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575336747360.png" alt="1575336747360"></p>
-<h2 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h2><p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575337071251.png" alt="1575337071251"></p>
-<h2 id="网络究竟是什么？"><a href="#网络究竟是什么？" class="headerlink" title="网络究竟是什么？"></a>网络究竟是什么？</h2><p>使用网络设备（路由器、交换机）通过传输介质（无线/有线）连接起来，实现通信及资源共享</p>
-<p>流行设备：<br>思科 cisco、锐捷、神州数码<br>Huawei、H3C、中兴</p>
-<p>思科体系（CCNA\CCNP\CCIE R&amp;S)<br>华为（HCNA\HCNP\HCIE）</p>
-<p>开放式的标准化计算机网络<br>OSI七层网络模型   国际标准ISO7498</p>
-<p>高速网络技术阶段<br>网络以internet为代表的互联网</p>
-<p>物联网</p>
-<ul>
-<li>计算机网络按传输距离可分为三类：<ul>
-<li>局域网（Local Area Network,LAN):10-10000m</li>
-<li>城域网(Metropolitan Area Network, MAN):10-100km</li>
-<li>广域网（Wide Area Network , WAN):100km以上</li>
-</ul>
+            <h1 id="一、OSPF概述："><a href="#一、OSPF概述：" class="headerlink" title="一、OSPF概述："></a>一、OSPF概述：</h1><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgqxhh4rrj30c704emyr.jpg" alt="img"> </p>
+<h1 id="二、链路状态路由协议"><a href="#二、链路状态路由协议" class="headerlink" title="二、链路状态路由协议"></a>二、链路状态路由协议</h1><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgr8gdjzkj30bw0643zo.jpg" alt="img"> </p>
+<h1 id="三、OSPF分层路由"><a href="#三、OSPF分层路由" class="headerlink" title="三、OSPF分层路由"></a>三、OSPF分层路由</h1><p>在同一个AS，通过接口划分区域，ABR（区域边界路由器）</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgr8xg7b4j305p04a0tc.jpg" alt="img"><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgr9c3ehdj307504vgmo.jpg" alt="img"> </p>
+<p>划分区域的好处：</p>
+<p>1、减少路由表的路由条目</p>
+<p>2、拓朴发生改变时，只影响本区域的数据库</p>
+<p>3、每隔30分钟泛数据库信息（周期和触发更新），划分区域后，只在本区域泛洪</p>
+<p>4、网络设计灵活</p>
+<h1 id="四、链路状态路由的优缺点"><a href="#四、链路状态路由的优缺点" class="headerlink" title="四、链路状态路由的优缺点"></a>四、链路状态路由的优缺点</h1><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgr9nzjmcj30bn068dh6.jpg" alt="img"> </p>
+<h1 id="五、OSPF邻居状态（邻接）"><a href="#五、OSPF邻居状态（邻接）" class="headerlink" title="五、OSPF邻居状态（邻接）"></a>五、OSPF邻居状态（邻接）</h1><p><strong>1、邻居关系：Hello数据包</strong>  </p>
+<p>可使用命令debug ip ospf adj查看邻居建立的详细过程</p>
+<p>   <img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgr9yt0gvj30b007kmys.jpg" alt="img"></p>
+<p>down路由器A刚启动时，ospf处于down的状态，因为它还没有与其他路由器交换信息。它使用<a href="https://www.baidu.com/s?wd=组播地址&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">组播地址</a>224.0.0.5发送hello分组。 </p>
+<p>init  所有运行ospf的路由器收到A的hello分组时，将A加入邻居列表中，这是init状态。</p>
+<p><a href="https://www.baidu.com/s?wd=2way&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">2way</a> 收到A的hello的路由器都向A发送单播应答，A收到后，将这些路由器加入邻居列表，所有路由器都建立了双向关系，进入了<a href="https://www.baidu.com/s?wd=2way&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao" target="_blank" rel="noopener">2way</a>状态。</p>
+<p>Exstart  如果链路类型是广播网络（如以太网），接下来必须选举DR和BDR，选举结束后，路由器处于预启动Exstart状态。</p>
+<p>Exchange 然后交换链路状态数据库摘要，也就是交换DBD，这是Exchange状态。  </p>
+<p>Loading DBD交换完毕后进入Loading状态  </p>
+<p>Full路由器根据DBD发送LSR请求更新链路状态条目，对方用LSU进行响应。至此，双方都学到了路由条目，database完整，就是Full状态。</p>
+<p><strong>2.DR/BDR选取</strong></p>
+<p>​      DR:指定路由  BDR：备份指定路由</p>
+<p>（1）在多路访问网络中，DROTHER路由器只与DR与BDR建立邻接关系，DROTHER之间只建邻居关系。</p>
+<p>（2）DR与BDR有自己的组播地址：224.0.0.6</p>
+<p>（3）DR与BDR选取原则</p>
+<p>​     首要因素是时间</p>
+<p>​     其次是接口优先级（多路访问网络的接口优先级为1，点到点网络接口优先级为0。</p>
+<p>​       ip ospf priority 可以修改接口优先级，若为0则不参与DR选举</p>
+<p>​     再次是路由器ID：先比环回接口，再比物理接口</p>
+<p>（4）DR与BDR选取是非抢占的，以下情况会重选</p>
+<p>​     重启ospf进程或路由器；参与的路由器都执行clear ip ospf process命令；DR故障；</p>
+<p>OSPF接口优先级为0。</p>
+<p>（5）如果DR故障，BDR接管DR，如果BDR故障，选新的BDR</p>
+<h1 id="六、最短路径优先算法（SPF-Calculation）"><a href="#六、最短路径优先算法（SPF-Calculation）" class="headerlink" title="六、最短路径优先算法（SPF Calculation）"></a>六、最短路径优先算法（SPF Calculation）</h1><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgra9ru8cj307f03zq3d.jpg" alt="img"><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgrailzdlj307r050t9j.jpg" alt="img"> </p>
+<p>Cost=10^8/BW（b/s)</p>
+<p>metric值=所有目的地址到达本地路由器的入接口的cost值之和**** </p>
+<p>metric值=所有本地路由器到达目的地址的路由器的出接口的cost值之和</p>
+<p>也可以使用命令sh ip ospf interface loopback 0 查看接口的cost值</p>
+<p>修改接口的cost值：</p>
+<p>Router(config)#int f0/0</p>
+<p>Router(config-if)#ip ospf cost 1</p>
+<p>或Router(config-if)#bandwidth 100</p>
+<h1 id="七、配置单区域OSPF"><a href="#七、配置单区域OSPF" class="headerlink" title="七、配置单区域OSPF"></a>七、配置单区域OSPF</h1><p>Router（config)#router ospf process-id</p>
+<p>Router（config-router)#network address wildcard-mask area area-id</p>
+<h1 id="八、配置环回接口"><a href="#八、配置环回接口" class="headerlink" title="八、配置环回接口"></a>八、配置环回接口</h1><p> RID：环回口—-物理口</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgrb0gznfj30ak05iab6.jpg" alt="img"> </p>
+<h1 id="九、使用OSPF配置负载均衡"><a href="#九、使用OSPF配置负载均衡" class="headerlink" title="九、使用OSPF配置负载均衡"></a>九、使用OSPF配置负载均衡</h1><p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgrb9lwxdj30ax047dgx.jpg" alt="img"> </p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgrbfpiiyj30dl06l76w.jpg" alt="img"> </p>
+<h1 id="十：配置OSPF身份验证"><a href="#十：配置OSPF身份验证" class="headerlink" title="十：配置OSPF身份验证"></a>十：配置OSPF身份验证</h1><p><strong>1.OSPF身份验证可以基于端口、基于区域、基于虚链路进行验证。</strong></p>
+<p><strong>2.OSPF支持明文和MD5身份验证</strong></p>
+<p> <img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgrbqggslj308h03ddgc.jpg" alt="img"></p>
+<p>（1）配置明文认证</p>
+<p> R1(config-if)#ip ospf authentication-key ccie  设置明文密码，两端口密码要一致</p>
+<p>R1(config-if)#ip ospf authentication   开启接口认证</p>
+<p>R1(config)#router ospf 1</p>
+<p>R1(config-router)#area 1 authentication  开户区域认证</p>
+<p> （2）配置密码认证</p>
+<p>​    R1(config-if)#ip ospf message-digest-key 1 md5 ccie</p>
+<p>​    R1(config-if)#ip ospf authentication </p>
+<p>（3）配置区域认证</p>
+<p>R1(config-if)#ip ospf message-digest-key 1 md5 ccie</p>
+<p>R1(config-router)#area 1 authentication message-digest </p>
+<h1 id="十一、验证OSPF配置："><a href="#十一、验证OSPF配置：" class="headerlink" title="十一、验证OSPF配置："></a>十一、验证OSPF配置：</h1><p>查看是否配置ospf:sh ip protocols </p>
+<p>查看邻居表：sh ip ospf neighbor </p>
+<p>查看链路状态数据库（拓朴表）：sh ip ospf database</p>
+<p>Link ID:标识每个LSA</p>
+<p>ADV Router：指通告链路状态信息的路由器ID </p>
+<p>Age：老化时间，范围是0–60min，老化时间到达60min的LSA条目将从LSDB中删除</p>
+<p>Seq#：序列号，范围为0X80000001-0X7fffffff，序列号越大，LSA越新。为了确保LSDB的同步，OSPF每隔30min对链路状态刷新一次，序列号会自动加1。</p>
+<p>Checksum  校验和，计算除了Age字段以外的所有字段，LSA存放在LSDB中，每5min进行一次校验，以确保LSA没有损坏。</p>
+<p>Link count：通告路由器在本区域内的链路数目</p>
+<p>Tag：外部路由的标识，在route-map中，可以通过匹配tag值来定义路由策略</p>
+<p>查看路由表：sh ip route /sh ip route ospf</p>
+<p>查看ospf进程及相关信息：sh ip ospf</p>
+<p>查看运行ospf接口的信息：sh ip ospf interface f0/0</p>
+<h1 id="十二、OSPF路由手工汇总"><a href="#十二、OSPF路由手工汇总" class="headerlink" title="十二、OSPF路由手工汇总"></a>十二、OSPF路由手工汇总</h1><p>1、区域间路由汇总必须在ABR上完成</p>
+<p>2、外部路由汇总必须在ASBR上完成</p>
+<p>3、“no-advertise”参数阻止传递汇总路由</p>
+<h1 id="十三、OSPF路由协议配置实验"><a href="#十三、OSPF路由协议配置实验" class="headerlink" title="十三、OSPF路由协议配置实验"></a>十三、OSPF路由协议配置实验</h1><p>实验一要求：</p>
+<ol>
+<li><p>如图运行OSPF区域</p>
 </li>
-<li>计算机网络按传输介质可以分为两类：<ul>
-<li>有线网</li>
-<li>无线网</li>
-</ul>
+<li><p>区域1要求用OSPF明文验证</p>
 </li>
-</ul>
-<p>局域网</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341495985.png" alt="1575341495985"></p>
-<p>城域网</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341520943.png" alt="1575341520943"></p>
-<p>广域网</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341556112.png" alt="1575341556112"></p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575341579157.png" alt="1575341579157"></p>
-<h2 id="OSI七层网络参考模型"><a href="#OSI七层网络参考模型" class="headerlink" title="OSI七层网络参考模型"></a>OSI七层网络参考模型</h2><p>1.OSI七层是哪七层</p>
-<ul>
-<li>应用层：提供用户和程序的接口</li>
-<li>表示层：提供数据格式转换服务</li>
-<li>会话层：建立端连接并提供访问验证和会话管理（SESSION）——端到端的连接状态</li>
-<li>传输层：提供应用程序之间的逻辑通信（怎么去传输——选择协议）（如果是TCP协议，给数据段加上TCP头，采用TCP传输）</li>
-<li>网络层：为数据在结点之间传输创建逻辑链路，并分组转发数据（加上一个目标IP头，与前面的内容构成数据包）</li>
-<li>数据链路层：在通信的实体间建立数据链路连接（加上一个MAC地址，与前面的内容构成数据帧）</li>
-<li>物理层：为数据端设备提供原始比特流的传输的通路</li>
-</ul>
-<p>2.分层带来的好处<br>各层逻辑上分离，各层相互独立，不会相互影响<br>各层可以独立开发，上层为下层服务</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575342051823.png" alt="1575342051823"></p>
-<p>封装与解封装</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575343065901.png" alt="1575343065901"></p>
-<p>3.每层的功能？</p>
-<ul>
-<li>物理层：是OSI/RM的最低层。主要功能是完成相邻结点之间原始比特流的传输。<ul>
-<li>光纤：光信号</li>
-<li>双绞线：数字信号</li>
-</ul>
+<li><p>区域0要求用可靠的验证方式</p>
 </li>
-</ul>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344177084.png" alt="1575344177084"></p>
-<p>介质</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344206943.png" alt="1575344206943"></p>
-<p>4.双绞线的线序<br>568-A：白绿、绿、白橙、蓝、白蓝、橙、白棕、棕<br>568-B：白橙、橙、白绿、蓝、白蓝、绿、白棕、棕</p>
-<p>STP：屏蔽双绞线<br>UTP：非屏蔽双绞线</p>
-<p>双绞线的应用</p>
-<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1575344940700.png" alt="1575344940700"></p>
+<li><p>要求R4去往R1的环回从R2走</p>
+</li>
+<li><p>R1上看到去往R4的两条等价负载均衡</p>
+</li>
+</ol>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgrc77avrj30fe05sab3.jpg" alt="img"> </p>
+<p>R4(config)#router ospf 1</p>
+<p>R4(config-router)#network 44.1.1.0 0.0.0.255 area 0</p>
+<p>实验二要求：</p>
+<p>1、了解路由汇总的目的</p>
+<p>2、OSPF区域间路由汇总的配置和调试</p>
+<p>3、外部自治系统路由汇总的配置和调试</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbgrcdwn8oj30fe04oaak.jpg" alt="img"> </p>
+<p>R2(config-router)#area 1 range 172.16.0.0 255.255.252.0  配置区域间路由汇总</p>
+<p>R3(config)#router ospf 1</p>
+<p>R3(config-router)#redistribute eigrp 1 subnets 默认为 metric-type 2  OE2,Metric为20，不累加</p>
+<p>R3(config-router)#redistribute eigrp 1 metric-type 1 metric 100 subnets metric-type 1  OE1</p>
+<p>R3(config)#router eigrp 1</p>
+<p>R3(config-router)#redistribute ospf 1 metric 1000 100 255 1 1500</p>
+<p>R3(config)#router ospf 1</p>
+<p>R3(config-router)#summary-address 192.168.0.0 255.255.252.0 配置外部自治系统路由汇总</p>
+<p>在R2上看路由表，会发现有一条路由为：</p>
+<p>172.16.0.0/22 is a summary, 00:12:06, Null0</p>
+<p>为避免一路，请使用以下命令：</p>
+<p>R2(config-router)#no discard-route</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -244,7 +297,7 @@
             <div class="box sticky animated fadeInRight faster">
                 <div id="toc" class="subbox">
                     <h4>Contents</h4>
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#认识网络"><span class="toc-number">1.</span> <span class="toc-text">认识网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#物理结构图"><span class="toc-number">1.1.</span> <span class="toc-text">物理结构图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络拓扑图"><span class="toc-number">1.2.</span> <span class="toc-text">网络拓扑图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络究竟是什么？"><span class="toc-number">1.3.</span> <span class="toc-text">网络究竟是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSI七层网络参考模型"><span class="toc-number">1.4.</span> <span class="toc-text">OSI七层网络参考模型</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、OSPF概述："><span class="toc-number">1.</span> <span class="toc-text">一、OSPF概述：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、链路状态路由协议"><span class="toc-number">2.</span> <span class="toc-text">二、链路状态路由协议</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、OSPF分层路由"><span class="toc-number">3.</span> <span class="toc-text">三、OSPF分层路由</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、链路状态路由的优缺点"><span class="toc-number">4.</span> <span class="toc-text">四、链路状态路由的优缺点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、OSPF邻居状态（邻接）"><span class="toc-number">5.</span> <span class="toc-text">五、OSPF邻居状态（邻接）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#六、最短路径优先算法（SPF-Calculation）"><span class="toc-number">6.</span> <span class="toc-text">六、最短路径优先算法（SPF Calculation）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#七、配置单区域OSPF"><span class="toc-number">7.</span> <span class="toc-text">七、配置单区域OSPF</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#八、配置环回接口"><span class="toc-number">8.</span> <span class="toc-text">八、配置环回接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#九、使用OSPF配置负载均衡"><span class="toc-number">9.</span> <span class="toc-text">九、使用OSPF配置负载均衡</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十：配置OSPF身份验证"><span class="toc-number">10.</span> <span class="toc-text">十：配置OSPF身份验证</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一、验证OSPF配置："><span class="toc-number">11.</span> <span class="toc-text">十一、验证OSPF配置：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二、OSPF路由手工汇总"><span class="toc-number">12.</span> <span class="toc-text">十二、OSPF路由手工汇总</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三、OSPF路由协议配置实验"><span class="toc-number">13.</span> <span class="toc-text">十三、OSPF路由协议配置实验</span></a></li></ol>
                 </div>
             </div>
             
