@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>系统安全——samba服务器 - 你好</title>
+    <title>windows server 2008 文件管理系统 - 你好</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="TriDiamond Obsidian,"> 
-    <meta name="description" content="项目简介：
-某公司经过不断发展，公司的网络环境建设日趋完善，内部网络逐渐增多。为了使员工能方便共享不同操作系统之间的资源，将安装局域网 Samba 服务器，实现 Windows 和 Linux 资源,"> 
+    <meta name="description" content="windows server 2008 文件管理系统一、文件系统概念
+1、FAT文件系统
+  FAT16最大分区支持2.147G磁盘分区，FAT32最大支持2T磁盘分区。对于400–500MB以下的,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -44,7 +45,7 @@
     <div class="navigation animated fadeIn fast delay-1s">
         <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
         <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
-        <h3 class="subtitle">系统安全——samba服务器</h3>
+        <h3 class="subtitle">windows server 2008 文件管理系统</h3>
         <div class="social">
             <!--        <div class="like-icon">-->
             <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -76,22 +77,22 @@
                 
                 <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
                 
-                February 01, 2020
+                February 13, 2020
             </p>
-            <h3 class="post-title animated fadeInDown"><a href="/2020/02/01/2020-02-01-系统安全——samba服务器/" title="系统安全——samba服务器">系统安全——samba服务器</a>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/13/windows server 2008 文件管理系统/" title="windows server 2008 文件管理系统">windows server 2008 文件管理系统</a>
             </h3>
             
             <p class="post-count animated fadeInDown">
                 
                 <span>
                     <b class="iconfont icon-text2"></b> <i>Words count</i>
-                    2.7k
+                    4.3k
                 </span>
                 
                 
                 <span>
                     <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
-                    2 mins.
+                    4 mins.
                 </span>
                 
                 
@@ -123,58 +124,132 @@
 <div class="article">
     <div class='main'>
         <div class="content markdown animated fadeIn">
-            <p><strong>项目简介：</strong></p>
-<p><strong>某公司经过不断发展，公司的网络环境建设日趋完善，内部网络逐渐增多。为了使员工能方便共享不同操作系统之间的资源，将安装局域网 Samba 服务器，实现 Windows 和 Linux 资源的互通。服务器上的共享文件夹（/homt/company）中存放的是公司的各项规章制度，其  他部门的用户只能下载查看，只有行政部的用户可以上传和删除里面的文件。</strong></p>
-<p><strong>项目分析：</strong></p>
-<p>本项目主要完成 samba 服务器的安装，在设置并加载防火墙的基础上，利用 yum 工具安装 samba 服务器，通过建立 samba 用户并修改 samba 配置文件并启动 samba 服务。</p>
-<p><strong>项目实施：</strong></p>
-<p><strong>1、修改防火墙设置</strong></p>
-<p>#firewall-cmd    –permanent    –add-service=samba    //设置防火墙</p>
-<p>#firewall-cmd    –reload        //重新加载防火墙</p>
-<p><strong>2、安装 samba 并启动 samba 服务</strong></p>
-<p>#yum    install    -y        samba    samba-client </p>
-<p>#systemctl    start    smb.service    nmb.service</p>
-<p><strong>3、建立共享目录</strong>  mkdir /home/company</p>
-<p><strong>4、创建访问账号</strong></p>
-<p>useradd -s /sbin/nologin xzusr </p>
-<p>useradd -s /sbin/nologin gcusr </p>
-<p>useradd -s /sbin/nologin xsusr </p>
-<p>#smbpasswd -a xzusr</p>
-<p>#smbpasswd -a gcusr </p>
-<p>#smbpasswd -a xsusr</p>
-<p><strong>【smbpasswd 选项说明：-a 添加 smb 帐号；-x 删除 smb 帐号；-d 禁用 smb 帐号；-e 启用 smb 帐号】</strong></p>
-<p><strong>5、修改配置文件：/etc/samba/smb.conf</strong></p>
-<p>默认情况下，Samba 已经配置为允许用户通过远程共享访问账号的主目录。</p>
-<p>[company]    //共享名称为 company </p>
-<p>comment = company share //共享注释</p>
-<p>path = /home/company    //指定共享路径</p>
-<p>browseable = yes    //所有人可见</p>
-<p>guest ok = no    //拒绝匿名访问</p>
-<p>writeable = yes    //支持写入数据</p>
-<p>[company]</p>
-<p>comment = company share </p>
-<p>path = /home/company</p>
-<p>guest ok = no    //拒绝匿名访问</p>
-<p>valid users=xzusr,gcusr,xsusr //允许访问的用户列表</p>
-<p>write list=xzusr    //允许写入的用户列表</p>
-<p><strong>【注意：修改配置文件以后，必须重启服务（systemctl restart smb nmb）使更改生效】</strong></p>
-<p><strong>6、测试配置文件</strong></p>
-<p>testparm 当配置文件的语法出错时会给出提示，修改再次运行 testparm 测试。</p>
-<p><strong>7、测试 Samba 服务器</strong></p>
-<p>在 linux 客户端访问测试：smbclient -U smbuser //192.168.75.128/company 查看服务器的共享文件有哪些：smbclient -L 192.168.75.128</p>
-<p>查看 smbuser 用户可以访问的共享文件：smbclient -L 192.168.75.128 -U smbuser</p>
-<p><strong>8、在 Linux 下访问 Windows 共享目录的配置方法</strong></p>
-<p>（1） 在 Windows xp 上设置一个共享目录：d:\myfiles</p>
-<p>（2） 在 Linux 下安装 samba-client 客户端# yum install samba-client</p>
-<p>（3） 安装 cifs-utils 软件包</p>
-<p>#yum install cifs-utils</p>
-<p>（4） 在 Linux 下创建一个挂载点# mkdir /mnt/Windows</p>
-<p>（5） 挂载 Windows 上的共享目录 d:\myfiles 到 Linux 下的/mnt/Windows 目录下</p>
-<p>#mount -t cifs -o username=Administrator //192.168.0.3/mytest /mnt/Windows<br>Enter password: <strong>****</strong></p>
-<p>（6） 如果挂载成功，则可以进入/mnt/Windows 下进行相应操作。</p>
-<p>（7） 在/etc/fstab 文件中，加入该共享目录的挂载信息</p>
-<p>​       //192.168.1.123/redhat_disk /mnt/Windows cifs username=tommy,password=111111 0 0</p>
-<p>（8） 到此为止，Windows 上的共享目录//192.168.1.123/redhat_disk 就被成功挂载到了 Linux 上面了，并且 Linux 重启后，会自动挂载该目录到/mnt/Windows 目录下</p>
+            <h2 id="windows-server-2008-文件管理系统"><a href="#windows-server-2008-文件管理系统" class="headerlink" title="windows server 2008 文件管理系统"></a>windows server 2008 文件管理系统</h2><p><strong>一、文件系统概念</strong></p>
+<p><strong>1、FAT文件系统</strong></p>
+<p>  FAT16最大分区支持2.147G磁盘分区，FAT32最大支持2T磁盘分区。对于400–500MB以下的卷，FAT系统相对于NTFS来说是一个比较好的选择，当卷容量超过1.024GB时，效率就显得很低。</p>
+<p>缺点如下：容易受损害、单用户、非最佳更新策略、没有防止碎片的最佳措施、文件名长度受限。</p>
+<p><strong>2、NTFS文件系统</strong></p>
+<p>  NTFS是windows server 2008使用的高性能文件系统，它支持许多新的文件安全、存储和容错功能 ，而这些功能也正是FAT文件系统所缺少的。</p>
+<p><strong>（1）NTFS简介</strong></p>
+<p>安全、提供文件加密；最大支持2TB硬盘，磁盘容量增大，效率不会降低；可为文件、文件夹赋予权限；具有恢复能力；速度快；支持活动目录和域；支持磁盘配额；支持稀疏文件。 </p>
+<p><strong>（2）NTFS权限</strong></p>
+<p><strong>①标准NTFS文件权限</strong></p>
+<p>读取（read）：读取文件内容、查看文件属性与权限等。</p>
+<p>写入（write）：可以修改文件内容、在文件后面添加数据或修改文件属性等。</p>
+<p>读取和执行（Read&amp;Execute):读取权限和运行应用程序的权限。</p>
+<p>修改（Modify）：读取、写入、读取和执行，删除文件。</p>
+<p>完全控制（full control）：除了上述权限外还有更改权限与取得所有权的特殊权限。</p>
+<p><strong>②标准NTFS文件夹权限</strong></p>
+<p>读取（read）：可以查看文件夹内的文件名与子文件夹名、查看文件夹属性与权限等。</p>
+<p>写入（write）：可以在文件夹内新建文件与子文件夹，修改文件夹属性等。</p>
+<p>列出文件目录（list folder contents）：读取，遍历（traverse folder)权限即打或关闭文件夹。</p>
+<p>读取和执行（Read&amp;Execute)：同上，在继承时不同，列出文件目录只会被文件夹继承，而读取和执行会同时被文件夹与文件继承。</p>
+<p>修改（Modify）：除了拥有前面的所有权限外，还可以删除此文件夹。</p>
+<p>完全控制（full control）：除了上述权限外还有更改权限与取得所有权的特殊权限。</p>
+<p><strong>③用户的有效权限</strong></p>
+<p><strong>·NTFS权限是可以被继承的</strong></p>
+<p>   当对文件夹设置权限后，这个权限默认会被此文件夹之下的子文件夹与文件继承。可以设置继承权限还是不继承权限。</p>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbuw2ev0fkj304201yglf.jpg" alt="image.png"></p>
+<p><strong>NTFS权限是有累加性的</strong></p>
+<table>
+<thead>
+<tr>
+<th>用户或组</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户A</td>
+<td>写入</td>
+</tr>
+<tr>
+<td>业务部组</td>
+<td>读取</td>
+</tr>
+<tr>
+<td>经理组</td>
+<td>读取和执行</td>
+</tr>
+<tr>
+<td><strong>用户A最后的有效权限为：写入+读取+执行</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>·拒绝权限的优先级较高，继承来的权限其优先级比直接设置的权限低。</strong></p>
+<table>
+<thead>
+<tr>
+<th>用户或组</th>
+<th>权限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>用户A</td>
+<td>写入</td>
+</tr>
+<tr>
+<td>业务部组</td>
+<td>读取被拒绝</td>
+</tr>
+<tr>
+<td>经理组</td>
+<td>修改</td>
+</tr>
+<tr>
+<td><strong>用户A最后的有效权限为：读取被拒绝</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><img src="http://ww1.sinaimg.cn/large/007b5j3Ogy1gbuw2sepxfj307402ht8n.jpg" alt="image.png"></p>
+<p><strong>2、设置文件和文件夹的访问权限</strong></p>
+<p>  选择文件或文件夹–右击–属性–安全….</p>
+<p><strong>二、文件系统管理</strong></p>
+<p><strong>1、访问网络文件</strong></p>
+<p><strong>（1）公用文件夹</strong></p>
+<p>  Windows server 2008系统只有一个公用文件夹，每一位在本地登录的用户都可以访问这个公用文件夹。在客户端访问DC服务器的公用文件夹的方法是：开始–运行–\192.168.10.1。</p>
+<p><strong>（2）共享文件夹的创建与访问</strong></p>
+<p><strong>①创建共享文件夹</strong></p>
+<p>创建方法：右击文件夹–共享…</p>
+<p>创建条件：用户必须是Administrators、ServerOperators、PowerUsers等用户组的成员；</p>
+<p>​      如果文件夹位于NTFS分区中，用户至少要有“读取”权限；</p>
+<p>​      “用户账户控制”功能已启用（默认已启用）。</p>
+<p>用户身份：读  者–读取权限</p>
+<p>​      参与者–更改权限</p>
+<p>​      共有者–完全权限控制</p>
+<p><strong>②访问共享文件夹</strong></p>
+<p>通过网上邻居访问共享文件夹</p>
+<p>通过映射网络驱动器访问共享文件夹</p>
+<p>直接输入共享文件夹地址访问共享文件夹</p>
+<p><strong>③共享文件夹的管理</strong></p>
+<p><strong>共享文件夹的权限</strong></p>
+<p>共享权限：读取、更改、完全控制</p>
+<p>与NTFS权限结合时以最严格的权限为准</p>
+<p><strong>高级共享</strong></p>
+<p>通过高级共享可以修改共享名和共享权限</p>
+<p><strong>脱机文件</strong></p>
+<p>  如果设置了访问的共享文件为可脱机使用，那么在通过网络访问这些文件时，这些文件将会被复制一份到用户计算机的硬盘内，可以脱机使用。可通过高级共享进行设置。</p>
+<p><strong>隐藏共享文件夹</strong></p>
+<p>如果不希望用户在网上邻居中看到共享文件夹，只要在共享后加一个“$”符号就可以将它隐藏起来。</p>
+<p>​    <strong>映射驱动器</strong></p>
+<p><strong>2、创建与访问分布式文件系统</strong></p>
+<p>  分布式文件系统（Distributed File System,DFS）为整个网络上的文件系统资源提供了一个逻辑树结构，用户能够像访问本地文件一样，访问分布在网络上多个服务器上的文件。具有确保服务器负载平衡、提高文件访问的可靠性、提高文件访问效率的功能。</p>
+<p><strong>（1）创建分布式文件系统</strong></p>
+<p>开始–管理工具–服务器管理器–添加角色服务–分布式文件系统…</p>
+<p>开始–管理工开始–管理工具–DFS Managemant…</p>
+<p>配置复制</p>
+<p><strong>（2）访问分布式文件系统</strong></p>
+<p>通过网上邻居访问共享文件夹</p>
+<p>通过映射网络驱动器访问共享文件夹</p>
+<p>直接输入共享文件夹地址访问共享文件夹</p>
+<p><strong>3、利用NTFS管理数据</strong></p>
+<p><strong>（1）文件的压缩</strong></p>
+<p>NTFS压缩可以节约磁盘空间。当用户或应用程序要读写压缩文件时，系统会将文件自动解压和压缩，从而会降低性能。在NTFS分区内、分区间复制文件夹或在NTFS分区间移动文件夹时，文件或文件夹将继承目标文件夹的压缩属性。而在同一个NTFS分区内移动（剪切）文件或文件夹时，压缩属性被保留。</p>
+<p><strong>（2）加密文件系统</strong></p>
+<p>加密文件系统（Encrypting File System,EFS)提供文件加密的功能。文件加密后，只有当初对其加密的用户或被授权的用户能够读取，因此可提高文件的安全性。只有NTFS磁盘内的文件或文件夹支持加密，如果将加密文件移动到非NTFS磁盘内会被解密。文件加密与压缩无法并存。</p>
+<p><strong>（3）磁盘配额</strong></p>
+<p>  可以限制用户使用磁盘空间的大小。右击磁盘—配额—设置配额</p>
+<p><strong>（4）卷影副本</strong></p>
+<p>共享文件夹的卷影副本提供位于共享资源上的实时文件副本。通过使用共享文件夹的卷影副本，用户可以查看在过去某个时刻存在的共享文件和文件夹。手动创建与计划创建。</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls"
@@ -229,6 +304,13 @@
             </div>
             
             
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#windows-server-2008-文件管理系统"><span class="toc-number">1.</span> <span class="toc-text">windows server 2008 文件管理系统</span></a></li></ol>
+                </div>
+            </div>
             
             
         </div>
