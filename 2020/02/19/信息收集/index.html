@@ -1,0 +1,926 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>渗透测试——信息收集 - 你好</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TriDiamond Obsidian,"> 
+    <meta name="description" content="信息搜集正所谓“知己知彼，百战百胜”，信息收集就像一场战争中的“深入敌后”的一项“情报收集”任务。在开始渗透测试工作之前，我们通过要对目标使用各种工具进行信息收集工作，找出目标的漏洞和弱点，然后利用,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="你好" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link href="https://fonts.loli.net/css?family=Roboto+Mono|Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1429596_nzgqgvnmkjb.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/codemirror.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.48.4/theme/dracula.css">
+    <link rel="stylesheet" href="/css/obsidian.css">
+    <link rel="stylesheet" href="/css/ball-atom.min.css">
+</head>
+</html>
+
+<body class="loading">
+    <div class="loader">
+        <div class="la-ball-atom la-2x">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <span id="config-title" style="display:none">你好</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div class="scrollbar gradient-bg-rev"></div>
+<div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <div class="navigation animated fadeIn fast delay-1s">
+        <img id="home-icon" class="icon-home" src="/img/favicon.png" alt="" data-url="http://yoursite.com">
+        <div id="play-icon" title="Play/Pause" class="iconfont icon-play"></div>
+        <h3 class="subtitle">渗透测试——信息收集</h3>
+        <div class="social">
+            <!--        <div class="like-icon">-->
+            <!--            <a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+            <!--        </div>-->
+            <div>
+                <div class="share">
+                    
+                        <a href="javascript:;" class="iconfont icon-share1"></a>
+                        <div class="share-component-cc" data-disabled="facebook,douban,linkedin,diandian,tencent,google"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="section">
+        <div class=article-header-wrapper>
+    <div class="article-header">
+        <div class="article-cover animated fadeIn" style="
+            animation-delay: 600ms;
+            animation-duration: 1.2s;
+            background-image: 
+                radial-gradient(ellipse closest-side, rgba(0, 0, 0, 0.65), #100e17),
+                url(/img/cover.jpg);">
+        </div>
+        <div class="else">
+            <p class="animated fadeInDown">
+                
+                <a href="javascript:;"><b>「 </b>Article<b> 」</b></a>
+                
+                February 19, 2020
+            </p>
+            <h3 class="post-title animated fadeInDown"><a href="/2020/02/19/信息收集/" title="渗透测试——信息收集">渗透测试——信息收集</a>
+            </h3>
+            
+            <p class="post-count animated fadeInDown">
+                
+                <span>
+                    <b class="iconfont icon-text2"></b> <i>Words count</i>
+                    30k
+                </span>
+                
+                
+                <span>
+                    <b class="iconfont icon-timer__s"></b> <i>Reading time</i>
+                    27 mins.
+                </span>
+                
+                
+                
+                <span id="busuanzi_container_page_pv">
+                    <b class="iconfont icon-read"></b> <i>Read count</i>
+                    <span id="busuanzi_value_page_pv">0</span>
+                </span>
+                
+            </p>
+            
+            
+        </div>
+    </div>
+</div>
+
+<div class="screen-gradient-after">
+    <div class="screen-gradient-content">
+        <div class="screen-gradient-content-inside">
+            <div class="bold-underline-links screen-gradient-sponsor">
+                <p>
+                    <span class="animated fadeIn delay-1s"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="article">
+    <div class='main'>
+        <div class="content markdown animated fadeIn">
+            <h1 id="信息搜集"><a href="#信息搜集" class="headerlink" title="信息搜集"></a>信息搜集</h1><p>正所谓“知己知彼，百战百胜”，信息收集就像一场战争中的“深入敌后”的一项“情报收集”任务。在开始渗透测试工作之前，我们通过要对目标使用各种工具进行信息收集工作，找出目标的漏洞和弱点，然后利用这些漏洞和弱点进行攻击，使得渗透任务得以顺利地完成。在战争中假如你的情报收集工作出错重大错误，战士们牺牲的就是性命，由此可见，情报收集工作的重要性。</p>
+<h1 id="信息收集方法、区别及作用"><a href="#信息收集方法、区别及作用" class="headerlink" title="信息收集方法、区别及作用"></a>信息收集方法、区别及作用</h1><p>(1) 主动收集：相当于通过技术手段去侦察目标的情况，此时目标有可能记录下此次事件的信息。例如：我晚上偷偷摸摸地去小明家里，去查看他家用的是什么品牌保险柜？然后记录下收集到的信息。对于这种情况小明家里可能会有摄像头记录下我的行为。</p>
+<p>(2) 被动收集：相当于通过技术手段去收集目标遗留的信息，此时目标并不能感知事件的发生。例如：小明在某个论坛中留下了自己的生日、年龄、学号等信息，根据收集到的信息生成字典，对小明的保险箱进行密码破解。对于这种情况小明又怎么可能发现我在收集他的信息呢。</p>
+<p><img src="C:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200209081108802.png" alt="image-20200209081108802"></p>
+<h2 id="信息收集的具体实施方法："><a href="#信息收集的具体实施方法：" class="headerlink" title="信息收集的具体实施方法："></a>信息收集的具体实施方法：</h2><h1 id="1-域名信息收集"><a href="#1-域名信息收集" class="headerlink" title="1.    域名信息收集"></a>1.    域名信息收集</h1><h2 id="1-1-主域名信息收集"><a href="#1-1-主域名信息收集" class="headerlink" title="1.1 主域名信息收集"></a>1.1 主域名信息收集</h2><p>知道目标的域名之后，我们要做的第一件事就是获取域名的注册信息，包括该域名的DNS服务器信息和注册人的联系信息等。域名信息收集的常用方法为以下几种：</p>
+<h3 id="1-1-1-Whois查询："><a href="#1-1-1-Whois查询：" class="headerlink" title="1.1.1 Whois查询："></a>1.1.1 Whois查询：</h3><p> 可以使用kali中的whois命令： 比如#whois <a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br> 在线Whois查询网站有：爱站（<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwhois.aizhan.com" target="_blank" rel="noopener">https://whois.aizhan.com</a>）,站长之家（<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fwhois.chinaz.com" target="_blank" rel="noopener">https://whois.chinaz.com</a>）等，通过这些网站可以查询域名的相关信息，如域名拥有者，域名服务商，以及他们的电话，邮箱，地址等</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbr2cp3ho8j30xm0nh75x.jpg" alt="image.png"></p>
+<h3 id="1-1-2备案信息查询："><a href="#1-1-2备案信息查询：" class="headerlink" title="1.1.2备案信息查询："></a>1.1.2备案信息查询：</h3><p> 若是网站搭建在国内，则会按照法律法规对网站进行备案<br> 天眼查：<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.tianyancha.com" target="_blank" rel="noopener">http://www.tianyancha.com</a><br> ICP备案查询网：<a href="https://links.jianshu.com/go?to=http%3A%2F%2Fwww.beianbeian.com" target="_blank" rel="noopener">http://www.beianbeian.com</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbr2i7g6l4j30vo05qmxf.jpg" alt="image.png"></p>
+<h2 id="1-2-子域名信息收集"><a href="#1-2-子域名信息收集" class="headerlink" title="1.2 子域名信息收集"></a>1.2 子域名信息收集</h2><h3 id="1-2-1-子域名检测工具"><a href="#1-2-1-子域名检测工具" class="headerlink" title="1.2.1    子域名检测工具"></a>1.2.1    子域名检测工具</h3><pre><code>Layer子域名挖掘机，</code></pre><p>​    <img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbr2p4v4xfj31hk0t4aem.jpg" alt="image.png"></p>
+<p>​    <a href="https://phpinfo.me/domain/" target="_blank" rel="noopener">https://phpinfo.me/domain/</a>](<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fphpinfo.me%2Fdomain%2F%5D(https%3A%2F%2Fphpinfo.me%2Fdomain%2F)" target="_blank" rel="noopener">https://links.jianshu.com/go?to=https%3A%2F%2Fphpinfo.me%2Fdomain%2F%5D(https%3A%2F%2Fphpinfo.me%2Fdomain%2F)</a>)</p>
+<p>​    K8，</p>
+<p>​        wydomain，</p>
+<p>​        Sublist3r，</p>
+<p>​        dnsmaper，</p>
+<p>​        subDomainsBrute，</p>
+<p>​        Maltego CE </p>
+<h3 id="1-2-2-在线查询"><a href="#1-2-2-在线查询" class="headerlink" title="1.2.2    在线查询"></a>1.2.2    在线查询</h3><p>千寻：<a href="https://www.dnsscan.cn/dns.html" target="_blank" rel="noopener">https://www.dnsscan.cn/dns.html</a></p>
+<p>站长之家：<a href="http://tool.chinaz.com/subdomain/?domain=baidu.com" target="_blank" rel="noopener">http://tool.chinaz.com/subdomain/?domain=baidu.com</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbr32bij0aj30oq0hjdgm.jpg" alt="image.png"></p>
+<h3 id="1-2-2-搜索引擎枚举"><a href="#1-2-2-搜索引擎枚举" class="headerlink" title="1.2.2    搜索引擎枚举"></a>1.2.2    搜索引擎枚举</h3><p>​        可以利用的google搜索语法。</p>
+<pre><code>site:xxx.com</code></pre><blockquote>
+<p>列如：搜索百度旗下的子域名就可以使用“site:baidu.com”语法。</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbr3a9wlmtj30ou0l7go7.jpg" alt="image.png"></p>
+<h3 id="1-2-3-第三方聚合应用枚举"><a href="#1-2-3-第三方聚合应用枚举" class="headerlink" title="1.2.3    第三方聚合应用枚举"></a>1.2.3    第三方聚合应用枚举</h3><p>​            在线DNS侦察和搜索的工具</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(1) DNSdumpster：https://dnsdumpster.com/ </span><br><span class="line"></span><br><span class="line">(2) VirusTotal：https://www.virustotal.com/<span class="comment">#/home/search</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbr3dl3pdyj31gj0qh467.jpg" alt="image.png"></p>
+<p><img src="C:%5CUsers%5Cdell%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200209091311033.png" alt="image-20200209091311033"></p>
+<h3 id="1-2-4-证书透明度公开日志枚举"><a href="#1-2-4-证书透明度公开日志枚举" class="headerlink" title="1.2.4     证书透明度公开日志枚举"></a>1.2.4     证书透明度公开日志枚举</h3><p>​        [Crt.sh][<a href="http://crt.sh]" target="_blank" rel="noopener">http://crt.sh]</a></p>
+<p>​        [censys][<a href="https://censys.io]" target="_blank" rel="noopener">https://censys.io]</a></p>
+<p>​        [子域名爆破网站][<a href="https://phpinfo.me/domain]" target="_blank" rel="noopener">https://phpinfo.me/domain]</a></p>
+<p>​        [Ip反查绑定域名网站][<a href="http://dns.aizhan.com]" target="_blank" rel="noopener">http://dns.aizhan.com]</a> 等等</p>
+<p>列如：通过子域名枚举工具，对目标网站进行子域名收集收集，发现一处名为admin.xxx.com的管理后台，并尝试进行弱口令暴力破解攻击成功。进入后台后，发现高危漏洞，getshell成功。</p>
+<h1 id="2-网络信息搜集"><a href="#2-网络信息搜集" class="headerlink" title="2.网络信息搜集"></a>2.网络信息搜集</h1><h2 id="2-1-C段IP信息收集"><a href="#2-1-C段IP信息收集" class="headerlink" title="2.1 .    C段IP信息收集"></a>2.1 .    C段IP信息收集</h2><p>这里的C段指的是并非网络中的C类地址，而是C类地址中子网掩码为255.255.255.0/24中的IP地址段，共254个。对于某些中大型厂商通过有可能使用的是自建的托管机房，他们的业务通常部署在同一个C类地址子网中，这就给了我们可以利用的空间了。</p>
+<p>就好像我们家里的路由器一样，当我破解了一个邻居的wifi密码后，接收他的网络，这个时候我就能使用监听工具，对他所发出/接收的数据进行拦截监听，从中获取得相关的账号、密码及信息，当然也有其它的方法和思路可以获取目标服务器的数据或权限。例如：C段中的业务系统与目标服务器的业务系统有关联，使用的是同一个数据库，那么就有可能直接获取到目标服务器的信息了。</p>
+<p>能够查询C段的工具有很多，在此不一一介绍，我最常用的还是nmap。假如我们能够查询到目标网络的C段IP都是开放的。这时候我们就得找一此比较薄弱的IP来重新进行信息收集工作了。</p>
+<p>案例：在渗透测试测试中，未能在目标服务器寻找到高危漏洞，然后将思路转变到子网中的其它服务器中，此时我们在获得权限的子网。</p>
+<h3 id="2-1-1-namp扫描"><a href="#2-1-1-namp扫描" class="headerlink" title="2.1.1    namp扫描"></a>2.1.1    namp扫描</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">namp 192.168.0.1/24</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-1-2-在线c段扫描"><a href="#2-1-2-在线c段扫描" class="headerlink" title="2.1.2    在线c段扫描"></a>2.1.2    在线c段扫描</h3><p><a href="https://phpinfo.me/bing.php" target="_blank" rel="noopener">https://phpinfo.me/bing.php</a></p>
+<h2 id="2-2-获取目标的真实ip"><a href="#2-2-获取目标的真实ip" class="headerlink" title="2.2     获取目标的真实ip"></a>2.2     获取目标的真实ip</h2><p>​        服务器真实IP、是否有C段IP或B段IP；如果没有CDN的情况下，可以直接ping获取服务器真实IP，如果有CDN的情况下，可以通过以下方法获取：</p>
+<h2 id="查询真实IP？"><a href="#查询真实IP？" class="headerlink" title="查询真实IP？"></a>查询真实IP？</h2><h3 id="什么是CND？"><a href="#什么是CND？" class="headerlink" title="什么是CND？"></a>什么是CND？</h3><h3 id="内容分发式服务"><a href="#内容分发式服务" class="headerlink" title="内容分发式服务"></a>内容分发式服务</h3><p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbr3xh4oznj30as0cx0un.jpg" alt="image.png"></p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1582015201323.png" alt="1582015201323"></p>
+<p><img src="C:%5CUsers%5Cacer%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5C1582015213026.png" alt="1582015213026"></p>
+<h2 id="CDN的优势？"><a href="#CDN的优势？" class="headerlink" title="CDN的优势？"></a>CDN的优势？</h2><p>隐藏源主机ip，降低延迟，提高服务响应速度，增加网络冗余，减小主机服务器压力。</p>
+<h3 id="2-2-1-判断目标是否使用了CDN"><a href="#2-2-1-判断目标是否使用了CDN" class="headerlink" title="2.2.1.    判断目标是否使用了CDN"></a>2.2.1.    判断目标是否使用了CDN</h3><p>判断目标是否使用了CDN</p>
+<p>1.利用在线网站:</p>
+<p><a href="http://www.17ce.com" target="_blank" rel="noopener">http://www.17ce.com</a></p>
+<p>http:/ping.chinaz.com/</p>
+<p>http:/ping.aizhan.com/<br> <a href="http://ce.cloud.360.cn/" target="_blank" rel="noopener">http://ce.cloud.360.cn/</a></p>
+<p>进行全国多地区的ping服务器操作</p>
+<p>然后对比每个地区ping出的ip结果，查看这些ip是否一致，如果都是一样的，极有可能不存在CDN。</p>
+<p>如果ip大多不太一样或者规律性很强，可以尝试查询这些ip的归属地，判断是否存在CDN</p>
+<p>2.判断是否存在CDN。使用 nslookup 进行检测，原理同上，如果返回域名解析对应多个 IP 地址多半是使用了 CDN。</p>
+<p>有 CDN 的示例：</p>
+<figure class="highlight plain"><figcaption><span>www.163.com</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;nslookup www.163.com</span><br><span class="line">•服务器:  public1.114dns.com</span><br><span class="line"></span><br><span class="line">•Address:  114.114.114.114</span><br><span class="line"></span><br><span class="line">•非权威应答:</span><br><span class="line"></span><br><span class="line">•名称:    163.xdwscache.ourglb0.com</span><br><span class="line"></span><br><span class="line">•Addresses:  58.223.164.86  </span><br><span class="line"></span><br><span class="line">•          125.75.32.252</span><br><span class="line"></span><br><span class="line">•Aliases:  www.163.com  </span><br><span class="line"></span><br><span class="line">•    www.163.com.lxdns.com</span><br></pre></td></tr></table></figure>
+
+<p>无 CDN 的示例：</p>
+<figure class="highlight plain"><figcaption><span>xiaix.me</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;nelookup xiaix.me</span><br><span class="line">•服务器:  public1.114dns.com</span><br><span class="line"></span><br><span class="line">•Address:  114.114.114.114</span><br><span class="line"></span><br><span class="line">•非权威应答:</span><br><span class="line"></span><br><span class="line">•名称:    xiaix.me</span><br><span class="line"></span><br><span class="line">•Address:  192.3.168.172  </span><br><span class="line"></span><br><span class="line">•0.0.0.0 255.255.255.255</span><br></pre></td></tr></table></figure>
+
+<p>3.使用各种在线工具帮助检测目标网站是否使用了CDN</p>
+<p><a href="http://www.cdnplanet.com/tools/cdnfinder/" target="_blank" rel="noopener">http://www.cdnplanet.com/tools/cdnfinder/</a></p>
+<p><a href="http://www.ipip.net/ip.html" target="_blank" rel="noopener">http://www.ipip.net/ip.html</a></p>
+<h3 id="2-2-2绕过CDN查找真实ip"><a href="#2-2-2绕过CDN查找真实ip" class="headerlink" title="2.2.2绕过CDN查找真实ip"></a>2.2.2绕过CDN查找真实ip</h3><p>1.内部邮件邮件源ip</p>
+<p>通过目标网站用户注册或者RSS订阅功能，查看邮件，寻找邮件头中的邮件服务器域名IP，ping邮件服务器的域名，就可以获得目标的真实ip,注意：，必须是目标自己的邮件服务器，第三方或者公共邮件服务器是没有用的。</p>
+<p>以qq邮箱为列：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkBm001EdVwiadbKYN8z4Ncjv1IJrPujAkH0NGyfiaSTdia9KpdoELibTcWg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkk8HtuY3sPv3VbLxJo3TDaaBric8pTaY1Lic4cjX6nCVMYzwicTos6NTTmw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkAQE2sDWs0Xs3xxy1Cx4LFTOyuYMib9ryDviaLbjRaYAToWYtQaumxsibA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>2.网站漏洞查找</p>
+<p>1）目标敏感文件泄露，例如：phpinfo之类的探针、GitHub信息泄露等。</p>
+<p>2）XSS盲打，命令执行反弹shell，SSRF等。</p>
+<p>3）无论是用社工还是其他手段，拿到了目标网站管理员在CDN的账号，从而在从CDN的配置中找到网站的真实IP。</p>
+<p>3.查询子域名</p>
+<p>由于目标服务可能在主站上做好了相应的CDN，但是由于种种原因二级域名没有做，这时我们可以从这个方面入手进行查询。</p>
+<p>1）微步在线(<a href="https://x.threatbook.cn/" target="_blank" rel="noopener">https://x.threatbook.cn/</a>)</p>
+<p>2）Dnsdb查询法。(<a href="https://dnsdb.io/zh-cn/)黑客只需输入baidu.com" target="_blank" rel="noopener">https://dnsdb.io/zh-cn/)黑客只需输入baidu.com</a> type:A就能收集百度的子域名和ip了</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkpJMicQoo359wGSbXEBYxVTqzUORrdQPopVUyR8J9iaLBQEYaVOb3ficgw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>3）Google 搜索Google site:baidu.com -www就能查看除www外的子域名，</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkticPOu2NsN6SaUpputHHsop6B9R6jUxlCUsiaWUDqq2TmicSNsr06k4hw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>4.国外访问</p>
+<p>代理网站App Synthetic Monitor（<a href="https://asm.ca.com/en/ping.php）" target="_blank" rel="noopener">https://asm.ca.com/en/ping.php）</a></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkRNBEWXdVFj56w55E7ia6bZChcmKPiaNaR6V6JMAbX599G11hcB1LI8xA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>5.查询域名的解析记录：</p>
+<p>查看 IP 与 域名绑定的历史记录，可能会存在使用 CDN 前的记录，相关查询网站有：</p>
+<p><a href="https://dnsdb.io/zh-cn/" target="_blank" rel="noopener">https://dnsdb.io/zh-cn/</a> ###DNS查询 </p>
+<p><a href="https://x.threatbook.cn/" target="_blank" rel="noopener">https://x.threatbook.cn/</a> ###微步在线</p>
+<p><a href="http://toolbar.netcraft.com/site_report?url=" target="_blank" rel="noopener">http://toolbar.netcraft.com/site_report?url=</a> ###在线域名信息查询</p>
+<p> <a href="http://viewdns.info/" target="_blank" rel="noopener">http://viewdns.info/</a> ###DNS、IP等查询 </p>
+<p><a href="https://tools.ipip.net/cdn.php" target="_blank" rel="noopener">https://tools.ipip.net/cdn.php</a> ###CDN查询IP，也可以大致分析出目标的真实IP段。</p>
+<p>利用SecurityTrails平台，攻击者就可以精准的找到真实原始IP。他们只需在搜索字段中输入网站域名，然后按Enter键即可，这时“历史数据”就可以在左侧的菜单中找到。</p>
+<p>如何寻找隐藏在CloudFlare或TOR背后的真实原始IP</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkh0SESIzibNnrABwqkib4mD5H2ia7WKwP3GTof5FhqicBkGl5BPamL0jlSA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>除了过去的DNS记录，即使是当前的记录也可能泄漏原始服务器IP。例如，MX记录是一种常见的查找IP的方式。如果网站在与web相同的服务器和IP上托管自己的邮件服务器，那么原始服务器IP将在MX记录中。</p>
+<p>6.App</p>
+<p>如果目标网络站有自己的App 可以尝试通过利用fiddler或Burp Suite抓取App的请求，从里面找到目标的真实ip</p>
+<p>7.网络空间引擎搜索法</p>
+<p>常见的有以前的钟馗之眼，shodan，fofa搜索。以fofa为例，只需输入：title:“网站的title关键字”或者body：“网站的body特征”就可以找出fofa收录的有这些关键字的ip域名，很多时候能获取网站的真实ip，</p>
+<p>8.绕过CloudFlare CDN查找真实ip:</p>
+<p>在线网站查询cloud Flarewatch (<a href="http://www.crimeflare.us/cfs.xhrml#box)(需要翻墙)" target="_blank" rel="noopener">http://www.crimeflare.us/cfs.xhrml#box)(需要翻墙)</a></p>
+<h3 id="2-2-3-验证ip"><a href="#2-2-3-验证ip" class="headerlink" title="2.2.3    验证ip"></a>2.2.3    验证ip</h3><p>借助工具批量扫描对应ip段所有开了的80，443，8080端口的ip，</p>
+<p>如借助工具：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkYvD4AV7074Eg6QibqY2Z1wMfaEwo7RjmeASGsD08BaCH7bBYJczbeZA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p>然后逐个尝试ip访问，观察相应是否为目标站点。</p>
+<p>密码攻击： <a href="https://www.bugku.com/mima/" target="_blank" rel="noopener">https://www.bugku.com/mima/</a> </p>
+<h1 id="3-服务器信息"><a href="#3-服务器信息" class="headerlink" title="3.服务器信息"></a>3.服务器信息</h1><h2 id="3-1操作系统判断"><a href="#3-1操作系统判断" class="headerlink" title="3.1操作系统判断"></a>3.1操作系统判断</h2><p>1.判断是Linux还是Windows最简单就是通过ping来探测，Windows的TTL值都是一般是128，Linux则是64。所以大于100的肯定是Windows，而几十的肯定是Linux。</p>
+<p>2.通过大小写的敏感字，Windows大小写不敏感，Linux大小写敏感。</p>
+<p>表现如<a href="http://www.xxxx.com/index.php和www.xxxx.com/index.phP打开的一样就说明是Windows" target="_blank" rel="noopener">www.xxxx.com/index.php和www.xxxx.com/index.phP打开的一样就说明是Windows</a></p>
+<p>3.对服务器进行扫描：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Nmap -O xx.xx.xx.xx</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2主机扫描及端口信息"><a href="#3-2主机扫描及端口信息" class="headerlink" title="3.2主机扫描及端口信息"></a>3.2主机扫描及端口信息</h2><p>收集常用端口信息</p>
+<p>常用的工具：</p>
+<p>NMAP</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1g59vctfg3xj311k7f5x6p.jpg" alt="img"></p>
+<p>无状态的扫描工具Masscan </p>
+<p>Zmap </p>
+<p>御剑高速TCP端口扫描</p>
+<p>1.NMAP</p>
+<p>对端口进行扫描</p>
+<p>扫描某一目标地址的指定端口如：21，22，23，80 端口</p>
+<p>如果不需要对目标主机进行全端口扫描，只想探测它是否开放了某一端口，那么使用-p参数指定端口号，将大大提升扫描速度。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap 192.168.0.100 -p 21,22,23,80</span><br></pre></td></tr></table></figure>
+
+<p>目标地址的操作系统指纹识别</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O 192.168.0.105</span><br></pre></td></tr></table></figure>
+
+<p>目标地址提供的服务版本检测</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV 192.168.0.100</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>无状态的扫描工具：</li>
+</ol>
+<p>Masscan （可以扫描全网）</p>
+<p>使用方法</p>
+<p>masscan -p0-65535 28.41.0.0/16 –banners –rate 100000000</p>
+<p>masscan –ping 28.41.0.0/16 –rate 1000000 #主机存活</p>
+<p>默认情况下，Masscan扫描速度为每秒100个数据包</p>
+<p>Zmap</p>
+<p>kali安装命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zmap</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，ZMap会对于指定端口实施尽可能大速率的TCP SYN扫描。较为保守的情况下，对10,000个随机的地址的80端口以10Mbps的速度扫描，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zmap--bandwidth=10M--target-port=80--max-targets=10000--output-file=results.csv</span><br></pre></td></tr></table></figure>
+
+<p>或者更加简洁地写成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zmap-B10M-p80-n10000-o results.csv</span><br></pre></td></tr></table></figure>
+
+<p>ZMap也可用于扫描特定子网或CIDR地址块。例如，仅扫描10.0.0.0/8和192.168.0.0/16的80端口，运行指令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zmap-p80-o results.csv10.0.0.0/8192.168.0.0/16</span><br></pre></td></tr></table></figure>
+
+<p>如果扫描进行的顺利，ZMap会每秒输出类似以下内容的状态更新：</p>
+<ol>
+<li><code>0%(1h51mleft);send:28777562Kp/s(560Kp/s avg);recv:1192248p/s(231p/s avg);hits:0.04%</code></li>
+<li><code>0%(1h51mleft);send:34320554Kp/s(559Kp/s avg);recv:1442249p/s(234p/s avg);hits:0.04%</code></li>
+<li><code>0%(1h50mleft);send:39676535Kp/s(555Kp/s avg);recv:1663220p/s(232p/s avg);hits:0.04%</code></li>
+<li><code>0%(1h50mleft);send:45372570Kp/s(557Kp/s avg);recv:1890226p/s(232p/s avg);hits:0.04%</code></li>
+</ol>
+<p>这些更新信息提供了扫描的即时状态并表示成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">完成进度%(剩余时间);send:发出包的数量即时速率(平均发送速率);recv:接收包的数量接收率(平均接收率);hits:命中率</span><br></pre></td></tr></table></figure>
+
+<p>如果您不知道您所在网络能支持的扫描速率，您可能要尝试不同的扫描速率和带宽限制直到扫描效果开始下降，借此找出当前网络能够支持的最快速度。</p>
+<p>3.御剑高速TCP端口扫描</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/XWPpvP3nWa88XowqLFvicSjQ9fic9rqkkkYvD4AV7074Eg6QibqY2Z1wMfaEwo7RjmeASGsD08BaCH7bBYJczbeZA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="img"></p>
+<p><a href="https://github.com/foryujian/yujianportscan" target="_blank" rel="noopener">https://github.com/foryujian/yujianportscan</a> 解压密码：1</p>
+<p>常用端口及说明，以及攻击方向汇总。</p>
+<p>——————文件共享服务端口</p>
+<table>
+<thead>
+<tr>
+<th>端口</th>
+<th>端口说明</th>
+<th>攻击方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>21/22/69</td>
+<td>FTP/TFTP文件传输协议</td>
+<td>允许匿名的上传，下载，爆破和嗅探操作。</td>
+</tr>
+<tr>
+<td>2049</td>
+<td>NFS服务</td>
+<td>配置不当</td>
+</tr>
+<tr>
+<td>139</td>
+<td>sanmba服务</td>
+<td>爆破，未授权访问，远程代码执行</td>
+</tr>
+<tr>
+<td>389</td>
+<td>ldap目录访问协议</td>
+<td>注入，允许匿名访问，弱口令</td>
+</tr>
+</tbody></table>
+<p>——————远程连接服务器端口</p>
+<table>
+<thead>
+<tr>
+<th>端口</th>
+<th align="left">端口说明</th>
+<th>攻击方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>22</td>
+<td align="left">SSH远程连接</td>
+<td>爆破，shh隧道及内网代理转发，文件传输</td>
+</tr>
+<tr>
+<td>23</td>
+<td align="left">telnet</td>
+<td>爆破，嗅探，弱口令</td>
+</tr>
+<tr>
+<td>3389</td>
+<td align="left">rdp远程桌面连接</td>
+<td>shift后门 （需要win server 2003 以下的系统），爆破。</td>
+</tr>
+<tr>
+<td>5900</td>
+<td align="left">vnc</td>
+<td>弱口令爆破</td>
+</tr>
+<tr>
+<td>5632</td>
+<td align="left">pyanywhere服务</td>
+<td>抓密码，代码执行。</td>
+</tr>
+</tbody></table>
+<p>————WEB应用服务端口</p>
+<table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>端口说明</th>
+<th>攻击方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>80/443/8080</td>
+<td>常见的web服务端口</td>
+<td>web攻击，爆破，对应用服务器版本漏洞</td>
+</tr>
+<tr>
+<td>7001/7002</td>
+<td>weblogic控制台</td>
+<td>java反序列化，弱口令</td>
+</tr>
+<tr>
+<td>8080/8089</td>
+<td>jboss/resin/jetty/jendkins</td>
+<td>反序列化，控制台弱口令</td>
+</tr>
+<tr>
+<td>9090</td>
+<td>websphere控制台</td>
+<td>java反序列化，弱口令</td>
+</tr>
+<tr>
+<td>4848</td>
+<td>glassfish控制台</td>
+<td>弱口令</td>
+</tr>
+<tr>
+<td>1352</td>
+<td>lotus domino邮件服务</td>
+<td>弱口令，信息泄露，爆破</td>
+</tr>
+<tr>
+<td>10000</td>
+<td>webmin-web控制面板</td>
+<td>弱口令</td>
+</tr>
+</tbody></table>
+<p>————数据库服务端口</p>
+<table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>端口说明</th>
+<th>攻击方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3306</td>
+<td>mysql</td>
+<td>注入，提权，爆破</td>
+</tr>
+<tr>
+<td>1433</td>
+<td>mssql数据库</td>
+<td>注入，提权，sa弱口令，爆破</td>
+</tr>
+<tr>
+<td>1521</td>
+<td>oracle数据库</td>
+<td>tns爆破，注入，反弹shell</td>
+</tr>
+<tr>
+<td>5432</td>
+<td>postgresql 数据库</td>
+<td>爆破，注入，弱口令</td>
+</tr>
+<tr>
+<td>27017/27018</td>
+<td>mongodb</td>
+<td>爆破，未授权访问</td>
+</tr>
+<tr>
+<td>6379</td>
+<td>redis数据库</td>
+<td>可尝试未授权访问，弱口令爆破</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>sysbase/db2数据库</td>
+<td>爆破，注入。</td>
+</tr>
+</tbody></table>
+<p>————邮件服务端口</p>
+<table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>端口说明</th>
+<th>攻击方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>25</td>
+<td>smtp邮件服务</td>
+<td>邮件伪造</td>
+</tr>
+<tr>
+<td>110</td>
+<td>pop3协议</td>
+<td>爆破，嗅探</td>
+</tr>
+<tr>
+<td>143</td>
+<td>imap协议</td>
+<td>爆破</td>
+</tr>
+</tbody></table>
+<p>————网络协议端口</p>
+<table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>端口说明</th>
+<th>攻击方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>53</td>
+<td>dns域名系统</td>
+<td>允许区域传送，dns劫持，缓存投毒，欺骗</td>
+</tr>
+<tr>
+<td>67/68</td>
+<td>dhcp服务</td>
+<td>劫持，欺骗</td>
+</tr>
+<tr>
+<td>161</td>
+<td>snmp服务</td>
+<td>爆破，搜索目标内网信息。</td>
+</tr>
+</tbody></table>
+<p>————特殊服务端口</p>
+<table>
+<thead>
+<tr>
+<th>端口号</th>
+<th>端口说明</th>
+<th>攻击方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2181</td>
+<td>zookeeper服务</td>
+<td>未授权访问</td>
+</tr>
+<tr>
+<td>8069</td>
+<td>zabbix服务</td>
+<td>远程执行，sql注入</td>
+</tr>
+<tr>
+<td>9200/9300</td>
+<td>elasticsearch服务</td>
+<td>远程执行</td>
+</tr>
+<tr>
+<td>11211</td>
+<td>memcache服务</td>
+<td>未授权访问</td>
+</tr>
+<tr>
+<td>512/513/514</td>
+<td>linux rexes服务</td>
+<td>爆破，rlogin登录</td>
+</tr>
+<tr>
+<td>873</td>
+<td>rsync服务</td>
+<td>匿名访问，文件上传</td>
+</tr>
+<tr>
+<td>3690</td>
+<td>svn服务</td>
+<td>svn泄露，未授权访问</td>
+</tr>
+<tr>
+<td>50000</td>
+<td>sap management console</td>
+<td>远程执行</td>
+</tr>
+</tbody></table>
+<h2 id="3-3-探测防火墙状态"><a href="#3-3-探测防火墙状态" class="headerlink" title="3.3    探测防火墙状态"></a>3.3    探测防火墙状态</h2><p>1.利用FIN扫描的方式探测防火墙的状</p>
+<p><code>nmap-sF-T4192.168.0.100</code></p>
+<p>FIN扫描用于识别端口是否关闭，收到RST回复说明该端口关闭，否则就是open或filtered状态</p>
+<p>2.利用kali下的wafw00f 也可对目标站点进行探测。</p>
+<p><img src="https://image.3001.net/images/20190924/1569320071_5d89ec878d3c3.png!small" alt="image.png"></p>
+<h1 id="4-应用信息"><a href="#4-应用信息" class="headerlink" title="4.    应用信息"></a>4.    应用信息</h1><p>CMS信息，中间件、Web容器、Web服务器指纹：默认文件或路径、报错信息、HTTP Response信息、</p>
+<p>Chrome Wappalyzer插件等其他指纹识别工具；</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbrayfkqpbj30i40e3t94.jpg" alt="image.png"></p>
+<h2 id="4-1-指纹识别"><a href="#4-1-指纹识别" class="headerlink" title="4.1    指纹识别"></a>4.1    指纹识别</h2><h3 id="常见的CMS有："><a href="#常见的CMS有：" class="headerlink" title="常见的CMS有："></a>常见的CMS有：</h3><p>  Dedecms （织梦），Discuz，PHPWEB，PHPWind，PHPCMS，ECShop，</p>
+<p>  Dvbbs，SiteWeaver，ASPCMS，帝国，Z-Blog，WordPress等。</p>
+<h3 id="1-扫描工具"><a href="#1-扫描工具" class="headerlink" title="1.    扫描工具"></a>1.    扫描工具</h3><p>御剑web指纹识别，whatweb，webRobo，椰树，轻量web指纹识别等</p>
+<h3 id="2-在线查询CMS，"><a href="#2-在线查询CMS，" class="headerlink" title="2.    在线查询CMS，"></a>2.    在线查询CMS，</h3><p>[BugScaner][<a href="http://whatweb.bugscaner.com/look/]" target="_blank" rel="noopener">http://whatweb.bugscaner.com/look/]</a></p>
+<p>[云悉指纹][<a href="http://www.yunsee.cn/finger.html]" target="_blank" rel="noopener">http://www.yunsee.cn/finger.html]</a></p>
+<p>[whatweb][<a href="https://whatweb.net/]" target="_blank" rel="noopener">https://whatweb.net/]</a></p>
+<p>列如：<a href="http://www.youdiancms.com/" target="_blank" rel="noopener">http://www.youdiancms.com/</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbradxspppj30qb0fm0t5.jpg" alt="image.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbragddxnkj30kd0lun3v.jpg" alt="image.png"></p>
+<h1 id="5-收集敏感信息"><a href="#5-收集敏感信息" class="headerlink" title="5.收集敏感信息"></a>5.收集敏感信息</h1><h4 id="•收集数据库文件"><a href="#•收集数据库文件" class="headerlink" title="•收集数据库文件"></a>•收集数据库文件</h4><h4 id="•SQL注入"><a href="#•SQL注入" class="headerlink" title="•SQL注入"></a>•SQL注入</h4><h4 id="•配置信息"><a href="#•配置信息" class="headerlink" title="•配置信息"></a>•配置信息</h4><h4 id="•源代码泄露"><a href="#•源代码泄露" class="headerlink" title="•源代码泄露"></a>•源代码泄露</h4><h4 id="•未授权访问"><a href="#•未授权访问" class="headerlink" title="•未授权访问"></a>•未授权访问</h4><h4 id="•Robots-txt"><a href="#•Robots-txt" class="headerlink" title="•Robots.txt"></a>•Robots.txt</h4><h4 id="•后台管理"><a href="#•后台管理" class="headerlink" title="•后台管理"></a>•后台管理</h4><h3 id="5-1-使用google语法进行搜索"><a href="#5-1-使用google语法进行搜索" class="headerlink" title="5.1    使用google语法进行搜索"></a>5.1    使用google语法进行搜索</h3><h5 id="Google-Hack常用语法："><a href="#Google-Hack常用语法：" class="headerlink" title="Google Hack常用语法："></a>Google Hack常用语法：</h5><p>•site：可限制你搜索范围的域名</p>
+<p>•inurl：用于搜索网页上包含的URL，这个语法对寻找网页上的搜索，帮助之类的很有用</p>
+<p>•intext: 只搜索网页部分中包含的文字(也就是忽略了标题、URL等的文字)</p>
+<p>•filetype：搜索文件的后缀或者扩展名</p>
+<p>•intitle：限制你搜索的网页标题</p>
+<p>link: 可以得到一个所有包含了某个指定URL的页面列表</p>
+<blockquote>
+<blockquote>
+<p>查找后台地址：</p>
+<p>site:域名 inurl:login|admin|manage|member|admin_login|login_admin|system|login|user|main|cms</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>查找文本内容：site:域名 intext:管理|后台|登陆|用户名|密码|验证码|系统|帐号|admin|login|sys|managetem|password|username</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>查找可注入点：site:域名 inurl:aspx|jsp|php|asp</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>查找上传漏洞：site:域名 inurl:file|load|editor|Files找eweb</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>编辑器：site:域名 inurl:ewebeditor|editor|uploadfile|eweb|edit</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>存在的数据库：site:域名 filetype:mdb|asp|#</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>查看脚本类型：site:域名 filetype:asp/aspx/php/jsp</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>迂回策略入侵：inurl:cms/data/templates/images/index/</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>列：尝试搜索一些学校网站的后台，语法为:”site:edu.cn intext: 后台管理”</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>意思为搜索网页正文中包含有“后台管理” 并且域名后缀是edu.cn的网站，</p>
+</blockquote>
+</blockquote>
+<p>利用该方法需要一定的经验积累，以下是针定特定目标的信息收集思路。例如：对于不同的业务系统，得想出不同的联想词，例如商城系统，联想词可以为商家系统，对于大型的企业，OA登录、CRM等等的联想词。</p>
+<blockquote>
+<p>后台：site:xxx.xxx admin|login|system|管理|登录|内部|系统</p>
+<p>钓鱼：site:xxx.xxx 邮件|email</p>
+<p>社工：site:xxx.xxx qq|群|微信|腾讯</p>
+<p>越权：site:xxx.xxx inurl:uid=1|userid=1</p>
+<p>包含：site:xxx.xxx inurl:php?include=</p>
+</blockquote>
+<h3 id="5-2-使用扫描工具对目录进行扫描"><a href="#5-2-使用扫描工具对目录进行扫描" class="headerlink" title="5.2 使用扫描工具对目录进行扫描"></a>5.2 使用扫描工具对目录进行扫描</h3><p>DirBuster、御剑后台扫描珍藏版、wwwscan、<a href="https://links.jianshu.com/go?to=http%3A%2F%2FSpinder.py" target="_blank" rel="noopener">Spinder.py</a>、Sensitivefilescan、Weakfilescan</p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbrbcuqkdaj30o80g3ab3.jpg" alt="undefined"></p>
+<h2 id="5-3-源代码泄露"><a href="#5-3-源代码泄露" class="headerlink" title="5.3    源代码泄露"></a>5.3    源代码泄露</h2><h3 id="5-3-1GitHub信息收集"><a href="#5-3-1GitHub信息收集" class="headerlink" title="5.3.1GitHub信息收集"></a>5.3.1GitHub信息收集</h3><p>GitHub是通过Git进行版本控制的软件源代码托管服务平台，当一个项目需要进行协同开发时，就得使用svn或github对代码进行托管及版本控制了。</p>
+<p>GitHub不仅仅是商用的平台，也可以通过该平台对代码进行公开分享并且能获得Star来证明此代码是优秀的。由于此功能的存在，就有可能有部分开发工程师，或者由于公司对代码的管理制度不严谨，造成内部代码公开处理，令攻击者有机可乘。</p>
+<p>案例：某某网站，有部分项目的源代码在github上进行了公开处理，其中，代码中包含敏感的xxx信息，造成重要的信息泄露。</p>
+<p>GitHub信息收集工具：<a href="https://github.com/MiSecurity/x-patrol" target="_blank" rel="noopener">https://github.com/MiSecurity/x-patrol</a></p>
+<p><a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></p>
+<p><img src="http://ww1.sinaimg.cn/large/007bHQE8gy1gbrc5ei7x6j317d0o0acn.jpg" alt="image.png"></p>
+<h2 id="5-4-漏洞平台"><a href="#5-4-漏洞平台" class="headerlink" title="5.4     漏洞平台"></a>5.4     漏洞平台</h2><p>[乌云漏洞表][<a href="https://wooyun.shuimugan.com]" target="_blank" rel="noopener">https://wooyun.shuimugan.com]</a></p>
+<p><a href="https://www.exploit-db.com/" target="_blank" rel="noopener">https://www.exploit-db.com/</a></p>
+<h2 id="社会工程学"><a href="#社会工程学" class="headerlink" title="社会工程学"></a>社会工程学</h2><p>•社会工程学在渗透测试中起着不小的作用，利用社会工程学，攻击者可以从一名员工的口中挖掘出本应该是秘密的信息。</p>
+<h1 id="信息收集总结"><a href="#信息收集总结" class="headerlink" title="信息收集总结"></a>信息收集总结</h1><p>在渗透测试中，信息收集是比较枯燥乏味的一项工作任务，但也是一项很重要的工作，所收集的信息能直接影响到下一步的渗透思路及效果，所以一定要有耐心和准备好持续长期地完成这一项工作任务。</p>
+<p>在这个时代中，信息收集的工具种类繁多，各式各样，咱们要不断尝试新的软件跟以前使用过的软件作对比，找到最适合自己的最顺手的工具来使用。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls"
+                data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+            <ul id="audio-list" style="display:none">
+                
+                
+                <li title='0' data-url='/statics/chengdu.mp3'></li>
+                
+                    
+            </ul>
+            
+            
+            
+    <div id='gitalk-container' class="comment link"
+        data-ae='true'
+        data-ci='ec894e2b66f752e8b7fb'
+        data-cs='3ccc2e92bb350688fe2c2dc2930189b62622bfb1'
+        data-r='blog-comments'
+        data-o='TriDiamond'
+        data-a='TriDiamond'
+        data-d=''
+    >Comments</div>
+
+
+            
+            
+        </div>
+        <div class="sidebar">
+            <div class="box animated fadeInRight">
+                <div class="subbox">
+                    <img src="https://res.cloudinary.com/tridiamond/image/upload/v1573019751/TriDiamond_logo_ui_xeublz.jpg" height=300 width=300></img>
+                    <p>John Doe</p>
+                    <span>但愿你是那知恩知意的心中客</span>
+                    <dl>
+                        <dd><a href="https://github.com/TriDiamond" target="_blank"><span
+                                    class=" iconfont icon-github"></span></a></dd>
+                        <dd><a href="https://twitter.com/TriDiamond6" target="_blank"><span
+                                    class=" iconfont icon-twitter"></span></a></dd>
+                        <dd><a href="https://stackoverflow.com/users/7602324/tridiamond?tab=profile" target="_blank"><span
+                                    class=" iconfont icon-stack-overflow"></span></a></dd>
+                    </dl>
+                </div>
+                <ul>
+                    <li><a href="/">13 <p>Articles</p></a></li>
+                    <li><a href="/categories">0 <p>Categories</p></a></li>
+                    <li><a href="/tags">0 <p>Tags</p></a></li>
+                </ul>
+            </div>
+            
+            
+            
+            <div class="box sticky animated fadeInRight faster">
+                <div id="toc" class="subbox">
+                    <h4>Contents</h4>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#信息搜集"><span class="toc-number">1.</span> <span class="toc-text">信息搜集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息收集方法、区别及作用"><span class="toc-number">2.</span> <span class="toc-text">信息收集方法、区别及作用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#信息收集的具体实施方法："><span class="toc-number">2.1.</span> <span class="toc-text">信息收集的具体实施方法：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-域名信息收集"><span class="toc-number">3.</span> <span class="toc-text">1.    域名信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-主域名信息收集"><span class="toc-number">3.1.</span> <span class="toc-text">1.1 主域名信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-1-Whois查询："><span class="toc-number">3.1.1.</span> <span class="toc-text">1.1.1 Whois查询：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-2备案信息查询："><span class="toc-number">3.1.2.</span> <span class="toc-text">1.1.2备案信息查询：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-子域名信息收集"><span class="toc-number">3.2.</span> <span class="toc-text">1.2 子域名信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-1-子域名检测工具"><span class="toc-number">3.2.1.</span> <span class="toc-text">1.2.1    子域名检测工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-在线查询"><span class="toc-number">3.2.2.</span> <span class="toc-text">1.2.2    在线查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-2-搜索引擎枚举"><span class="toc-number">3.2.3.</span> <span class="toc-text">1.2.2    搜索引擎枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-3-第三方聚合应用枚举"><span class="toc-number">3.2.4.</span> <span class="toc-text">1.2.3    第三方聚合应用枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-4-证书透明度公开日志枚举"><span class="toc-number">3.2.5.</span> <span class="toc-text">1.2.4     证书透明度公开日志枚举</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-网络信息搜集"><span class="toc-number">4.</span> <span class="toc-text">2.网络信息搜集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-C段IP信息收集"><span class="toc-number">4.1.</span> <span class="toc-text">2.1 .    C段IP信息收集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-1-namp扫描"><span class="toc-number">4.1.1.</span> <span class="toc-text">2.1.1    namp扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-2-在线c段扫描"><span class="toc-number">4.1.2.</span> <span class="toc-text">2.1.2    在线c段扫描</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-获取目标的真实ip"><span class="toc-number">4.2.</span> <span class="toc-text">2.2     获取目标的真实ip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询真实IP？"><span class="toc-number">4.3.</span> <span class="toc-text">查询真实IP？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是CND？"><span class="toc-number">4.3.1.</span> <span class="toc-text">什么是CND？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内容分发式服务"><span class="toc-number">4.3.2.</span> <span class="toc-text">内容分发式服务</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CDN的优势？"><span class="toc-number">4.4.</span> <span class="toc-text">CDN的优势？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-判断目标是否使用了CDN"><span class="toc-number">4.4.1.</span> <span class="toc-text">2.2.1.    判断目标是否使用了CDN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2绕过CDN查找真实ip"><span class="toc-number">4.4.2.</span> <span class="toc-text">2.2.2绕过CDN查找真实ip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-验证ip"><span class="toc-number">4.4.3.</span> <span class="toc-text">2.2.3    验证ip</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-服务器信息"><span class="toc-number">5.</span> <span class="toc-text">3.服务器信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1操作系统判断"><span class="toc-number">5.1.</span> <span class="toc-text">3.1操作系统判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2主机扫描及端口信息"><span class="toc-number">5.2.</span> <span class="toc-text">3.2主机扫描及端口信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-探测防火墙状态"><span class="toc-number">5.3.</span> <span class="toc-text">3.3    探测防火墙状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-应用信息"><span class="toc-number">6.</span> <span class="toc-text">4.    应用信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-指纹识别"><span class="toc-number">6.1.</span> <span class="toc-text">4.1    指纹识别</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#常见的CMS有："><span class="toc-number">6.1.1.</span> <span class="toc-text">常见的CMS有：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-扫描工具"><span class="toc-number">6.1.2.</span> <span class="toc-text">1.    扫描工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-在线查询CMS，"><span class="toc-number">6.1.3.</span> <span class="toc-text">2.    在线查询CMS，</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-收集敏感信息"><span class="toc-number">7.</span> <span class="toc-text">5.收集敏感信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-使用google语法进行搜索"><span class="toc-number">7.0.1.</span> <span class="toc-text">5.1    使用google语法进行搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-使用扫描工具对目录进行扫描"><span class="toc-number">7.0.2.</span> <span class="toc-text">5.2 使用扫描工具对目录进行扫描</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-源代码泄露"><span class="toc-number">7.1.</span> <span class="toc-text">5.3    源代码泄露</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-1GitHub信息收集"><span class="toc-number">7.1.1.</span> <span class="toc-text">5.3.1GitHub信息收集</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-漏洞平台"><span class="toc-number">7.2.</span> <span class="toc-text">5.4     漏洞平台</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#社会工程学"><span class="toc-number">7.3.</span> <span class="toc-text">社会工程学</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#信息收集总结"><span class="toc-number">8.</span> <span class="toc-text">信息收集总结</span></a></li></ol>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <div id="back-to-top" class="animated fadeIn faster">
+        <div class="flow"></div>
+        <span class="percentage animated fadeIn faster">0%</span>
+        <span class="iconfont icon-top02 animated fadeIn faster"></span>
+    </div>
+</body>
+<footer>
+    <p class="copyright" id="copyright">
+        &copy; 2020
+        <span class="gradient-text">
+            John Doe
+        </span>.
+        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+        Theme
+        <span class="gradient-text">
+            <a href="https://github.com/TriDiamond/hexo-theme-obsidian" title="Obsidian" target="_blank" rel="noopener">Obsidian</a>
+        </span>
+        <small><a href="https://github.com/TriDiamond/hexo-theme-obsidian/blob/master/CHANGELOG.md" title="v1.4.3" target="_blank" rel="noopener">v1.4.3</a></small>
+    </p>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script>
+  MathJax.Hub.Config({
+    "HTML-CSS": {
+      preferredFont: "TeX",
+      availableFonts: ["STIX", "TeX"],
+      linebreaks: {
+        automatic: true
+      },
+      EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+      inlineMath: [
+        ["$", "$"],
+        ["\\(", "\\)"]
+      ],
+      processEscapes: true,
+      ignoreClass: "tex2jax_ignore|dno",
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      noUndefined: {
+        attributes: {
+          mathcolor: "red",
+          mathbackground: "#FFEEEE",
+          mathsize: "90%"
+        }
+      },
+      Macros: {
+        href: "{}"
+      }
+    },
+    messageStyle: "none"
+  });
+</script>
+<script>
+  function initialMathJax() {
+    MathJax.Hub.Queue(function () {
+      var all = MathJax.Hub.getAllJax(),
+        i;
+      // console.log(all);
+      for (i = 0; i < all.length; i += 1) {
+        console.log(all[i].SourceElement().parentNode)
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  }
+
+  function reprocessMathJax() {
+    if (typeof MathJax !== 'undefined') {
+      MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+    }
+  }
+</script>
+
+
+
+    <link rel="stylesheet" href="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.css">
+    <script src="//cdn.bootcss.com/gitalk/1.5.0/gitalk.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/obsidian.js"></script>
+<script src="/js/jquery.truncate.js"></script>
+<script src="/js/search.js"></script>
+<script src="//cdn.bootcss.com/typed.js/2.0.10/typed.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.12.0/js/md5.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+<script src="https://cdn.bootcss.com/codemirror/5.48.4/codemirror.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/javascript/javascript.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/css/css.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/htmlmixed/htmlmixed.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/clike/clike.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/php/php.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/shell/shell.min.js"></script>
+
+    <script src="//cdn.bootcss.com/codemirror/5.48.4/mode/python/python.min.js"></script>
+
+
+
+    <script src="/js/busuanzi.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            if ($('span[id^="busuanzi_"]').length) {
+                initialBusuanzi();
+            }
+        });
+    </script>
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="//cdn.bootcss.com/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="//www.googletagmanager.com/gtag/js?id=UA-149874671-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-149874671-1');
+    </script>
+
+
+
+
+
+<script>
+    function initialTyped () {
+        var typedTextEl = $('.typed-text');
+        if (typedTextEl && typedTextEl.length > 0) {
+            var typed = new Typed('.typed-text', {
+                strings: ["但愿你是那知恩知意的心中客", "不是那无事无非的糊涂人！"],
+                typeSpeed: 90,
+                loop: true,
+                loopCount: Infinity,
+                backSpeed: 20,
+            });
+        }
+    }
+
+    if ($('.article-header') && $('.article-header').length) {
+        $(document).ready(function () {
+            initialTyped();
+        });
+    }
+</script>
+
+
+
+
+</html>
